@@ -13,9 +13,6 @@
 		5C95A3E91611F47000C74C28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A3E71611F47000C74C28 /* InfoPlist.strings */; };
 		5C95A3EB1611F47000C74C28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C95A3EA1611F47000C74C28 /* main.m */; };
 		5C95A3EF1611F47000C74C28 /* HSRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C95A3EE1611F47000C74C28 /* HSRAppDelegate.m */; };
-		5C95A3F11611F47000C74C28 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A3F01611F47000C74C28 /* Default.png */; };
-		5C95A3F31611F47000C74C28 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A3F21611F47000C74C28 /* Default@2x.png */; };
-		5C95A3F51611F47000C74C28 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A3F41611F47000C74C28 /* Default-568h@2x.png */; };
 		5C95A3F81611F47000C74C28 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A3F61611F47000C74C28 /* MainStoryboard.storyboard */; };
 		5C95A3FB1611F47000C74C28 /* HSRFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C95A3FA1611F47000C74C28 /* HSRFirstViewController.m */; };
 		5C95A3FD1611F47000C74C28 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A3FC1611F47000C74C28 /* first.png */; };
@@ -28,6 +25,13 @@
 		5C95A4101611F47000C74C28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C95A3E01611F47000C74C28 /* Foundation.framework */; };
 		5C95A4181611F47000C74C28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A4161611F47000C74C28 /* InfoPlist.strings */; };
 		5C95A41B1611F47000C74C28 /* HSRMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C95A41A1611F47000C74C28 /* HSRMenuTests.m */; };
+		5CFD5AE916148ADA00B01324 /* HSRMenu_iPhone_high.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD5AE816148ADA00B01324 /* HSRMenu_iPhone_high.png */; };
+		5CFD5AEB16148ADD00B01324 /* HSRMenu_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD5AEA16148ADD00B01324 /* HSRMenu_iPhone.png */; };
+		5CFD5AED16148DAD00B01324 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD5AEC16148DAD00B01324 /* Default-568h@2x.png */; };
+		5CFD5AF016149AF800B01324 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD5AF216149AF800B01324 /* Localizable.strings */; };
+		5CFD5AF41614A16500B01324 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD5AF31614A16500B01324 /* Default@2x.png */; };
+		5CFD5AF61614A19400B01324 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD5AF51614A19400B01324 /* Default.png */; };
+		5CFD5AF91614A66900B01324 /* settings_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD5AF81614A66900B01324 /* settings_icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,9 +55,6 @@
 		5C95A3EC1611F47000C74C28 /* HSRMenu-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HSRMenu-Prefix.pch"; sourceTree = "<group>"; };
 		5C95A3ED1611F47000C74C28 /* HSRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSRAppDelegate.h; sourceTree = "<group>"; };
 		5C95A3EE1611F47000C74C28 /* HSRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSRAppDelegate.m; sourceTree = "<group>"; };
-		5C95A3F01611F47000C74C28 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		5C95A3F21611F47000C74C28 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		5C95A3F41611F47000C74C28 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		5C95A3F71611F47000C74C28 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5C95A3F91611F47000C74C28 /* HSRFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSRFirstViewController.h; sourceTree = "<group>"; };
 		5C95A3FA1611F47000C74C28 /* HSRFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSRFirstViewController.m; sourceTree = "<group>"; };
@@ -69,6 +70,13 @@
 		5C95A4171611F47000C74C28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5C95A4191611F47000C74C28 /* HSRMenuTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSRMenuTests.h; sourceTree = "<group>"; };
 		5C95A41A1611F47000C74C28 /* HSRMenuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSRMenuTests.m; sourceTree = "<group>"; };
+		5CFD5AE816148ADA00B01324 /* HSRMenu_iPhone_high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HSRMenu_iPhone_high.png; sourceTree = SOURCE_ROOT; };
+		5CFD5AEA16148ADD00B01324 /* HSRMenu_iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HSRMenu_iPhone.png; sourceTree = SOURCE_ROOT; };
+		5CFD5AEC16148DAD00B01324 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		5CFD5AF116149AF800B01324 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5CFD5AF31614A16500B01324 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		5CFD5AF51614A19400B01324 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		5CFD5AF81614A66900B01324 /* settings_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings_icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,17 +136,14 @@
 		5C95A3E41611F47000C74C28 /* HSRMenu */ = {
 			isa = PBXGroup;
 			children = (
+				5CFD5AF71614A28000B01324 /* icons */,
 				5C95A3ED1611F47000C74C28 /* HSRAppDelegate.h */,
 				5C95A3EE1611F47000C74C28 /* HSRAppDelegate.m */,
 				5C95A3F61611F47000C74C28 /* MainStoryboard.storyboard */,
 				5C95A3F91611F47000C74C28 /* HSRFirstViewController.h */,
 				5C95A3FA1611F47000C74C28 /* HSRFirstViewController.m */,
-				5C95A3FC1611F47000C74C28 /* first.png */,
-				5C95A3FE1611F47000C74C28 /* first@2x.png */,
 				5C95A4001611F47000C74C28 /* HSRSecondViewController.h */,
 				5C95A4011611F47000C74C28 /* HSRSecondViewController.m */,
-				5C95A4031611F47000C74C28 /* second.png */,
-				5C95A4051611F47000C74C28 /* second@2x.png */,
 				5C95A3E51611F47000C74C28 /* Supporting Files */,
 			);
 			path = HSRMenu;
@@ -149,11 +154,9 @@
 			children = (
 				5C95A3E61611F47000C74C28 /* HSRMenu-Info.plist */,
 				5C95A3E71611F47000C74C28 /* InfoPlist.strings */,
+				5CFD5AF216149AF800B01324 /* Localizable.strings */,
 				5C95A3EA1611F47000C74C28 /* main.m */,
 				5C95A3EC1611F47000C74C28 /* HSRMenu-Prefix.pch */,
-				5C95A3F01611F47000C74C28 /* Default.png */,
-				5C95A3F21611F47000C74C28 /* Default@2x.png */,
-				5C95A3F41611F47000C74C28 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -175,6 +178,23 @@
 				5C95A4161611F47000C74C28 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5CFD5AF71614A28000B01324 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				5CFD5AF81614A66900B01324 /* settings_icon.png */,
+				5C95A3FC1611F47000C74C28 /* first.png */,
+				5C95A3FE1611F47000C74C28 /* first@2x.png */,
+				5C95A4031611F47000C74C28 /* second.png */,
+				5C95A4051611F47000C74C28 /* second@2x.png */,
+				5CFD5AF51614A19400B01324 /* Default.png */,
+				5CFD5AF31614A16500B01324 /* Default@2x.png */,
+				5CFD5AEC16148DAD00B01324 /* Default-568h@2x.png */,
+				5CFD5AEA16148ADD00B01324 /* HSRMenu_iPhone.png */,
+				5CFD5AE816148ADA00B01324 /* HSRMenu_iPhone_high.png */,
+			);
+			name = icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,14 +270,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C95A3E91611F47000C74C28 /* InfoPlist.strings in Resources */,
-				5C95A3F11611F47000C74C28 /* Default.png in Resources */,
-				5C95A3F31611F47000C74C28 /* Default@2x.png in Resources */,
-				5C95A3F51611F47000C74C28 /* Default-568h@2x.png in Resources */,
 				5C95A3F81611F47000C74C28 /* MainStoryboard.storyboard in Resources */,
 				5C95A3FD1611F47000C74C28 /* first.png in Resources */,
 				5C95A3FF1611F47000C74C28 /* first@2x.png in Resources */,
 				5C95A4041611F47000C74C28 /* second.png in Resources */,
 				5C95A4061611F47000C74C28 /* second@2x.png in Resources */,
+				5CFD5AE916148ADA00B01324 /* HSRMenu_iPhone_high.png in Resources */,
+				5CFD5AEB16148ADD00B01324 /* HSRMenu_iPhone.png in Resources */,
+				5CFD5AED16148DAD00B01324 /* Default-568h@2x.png in Resources */,
+				5CFD5AF016149AF800B01324 /* Localizable.strings in Resources */,
+				5CFD5AF41614A16500B01324 /* Default@2x.png in Resources */,
+				5CFD5AF61614A19400B01324 /* Default.png in Resources */,
+				5CFD5AF91614A66900B01324 /* settings_icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +366,14 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		5CFD5AF216149AF800B01324 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5CFD5AF116149AF800B01324 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -400,6 +432,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HSRMenu/HSRMenu-Prefix.pch";
 				INFOPLIST_FILE = "HSRMenu/HSRMenu-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -411,6 +444,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "HSRMenu/HSRMenu-Prefix.pch";
 				INFOPLIST_FILE = "HSRMenu/HSRMenu-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -469,6 +503,7 @@
 				5C95A4201611F47000C74C28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5C95A4211611F47000C74C28 /* Build configuration list for PBXNativeTarget "HSRMenuTests" */ = {
 			isa = XCConfigurationList;
@@ -477,6 +512,7 @@
 				5C95A4231611F47000C74C28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
