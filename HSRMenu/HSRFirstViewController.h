@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HSRFirstViewController : UIViewController
+@interface HSRFirstViewController : UITableViewController {
+    NSArray* menu;
+    NSMutableData* data;
+}
+
 @property (weak, nonatomic) IBOutlet UILabel *display;
 
 @end
