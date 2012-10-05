@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C0EBDA516173C4A00DFFFC9 /* SingleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0EBDA416173C4A00DFFFC9 /* SingleMenuViewController.m */; };
+		5C15FD15161DD7F90088DE2F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C15FD14161DD7F90088DE2F /* SettingsViewController.m */; };
 		5C95A3DF1611F47000C74C28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C95A3DE1611F47000C74C28 /* UIKit.framework */; };
 		5C95A3E11611F47000C74C28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C95A3E01611F47000C74C28 /* Foundation.framework */; };
 		5C95A3E31611F47000C74C28 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C95A3E21611F47000C74C28 /* CoreGraphics.framework */; };
@@ -48,6 +49,8 @@
 /* Begin PBXFileReference section */
 		5C0EBDA316173C4A00DFFFC9 /* SingleMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleMenuViewController.h; sourceTree = "<group>"; };
 		5C0EBDA416173C4A00DFFFC9 /* SingleMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleMenuViewController.m; sourceTree = "<group>"; };
+		5C15FD13161DD7F90088DE2F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		5C15FD14161DD7F90088DE2F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		5C95A3DA1611F47000C74C28 /* HSRMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSRMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C95A3DE1611F47000C74C28 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5C95A3E01611F47000C74C28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -143,6 +146,8 @@
 				5C95A3ED1611F47000C74C28 /* HSRAppDelegate.h */,
 				5C95A3EE1611F47000C74C28 /* HSRAppDelegate.m */,
 				5C95A3F61611F47000C74C28 /* MainStoryboard.storyboard */,
+				5C15FD13161DD7F90088DE2F /* SettingsViewController.h */,
+				5C15FD14161DD7F90088DE2F /* SettingsViewController.m */,
 				5C0EBDA316173C4A00DFFFC9 /* SingleMenuViewController.h */,
 				5C0EBDA416173C4A00DFFFC9 /* SingleMenuViewController.m */,
 				5C95A3F91611F47000C74C28 /* HSRFirstViewController.h */,
@@ -326,6 +331,7 @@
 				5C95A3FB1611F47000C74C28 /* HSRFirstViewController.m in Sources */,
 				5C95A4021611F47000C74C28 /* HSRSecondViewController.m in Sources */,
 				5C0EBDA516173C4A00DFFFC9 /* SingleMenuViewController.m in Sources */,
+				5C15FD15161DD7F90088DE2F /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

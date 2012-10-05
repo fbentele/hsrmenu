@@ -9,15 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface SingleMenuViewController : UIViewController{
-    NSDictionary *dailymenu;
+    NSMutableArray *menu;
+    NSMutableData *data;
 
-    IBOutlet UILabel *day;
-    IBOutlet UILabel *menu;
-    IBOutlet UILabel *price;
 }
-
-@property (nonatomic, copy) NSDictionary *dailymenu;
-
-
+-(void)setMenuDay:(int)day;
 
 @end

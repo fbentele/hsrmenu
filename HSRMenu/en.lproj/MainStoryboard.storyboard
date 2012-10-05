@@ -42,11 +42,11 @@
             </objects>
             <point key="canvasLocation" x="813" y="373"/>
         </scene>
-        <!--View Controller - Settings-->
+        <!--Settings View Controller - Settings-->
         <scene sceneID="k5L-Fj-icX">
             <objects>
-                <viewController id="2A5-up-dG6" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="eTD-fp-Ff8">
+                <viewController id="2A5-up-dG6" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eTD-fp-Ff8" customClass="UIControl">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -54,7 +54,10 @@
                                 <rect key="frame" x="150" y="99" width="150" height="30"/>
                                 <accessibility key="accessibilityConfiguration" hint="Password" label="Password"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="textFieldReturn:" destination="2A5-up-dG6" eventType="editingDidEndOnExit" id="YLG-wC-17D"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Save Login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nwh-CH-tOt">
                                 <rect key="frame" x="20" y="144" width="87" height="24"/>
@@ -81,7 +84,10 @@
                                 <rect key="frame" x="150" y="62" width="150" height="30"/>
                                 <accessibility key="accessibilityConfiguration" hint="HSR Username" label="Username"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="textFieldReturn:" destination="2A5-up-dG6" eventType="editingDidEndOnExit" id="Hq7-ru-mCJ"/>
+                                </connections>
                             </textField>
                             <navigationBar contentMode="scaleToFill" id="q7F-PR-ytY">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -92,8 +98,15 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="backgroundTouched:" destination="2A5-up-dG6" eventType="touchDown" id="h3H-u2-nwl"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings_icon.png" id="Kgu-mU-4zB" userLabel="Tab Bar Item - Settings"/>
+                    <connections>
+                        <outlet property="password" destination="KXC-CT-8ex" id="gmp-Hy-SOi"/>
+                        <outlet property="username" destination="j79-CC-7uG" id="XkC-VM-fOr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F5s-Sk-Abw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -287,6 +300,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Menuplan" id="jhe-BJ-XOv"/>
+                    <connections>
+                        <outlet property="monday" destination="beD-zs-TVF" id="sfu-bp-b1I"/>
+                        <outlet property="thetable" destination="wup-m9-Ezi" id="9yg-hk-ElT"/>
+                        <segue destination="MAb-tg-bag" kind="push" identifier="ShowMenu" id="jwK-76-cQb"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bmG-7G-TKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -297,13 +315,48 @@
             <objects>
                 <viewController id="MAb-tg-bag" customClass="SingleMenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kn6-49-6P0">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Menu I" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yLU-rW-3kh">
-                                <rect key="frame" x="134" y="20" width="52" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Menu I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yLU-rW-3kh">
+                                <rect key="frame" x="20" y="117" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fLb-6R-YR5">
+                                <rect key="frame" x="20" y="136" width="280" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Menu I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d02-pP-nvY">
+                                <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NKq-Cj-kDw">
+                                <rect key="frame" x="20" y="39" width="280" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Menu I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ul7-v0-7da">
+                                <rect key="frame" x="25" y="214" width="280" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nv1-ga-vAp">
+                                <rect key="frame" x="25" y="233" width="280" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -311,6 +364,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Menu Heute" id="fuy-Qk-Yy0"/>
+                    <connections>
+                        <outlet property="menuContent" destination="fLb-6R-YR5" id="ZNk-CK-Ot7"/>
+                        <outlet property="menuContent1" destination="NKq-Cj-kDw" id="5RG-iZ-Sgc"/>
+                        <outlet property="menuContent2" destination="fLb-6R-YR5" id="fWW-VJ-RRS"/>
+                        <outlet property="menuContent3" destination="nv1-ga-vAp" id="Wnc-AR-Huw"/>
+                        <outlet property="menuTitle" destination="yLU-rW-3kh" id="J7m-Dx-Y6I"/>
+                        <outlet property="menuTitle1" destination="d02-pP-nvY" id="8Jz-1R-I7z"/>
+                        <outlet property="menuTitle2" destination="yLU-rW-3kh" id="XPd-SI-V40"/>
+                        <outlet property="menuTitle3" destination="ul7-v0-7da" id="n9r-sq-a8x"/>
+                        <outlet property="view" destination="Kn6-49-6P0" id="eSL-rh-G8c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7T-VE-nDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -327,17 +391,31 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HSRFirstViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="display" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="monday" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="thetable" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="HSRSecondViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HSRSecondViewController.h"/>
         </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTouched:"/>
+                <relationship kind="action" name="textFieldReturn:"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
+            </relationships>
+        </class>
         <class className="SingleMenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SingleMenuViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="day" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="menu" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="price" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuContent1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuContent2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuContent3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuTitle1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuTitle2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuTitle3" candidateClass="UILabel"/>
             </relationships>
         </class>
     </classes>

@@ -7,52 +7,43 @@
 //
 
 #import "HSRFirstViewController.h"
+#import "SingleMenuViewController.h"
 
 @interface HSRFirstViewController ()
+@property (nonatomic) int day;
+@property (strong, nonatomic) IBOutlet UITableView *thetable;
+@property (weak, nonatomic) IBOutlet UITableViewCell *monday;
 
 @end
 
 @implementation HSRFirstViewController
 
 @synthesize display = _display;
-
-
+@synthesize day = _day;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-    NSURL* apiurl = [NSURL URLWithString:@"http://florian.bentele.me/hsrmenu/api.php?day=1"];
-    NSURLRequest* request = [NSURLRequest requestWithURL:apiurl];
-    NSObject* hello = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    NSLog(@"%@", hello);
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self setDayandShowMenu:(indexPath.row+1)];
 }
 
 
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
-    data = [[NSMutableData alloc] init];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)jsondata{
-    [data appendData:jsondata];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection{
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    
-    //Parsing JSON
-    menu = [NSJSONSerialization JSONObjectWithData:data options:nil error:nil];
-    NSString *test = [[menu objectAtIndex:0] objectForKey:@"menu"];
-    NSLog(@"%@", test);
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+-(void)setDayandShowMenu:(int)selectedday
 {
-    UIAlertView *noconnection = [[UIAlertView alloc] initWithTitle:@"No Connection" message:@"Could not load data, no connection to the internet" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
-    [noconnection show];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    self.day = selectedday;
+    [self performSegueWithIdentifier:@"ShowMenu" sender:self];
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ShowMenu"]){
+        [segue.destinationViewController setMenuDay:self.day];
+    }
+}
+
 
 
 - (void)didReceiveMemoryWarning
@@ -61,6 +52,8 @@
 }
 
 - (void)viewDidUnload {
+    [self setThetable:nil];
+    [self setMonday:nil];
     [super viewDidUnload];
 }
 @end
