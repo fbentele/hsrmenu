@@ -4,12 +4,12 @@
 //
 //  Created by Florian Bentele on 29.09.12.
 //  Copyright (c) 2012 Florian Bentele. All rights reserved.
-//
 
 #import "SingleMenuViewController.h"
 #import "HSRFirstViewController.h"
 
 @interface SingleMenuViewController ()
+@property (strong, nonatomic) NSMutableArray *menu;
 @property (nonatomic) id menuContent;
 @property (nonatomic) id menuTitle;
 @property (weak, nonatomic) IBOutlet UILabel *menuTitle1;
@@ -19,18 +19,21 @@
 @property (weak, nonatomic) IBOutlet UILabel *menuTitle3;
 @property (weak, nonatomic) IBOutlet UILabel *menuContent3;
 @property (nonatomic) int currentday;
+@property (strong, nonatomic, readwrite) NSString *plistPath;
 @end
 
 @implementation SingleMenuViewController
-@synthesize menuContent1 = _menuContent1;
-@synthesize menuTitle1 = _menuTitle1;
-@synthesize menuContent2 = _menuContent2;
-@synthesize menuTitle2 = _menuTitle2;
-@synthesize menuContent3 = _menuContent3;
-@synthesize menuTitle3 = _menuTitle3;
-@synthesize currentday = _currentday;
-@synthesize menuContent = _menuContent;
-@synthesize menuTitle = _menuTitle;
+@synthesize menu;
+@synthesize menuContent1;
+@synthesize menuTitle1;
+@synthesize menuContent2;
+@synthesize menuTitle2;
+@synthesize menuContent3;
+@synthesize menuTitle3;
+@synthesize currentday;
+@synthesize menuContent;
+@synthesize menuTitle;
+@synthesize plistPath;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,13 +48,47 @@
 {
     [super viewDidLoad];
 
-    //the connection stuff
+    if(![self loadMenusFromPersistencyLayerIfAvailable]){
+        [self initJsonConnection];
+    }
+
+    [self writeMenuToUi];
+    }
+
+
+//persistence layer
+- (BOOL)loadMenusFromPersistencyLayerIfAvailable
+{
+    NSString *plistDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+    plistPath = [plistDirectory stringByAppendingPathComponent:@"menus.plist"];
+    if([[NSFileManager defaultManager] fileExistsAtPath:plistPath]){
+        NSLog(@"[Info] plist ok, and readable");
+        self.menu = [NSMutableArray arrayWithContentsOfFile:plistPath];
+        if ([menu count]>0){
+            NSLog(@"[Info] menu is having content, no connection needed");
+            return YES;
+        }
+    } else {
+        [self initJsonConnection];
+        NSLog(@"[Error] Calling JSONConnection because no plist loaded from path %@", plistPath);
+    }
+    return NO;
+}
+
+//the connection stuff
+- (void)initJsonConnection
+{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-    NSString *urlString = [[NSString alloc] initWithFormat:@"http://florian.bentele.me/HSRMenu/api.php?day=%d", _currentday];
+    NSString *urlString = [[NSString alloc] initWithFormat:@"http://florian.bentele.me/HSRMenu/api.php?day=%d", currentday];
     NSURL* apiurl = [NSURL URLWithString:urlString];
     NSURLRequest* request = [NSURLRequest requestWithURL:apiurl];
-    [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    (void) [[NSURLConnection alloc] initWithRequest:request delegate:self];
+}
+
+
+- (void)safeMenusToFile{
+    [menu writeToFile:plistPath atomically:YES];
+    NSLog(@"[Info] Plist written");
 }
 
 - (void)didReceiveMemoryWarning
@@ -59,31 +96,31 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)setMenuDay:(int)theday
+- (void)setMenuDay:(int)theday
 {
     //NSLog(@"der tag ist: %d", theday);
-    _currentday = theday;
+    currentday = theday;
 }
 
-- (void)viewDidUnload {
-    [self setMenuTitle1:nil];
-    [self setMenuTitle2:nil];
+- (void)viewDidUnload
+{
     [super viewDidUnload];
 }
 
-
-//the connection part
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
+//the connection delegate part
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
+{
     data = [[NSMutableData alloc] init];
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)jsondata{
-    NSLog(@"data received");
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)jsondata
+{
+    NSLog(@"[Info] data received");
     [data appendData:jsondata];
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection{
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     //Parsing JSON
     NSError *e = nil;
@@ -91,15 +128,8 @@
     if (e) {
         NSLog(@"Error parsing JSON: %@", e);
     } else {
-        NSDictionary *item = [menu objectAtIndex:0];
-        [_menuTitle1 setText:[item objectForKey:@"title"]];
-        [_menuContent1 setText:[item objectForKey:@"menu"]];
-        item = [menu objectAtIndex:1];
-        [_menuTitle2 setText:[item objectForKey:@"title"]];
-        [_menuContent2 setText:[item objectForKey:@"menu"]];
-        item = [menu objectAtIndex:3];
-        [_menuTitle3 setText:[item objectForKey:@"title"]];
-        [_menuContent3 setText:[item objectForKey:@"menu"]];
+        [self safeMenusToFile];
+        [self writeMenuToUi];
     }
 }
 
@@ -110,6 +140,18 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
+- (void)writeMenuToUi
+{
+    NSDictionary *item = [menu objectAtIndex:0];
+    [menuTitle1 setText:[item objectForKey:@"title"]];
+    [menuContent1 setText:[item objectForKey:@"menu"]];
+    item = [menu objectAtIndex:1];
+    [menuTitle2 setText:[item objectForKey:@"title"]];
+    [menuContent2 setText:[item objectForKey:@"menu"]];
+    item = [menu objectAtIndex:3];
+    [menuTitle3 setText:[item objectForKey:@"title"]];
+    [menuContent3 setText:[item objectForKey:@"menu"]];
+}
 
 
 @end

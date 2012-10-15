@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SingleMenuViewController : UIViewController{
-    NSMutableArray *menu;
-    NSMutableData *data;
 
+@interface SingleMenuViewController : UIViewController{
+    NSMutableData *data;
 }
+
 -(void)setMenuDay:(int)day;
+-(void)safeMenusToFile;
+
 
 @end

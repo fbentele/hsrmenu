@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5C0EBDA516173C4A00DFFFC9 /* SingleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0EBDA416173C4A00DFFFC9 /* SingleMenuViewController.m */; };
 		5C15FD15161DD7F90088DE2F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C15FD14161DD7F90088DE2F /* SettingsViewController.m */; };
+		5C922B18162C565B003D9A85 /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C922B17162C565B003D9A85 /* ODRefreshControl.m */; };
+		5C922B1B162C5721003D9A85 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C922B1A162C5721003D9A85 /* QuartzCore.framework */; };
 		5C95A3DF1611F47000C74C28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C95A3DE1611F47000C74C28 /* UIKit.framework */; };
 		5C95A3E11611F47000C74C28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C95A3E01611F47000C74C28 /* Foundation.framework */; };
 		5C95A3E31611F47000C74C28 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C95A3E21611F47000C74C28 /* CoreGraphics.framework */; };
@@ -51,6 +53,9 @@
 		5C0EBDA416173C4A00DFFFC9 /* SingleMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleMenuViewController.m; sourceTree = "<group>"; };
 		5C15FD13161DD7F90088DE2F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		5C15FD14161DD7F90088DE2F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		5C922B16162C565B003D9A85 /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
+		5C922B17162C565B003D9A85 /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
+		5C922B1A162C5721003D9A85 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5C95A3DA1611F47000C74C28 /* HSRMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSRMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C95A3DE1611F47000C74C28 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5C95A3E01611F47000C74C28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -90,6 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C922B1B162C5721003D9A85 /* QuartzCore.framework in Frameworks */,
 				5C95A3DF1611F47000C74C28 /* UIKit.framework in Frameworks */,
 				5C95A3E11611F47000C74C28 /* Foundation.framework in Frameworks */,
 				5C95A3E31611F47000C74C28 /* CoreGraphics.framework in Frameworks */,
@@ -109,6 +115,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C15FD17161EB7D30088DE2F /* Ressources */ = {
+			isa = PBXGroup;
+			children = (
+				5CFD5AF71614A28000B01324 /* Icons */,
+			);
+			name = Ressources;
+			sourceTree = "<group>";
+		};
+		5C922B15162C565B003D9A85 /* ODRefreshControl */ = {
+			isa = PBXGroup;
+			children = (
+				5C922B16162C565B003D9A85 /* ODRefreshControl.h */,
+				5C922B17162C565B003D9A85 /* ODRefreshControl.m */,
+			);
+			path = ODRefreshControl;
+			sourceTree = "<group>";
+		};
 		5C95A3CF1611F47000C74C28 = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +154,7 @@
 		5C95A3DD1611F47000C74C28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5C922B1A162C5721003D9A85 /* QuartzCore.framework */,
 				5C95A3DE1611F47000C74C28 /* UIKit.framework */,
 				5C95A3E01611F47000C74C28 /* Foundation.framework */,
 				5C95A3E21611F47000C74C28 /* CoreGraphics.framework */,
@@ -142,7 +166,7 @@
 		5C95A3E41611F47000C74C28 /* HSRMenu */ = {
 			isa = PBXGroup;
 			children = (
-				5CFD5AF71614A28000B01324 /* icons */,
+				5C15FD17161EB7D30088DE2F /* Ressources */,
 				5C95A3ED1611F47000C74C28 /* HSRAppDelegate.h */,
 				5C95A3EE1611F47000C74C28 /* HSRAppDelegate.m */,
 				5C95A3F61611F47000C74C28 /* MainStoryboard.storyboard */,
@@ -162,6 +186,7 @@
 		5C95A3E51611F47000C74C28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5C922B15162C565B003D9A85 /* ODRefreshControl */,
 				5C95A3E61611F47000C74C28 /* HSRMenu-Info.plist */,
 				5C95A3E71611F47000C74C28 /* InfoPlist.strings */,
 				5CFD5AF216149AF800B01324 /* Localizable.strings */,
@@ -190,7 +215,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		5CFD5AF71614A28000B01324 /* icons */ = {
+		5CFD5AF71614A28000B01324 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
 				5CFD5AF81614A66900B01324 /* settings_icon.png */,
@@ -204,7 +229,7 @@
 				5CFD5AEA16148ADD00B01324 /* HSRMenu_iPhone.png */,
 				5CFD5AE816148ADA00B01324 /* HSRMenu_iPhone_high.png */,
 			);
-			name = icons;
+			name = Icons;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,6 +357,7 @@
 				5C95A4021611F47000C74C28 /* HSRSecondViewController.m in Sources */,
 				5C0EBDA516173C4A00DFFFC9 /* SingleMenuViewController.m in Sources */,
 				5C15FD15161DD7F90088DE2F /* SettingsViewController.m in Sources */,
+				5C922B18162C565B003D9A85 /* ODRefreshControl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

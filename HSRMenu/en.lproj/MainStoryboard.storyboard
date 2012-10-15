@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--Second View Controller - Badge-->
@@ -301,8 +301,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Menuplan" id="jhe-BJ-XOv"/>
                     <connections>
+                        <outlet property="friday" destination="2gK-jd-Mje" id="0V2-L7-w6t"/>
                         <outlet property="monday" destination="beD-zs-TVF" id="sfu-bp-b1I"/>
                         <outlet property="thetable" destination="wup-m9-Ezi" id="9yg-hk-ElT"/>
+                        <outlet property="thursday" destination="RkF-1B-q9u" id="XC4-0m-3cU"/>
+                        <outlet property="tuesday" destination="Cu3-hi-5eJ" id="8a1-gS-fkl"/>
+                        <outlet property="wednesday" destination="NIt-4Q-JfK" id="fxe-u3-0B5"/>
                         <segue destination="MAb-tg-bag" kind="push" identifier="ShowMenu" id="jwK-76-cQb"/>
                     </connections>
                 </tableViewController>
@@ -318,7 +322,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Menu I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yLU-rW-3kh">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Vegetarisch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yLU-rW-3kh">
                                 <rect key="frame" x="20" y="117" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -332,7 +336,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Menu I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d02-pP-nvY">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tagesteller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="d02-pP-nvY">
                                 <rect key="frame" x="20" y="20" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -346,8 +350,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Menu I" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ul7-v0-7da">
-                                <rect key="frame" x="25" y="214" width="280" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wochen-Hit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ul7-v0-7da">
+                                <rect key="frame" x="20" y="214" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -386,39 +390,6 @@
         <image name="second" width="16" height="16"/>
         <image name="settings_icon.png" width="29" height="28"/>
     </resources>
-    <classes>
-        <class className="HSRFirstViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HSRFirstViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="display" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="monday" candidateClass="UITableViewCell"/>
-                <relationship kind="outlet" name="thetable" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="HSRSecondViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HSRSecondViewController.h"/>
-        </class>
-        <class className="SettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="backgroundTouched:"/>
-                <relationship kind="action" name="textFieldReturn:"/>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="SingleMenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SingleMenuViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="menuContent1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="menuContent2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="menuContent3" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="menuTitle1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="menuTitle2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="menuTitle3" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
