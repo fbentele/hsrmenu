@@ -12,8 +12,6 @@
 
 @interface SingleMenuViewController ()
 @property (strong, nonatomic) NSMutableArray *menu;
-@property (nonatomic) id menuContent;
-@property (nonatomic) id menuTitle;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroller;
 @property (weak, nonatomic) IBOutlet UILabel *menuTitle1;
 @property (weak, nonatomic) IBOutlet UILabel *menuContent1;
@@ -35,8 +33,6 @@
 @synthesize menuContent3;
 @synthesize menuTitle3;
 @synthesize currentday;
-@synthesize menuContent;
-@synthesize menuTitle;
 @synthesize plistPath;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
