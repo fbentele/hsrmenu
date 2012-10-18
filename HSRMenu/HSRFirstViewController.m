@@ -41,6 +41,7 @@
     [super viewDidLoad];
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.thetable];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
+    [self initJsonConnection];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -108,7 +109,6 @@
     if (e) {
         NSLog(@"Error parsing JSON: %@", e);
     } else {
-        NSLog(@"everything ok");
         [[monday detailTextLabel] setText:[week objectAtIndex:0]];
         [[tuesday detailTextLabel] setText:[week objectAtIndex:1]];
         [[wednesday detailTextLabel] setText:[week objectAtIndex:2]];

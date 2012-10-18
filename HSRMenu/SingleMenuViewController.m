@@ -7,11 +7,14 @@
 
 #import "SingleMenuViewController.h"
 #import "HSRFirstViewController.h"
+#import "ODRefreshControl.h"
+
 
 @interface SingleMenuViewController ()
 @property (strong, nonatomic) NSMutableArray *menu;
 @property (nonatomic) id menuContent;
 @property (nonatomic) id menuTitle;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroller;
 @property (weak, nonatomic) IBOutlet UILabel *menuTitle1;
 @property (weak, nonatomic) IBOutlet UILabel *menuContent1;
 @property (weak, nonatomic) IBOutlet UILabel *menuTitle2;
@@ -24,6 +27,7 @@
 
 @implementation SingleMenuViewController
 @synthesize menu;
+@synthesize scroller;
 @synthesize menuContent1;
 @synthesize menuTitle1;
 @synthesize menuContent2;
@@ -48,10 +52,13 @@
 {
     [super viewDidLoad];
 
+    ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.scroller];
+    [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
+    
     if(![self loadMenusFromPersistencyLayerIfAvailable]){
         [self initJsonConnection];
     }
-
+    
     [self writeMenuToUi];
     }
 
@@ -60,12 +67,17 @@
 - (BOOL)loadMenusFromPersistencyLayerIfAvailable
 {
     NSString *plistDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    plistPath = [plistDirectory stringByAppendingPathComponent:@"menus.plist"];
+    plistPath = [plistDirectory stringByAppendingPathComponent:[[NSString alloc] initWithFormat:@"menus%d.plist", currentday]];
     if([[NSFileManager defaultManager] fileExistsAtPath:plistPath]){
         NSLog(@"[Info] plist ok, and readable");
         self.menu = [NSMutableArray arrayWithContentsOfFile:plistPath];
-        if ([menu count]>0){
-            NSLog(@"[Info] menu is having content, no connection needed");
+        int cachetime =[[[menu objectAtIndex:4] objectForKey:@"time"] intValue];
+        int now = (int)[[NSDate date ]timeIntervalSince1970];
+        NSLog(@"cachetime is:%d", cachetime);
+        NSLog(@"now is      :%d", now);
+
+        if (cachetime +3600 > now){
+            NSLog(@"[Info] cache is fresh, no connection needed");
             return YES;
         }
     } else {
@@ -76,6 +88,7 @@
 }
 
 //the connection stuff
+//====================
 - (void)initJsonConnection
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -98,7 +111,7 @@
 
 - (void)setMenuDay:(int)theday
 {
-    //NSLog(@"der tag ist: %d", theday);
+    NSLog(@"der tag ist: %d", theday);
     currentday = theday;
 }
 
@@ -143,6 +156,7 @@
 - (void)writeMenuToUi
 {
     NSDictionary *item = [menu objectAtIndex:0];
+    
     [menuTitle1 setText:[item objectForKey:@"title"]];
     [menuContent1 setText:[item objectForKey:@"menu"]];
     item = [menu objectAtIndex:1];
@@ -152,6 +166,21 @@
     [menuTitle3 setText:[item objectForKey:@"title"]];
     [menuContent3 setText:[item objectForKey:@"menu"]];
 }
+
+
+// pull to refresh
+- (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
+{
+    double delayInSeconds = 1.0;
+    
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    
+    [self initJsonConnection];
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [refreshControl endRefreshing];
+    });
+}
+
 
 
 @end
