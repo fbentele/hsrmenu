@@ -23,21 +23,22 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="7'312.-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M7J-Hb-GIJ">
-                                        <rect key="frame" x="214" y="87" width="86" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="kein Saldo verfügbar" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M7J-Hb-GIJ">
+                                        <rect key="frame" x="144" y="92" width="156" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your current Badge status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rCK-GW-YMP">
-                                        <rect key="frame" x="20" y="50" width="280" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Aktueller Badge Saldo:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rCK-GW-YMP">
+                                        <rect key="frame" x="20" y="54" width="280" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="380"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -45,6 +46,7 @@
                     <tabBarItem key="tabBarItem" title="Badge" image="second" id="6" userLabel="Tab Bar Item - Badge"/>
                     <connections>
                         <outlet property="money" destination="M7J-Hb-GIJ" id="1qV-YN-7W8"/>
+                        <outlet property="scrollView" destination="Qe8-oL-kSn" id="aUD-Qt-nff"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
@@ -380,6 +382,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="380"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -392,6 +395,7 @@
                         <outlet property="menuTitle1" destination="Tc5-j2-7Bx" id="CHt-6t-yzF"/>
                         <outlet property="menuTitle2" destination="mOJ-Xi-WPL" id="3dR-ns-YuD"/>
                         <outlet property="menuTitle3" destination="RIw-i6-u9x" id="jP8-ab-LxD"/>
+                        <outlet property="scroller" destination="wfS-V8-xaB" id="Y4C-lg-FZd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7T-VE-nDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -409,6 +413,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BadgeViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="money" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
         <class className="HSRFirstViewController" superclassName="UITableViewController">

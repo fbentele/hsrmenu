@@ -31,6 +31,7 @@
 		5C95A4181611F47000C74C28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A4161611F47000C74C28 /* InfoPlist.strings */; };
 		5C95A41B1611F47000C74C28 /* HSRMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C95A41A1611F47000C74C28 /* HSRMenuTests.m */; };
 		5CAAD292163541B00049E055 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAAD291163541B00049E055 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		5CAAD29516355DAD0049E055 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAAD29416355DAD0049E055 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5CFD5AE916148ADA00B01324 /* HSRMenu_iPhone_high.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD5AE816148ADA00B01324 /* HSRMenu_iPhone_high.png */; };
 		5CFD5AEB16148ADD00B01324 /* HSRMenu_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD5AEA16148ADD00B01324 /* HSRMenu_iPhone.png */; };
 		5CFD5AED16148DAD00B01324 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD5AEC16148DAD00B01324 /* Default-568h@2x.png */; };
@@ -86,6 +87,8 @@
 		5C95A41A1611F47000C74C28 /* HSRMenuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSRMenuTests.m; sourceTree = "<group>"; };
 		5CAAD290163541B00049E055 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
 		5CAAD291163541B00049E055 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		5CAAD29316355DAD0049E055 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		5CAAD29416355DAD0049E055 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		5CFD5AE816148ADA00B01324 /* HSRMenu_iPhone_high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HSRMenu_iPhone_high.png; sourceTree = SOURCE_ROOT; };
 		5CFD5AEA16148ADD00B01324 /* HSRMenu_iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HSRMenu_iPhone.png; sourceTree = SOURCE_ROOT; };
 		5CFD5AEC16148DAD00B01324 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 		5C95A3E51611F47000C74C28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5CAAD29316355DAD0049E055 /* NSData+Base64.h */,
+				5CAAD29416355DAD0049E055 /* NSData+Base64.m */,
 				5CAAD290163541B00049E055 /* KeychainItemWrapper.h */,
 				5CAAD291163541B00049E055 /* KeychainItemWrapper.m */,
 				5C922B15162C565B003D9A85 /* ODRefreshControl */,
@@ -368,6 +373,7 @@
 				5C15FD15161DD7F90088DE2F /* SettingsViewController.m in Sources */,
 				5C922B18162C565B003D9A85 /* ODRefreshControl.m in Sources */,
 				5CAAD292163541B00049E055 /* KeychainItemWrapper.m in Sources */,
+				5CAAD29516355DAD0049E055 /* NSData+Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
