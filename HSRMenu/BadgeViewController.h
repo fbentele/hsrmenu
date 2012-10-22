@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HSRSecondViewController : UIViewController
+@interface BadgeViewController : UIViewController
 
 @end

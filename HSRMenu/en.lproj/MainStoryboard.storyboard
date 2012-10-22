@@ -7,25 +7,11 @@
         <!--Second View Controller - Badge-->
         <scene sceneID="13">
             <objects>
-                <viewController title="Second" id="3" userLabel="Second View Controller - Badge" customClass="HSRSecondViewController" sceneMemberID="viewController">
+                <viewController title="Second" id="3" userLabel="Second View Controller - Badge" customClass="BadgeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="17">
                         <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your current Badge status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rCK-GW-YMP">
-                                <rect key="frame" x="20" y="83" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="7'312.-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M7J-Hb-GIJ">
-                                <rect key="frame" x="214" y="140" width="86" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <navigationBar contentMode="scaleToFill" id="1KB-fv-kXB">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -33,10 +19,33 @@
                                     <navigationItem title="Badge" id="fHq-dx-1AE"/>
                                 </items>
                             </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Qe8-oL-kSn">
+                                <rect key="frame" x="0.0" y="44" width="320" height="367"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="7'312.-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M7J-Hb-GIJ">
+                                        <rect key="frame" x="214" y="87" width="86" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your current Badge status:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rCK-GW-YMP">
+                                        <rect key="frame" x="20" y="50" width="280" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Badge" image="second" id="6" userLabel="Tab Bar Item - Badge"/>
+                    <connections>
+                        <outlet property="money" destination="M7J-Hb-GIJ" id="1qV-YN-7W8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="12" sceneMemberID="firstResponder"/>
             </objects>
@@ -105,6 +114,8 @@
                     <tabBarItem key="tabBarItem" title="Settings" image="settings_icon.png" id="Kgu-mU-4zB" userLabel="Tab Bar Item - Settings"/>
                     <connections>
                         <outlet property="password" destination="KXC-CT-8ex" id="gmp-Hy-SOi"/>
+                        <outlet property="uipass" destination="KXC-CT-8ex" id="r7L-z4-1Po"/>
+                        <outlet property="uiuser" destination="j79-CC-7uG" id="OZw-l4-wtC"/>
                         <outlet property="username" destination="j79-CC-7uG" id="XkC-VM-fOr"/>
                     </connections>
                 </viewController>
@@ -314,55 +325,55 @@
             </objects>
             <point key="canvasLocation" x="1728" y="-379"/>
         </scene>
-        <!--Single Menu View Controller-->
-        <scene sceneID="kB2-Lz-wtG">
+        <!--Single Menu View Controller - Menuplan-->
+        <scene sceneID="ptD-B1-XUZ">
             <objects>
-                <viewController id="FLJ-6S-ubx" customClass="SingleMenuViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9GG-tm-J5u">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <viewController id="MAb-tg-bag" customClass="SingleMenuViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zIF-pv-utV">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="jQa-5u-HLz">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="wfS-V8-xaB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Vegetarisch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Dee-vo-1Mq">
-                                        <rect key="frame" x="20" y="170" width="280" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Vegetarisch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mOJ-Xi-WPL">
+                                        <rect key="frame" x="20" y="127" width="280" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DCo-vZ-flU">
-                                        <rect key="frame" x="20" y="199" width="280" height="70"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ad9-jb-gI1">
+                                        <rect key="frame" x="20" y="156" width="280" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tagesteller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iRF-xY-0gk">
-                                        <rect key="frame" x="20" y="57" width="280" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tagesteller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tc5-j2-7Bx">
+                                        <rect key="frame" x="20" y="20" width="280" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MQE-jV-Vkf">
-                                        <rect key="frame" x="20" y="86" width="280" height="70"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uvC-yu-3Lg">
+                                        <rect key="frame" x="20" y="52" width="280" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wochen-Hit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5oE-Tt-FFp">
-                                        <rect key="frame" x="20" y="303" width="280" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wochen-Hit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RIw-i6-u9x">
+                                        <rect key="frame" x="20" y="227" width="280" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gy4-Xu-7Va">
-                                        <rect key="frame" x="20" y="332" width="280" height="70"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PSZ-Gv-4gc">
+                                        <rect key="frame" x="20" y="256" width="280" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -373,98 +384,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="bP1-Gd-tBM"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6yW-dO-RV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2836" y="-962"/>
-        </scene>
-        <!--Single Menu View Controller - Menuplan-->
-        <scene sceneID="ptD-B1-XUZ">
-            <objects>
-                <viewController id="MAb-tg-bag" customClass="SingleMenuViewController" sceneMemberID="viewController">
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" indicatorStyle="white" id="cFO-9F-s7s">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Vegetarisch" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Vxk-ma-pN0">
-                                <rect key="frame" x="20" y="133" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="swg-aE-JOq">
-                                <rect key="frame" x="20" y="162" width="280" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Tagesteller" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vrx-C2-paj">
-                                <rect key="frame" x="20" y="20" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NKj-Jq-OUE">
-                                <rect key="frame" x="20" y="49" width="280" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Wochen-Hit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3FJ-gX-JyP">
-                                <rect key="frame" x="20" y="266" width="280" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Itn-Zi-UKP">
-                                <rect key="frame" x="20" y="295" width="280" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
-                    </scrollView>
-                    <navigationItem key="navigationItem" title="Menuplan" id="fuy-Qk-Yy0"/>
+                    <navigationItem key="navigationItem" title="Menuplan" id="OED-Tb-81z"/>
                     <connections>
-                        <outlet property="menuContent1" destination="NKj-Jq-OUE" id="kC9-Ig-0Ao"/>
-                        <outlet property="menuContent2" destination="swg-aE-JOq" id="WgA-JT-nZk"/>
-                        <outlet property="menuContent3" destination="Itn-Zi-UKP" id="lmc-XP-htM"/>
-                        <outlet property="menuTitle1" destination="vrx-C2-paj" id="dEa-Fq-1Ys"/>
-                        <outlet property="menuTitle2" destination="Vxk-ma-pN0" id="qPv-Ec-l5M"/>
-                        <outlet property="menuTitle3" destination="3FJ-gX-JyP" id="Nkm-Xc-874"/>
-                        <outlet property="scroller" destination="cFO-9F-s7s" id="zwf-Tm-ngg"/>
+                        <outlet property="menuContent1" destination="uvC-yu-3Lg" id="CZL-xb-0iy"/>
+                        <outlet property="menuContent2" destination="Ad9-jb-gI1" id="AcS-jB-PH7"/>
+                        <outlet property="menuContent3" destination="PSZ-Gv-4gc" id="fbg-Hr-8be"/>
+                        <outlet property="menuTitle1" destination="Tc5-j2-7Bx" id="CHt-6t-yzF"/>
+                        <outlet property="menuTitle2" destination="mOJ-Xi-WPL" id="3dR-ns-YuD"/>
+                        <outlet property="menuTitle3" destination="RIw-i6-u9x" id="jP8-ab-LxD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7T-VE-nDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2310" y="-379"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="3q9-Ba-6Ea">
-            <objects>
-                <navigationController id="3G0-Gc-FD6" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3S7-pX-hi2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="FLJ-6S-ubx" kind="relationship" relationship="rootViewController" id="vqW-7H-hEC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d3y-eu-RUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2310" y="-962"/>
         </scene>
     </scenes>
     <resources>
@@ -472,6 +404,49 @@
         <image name="second" width="16" height="16"/>
         <image name="settings_icon.png" width="29" height="28"/>
     </resources>
+    <classes>
+        <class className="BadgeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BadgeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="money" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="HSRFirstViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HSRFirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="display" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="friday" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="monday" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="thetable" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="thursday" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="tuesday" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="wednesday" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backgroundTouched:"/>
+                <relationship kind="action" name="textFieldReturn:"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="uipass" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="uiuser" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SingleMenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SingleMenuViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="menuContent1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuContent2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuContent3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuTitle1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuTitle2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menuTitle3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scroller" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

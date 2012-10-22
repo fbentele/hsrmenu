@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C0EBDA516173C4A00DFFFC9 /* SingleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0EBDA416173C4A00DFFFC9 /* SingleMenuViewController.m */; };
 		5C15FD15161DD7F90088DE2F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C15FD14161DD7F90088DE2F /* SettingsViewController.m */; };
+		5C90458616305740002F02F7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90458516305740002F02F7 /* Security.framework */; };
 		5C922B18162C565B003D9A85 /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C922B17162C565B003D9A85 /* ODRefreshControl.m */; };
 		5C922B1B162C5721003D9A85 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C922B1A162C5721003D9A85 /* QuartzCore.framework */; };
 		5C95A3DF1611F47000C74C28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C95A3DE1611F47000C74C28 /* UIKit.framework */; };
@@ -21,7 +22,7 @@
 		5C95A3FB1611F47000C74C28 /* HSRFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C95A3FA1611F47000C74C28 /* HSRFirstViewController.m */; };
 		5C95A3FD1611F47000C74C28 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A3FC1611F47000C74C28 /* first.png */; };
 		5C95A3FF1611F47000C74C28 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A3FE1611F47000C74C28 /* first@2x.png */; };
-		5C95A4021611F47000C74C28 /* HSRSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C95A4011611F47000C74C28 /* HSRSecondViewController.m */; };
+		5C95A4021611F47000C74C28 /* BadgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C95A4011611F47000C74C28 /* BadgeViewController.m */; };
 		5C95A4041611F47000C74C28 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A4031611F47000C74C28 /* second.png */; };
 		5C95A4061611F47000C74C28 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A4051611F47000C74C28 /* second@2x.png */; };
 		5C95A40E1611F47000C74C28 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C95A40D1611F47000C74C28 /* SenTestingKit.framework */; };
@@ -29,6 +30,7 @@
 		5C95A4101611F47000C74C28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C95A3E01611F47000C74C28 /* Foundation.framework */; };
 		5C95A4181611F47000C74C28 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A4161611F47000C74C28 /* InfoPlist.strings */; };
 		5C95A41B1611F47000C74C28 /* HSRMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C95A41A1611F47000C74C28 /* HSRMenuTests.m */; };
+		5CAAD292163541B00049E055 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5CAAD291163541B00049E055 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		5CFD5AE916148ADA00B01324 /* HSRMenu_iPhone_high.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD5AE816148ADA00B01324 /* HSRMenu_iPhone_high.png */; };
 		5CFD5AEB16148ADD00B01324 /* HSRMenu_iPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD5AEA16148ADD00B01324 /* HSRMenu_iPhone.png */; };
 		5CFD5AED16148DAD00B01324 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CFD5AEC16148DAD00B01324 /* Default-568h@2x.png */; };
@@ -53,6 +55,7 @@
 		5C0EBDA416173C4A00DFFFC9 /* SingleMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleMenuViewController.m; sourceTree = "<group>"; };
 		5C15FD13161DD7F90088DE2F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		5C15FD14161DD7F90088DE2F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		5C90458516305740002F02F7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5C922B16162C565B003D9A85 /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		5C922B17162C565B003D9A85 /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
 		5C922B1A162C5721003D9A85 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -71,8 +74,8 @@
 		5C95A3FA1611F47000C74C28 /* HSRFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSRFirstViewController.m; sourceTree = "<group>"; };
 		5C95A3FC1611F47000C74C28 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		5C95A3FE1611F47000C74C28 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		5C95A4001611F47000C74C28 /* HSRSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSRSecondViewController.h; sourceTree = "<group>"; };
-		5C95A4011611F47000C74C28 /* HSRSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSRSecondViewController.m; sourceTree = "<group>"; };
+		5C95A4001611F47000C74C28 /* BadgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BadgeViewController.h; sourceTree = "<group>"; };
+		5C95A4011611F47000C74C28 /* BadgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadgeViewController.m; sourceTree = "<group>"; };
 		5C95A4031611F47000C74C28 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		5C95A4051611F47000C74C28 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
 		5C95A40C1611F47000C74C28 /* HSRMenuTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HSRMenuTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +84,8 @@
 		5C95A4171611F47000C74C28 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5C95A4191611F47000C74C28 /* HSRMenuTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSRMenuTests.h; sourceTree = "<group>"; };
 		5C95A41A1611F47000C74C28 /* HSRMenuTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSRMenuTests.m; sourceTree = "<group>"; };
+		5CAAD290163541B00049E055 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		5CAAD291163541B00049E055 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		5CFD5AE816148ADA00B01324 /* HSRMenu_iPhone_high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HSRMenu_iPhone_high.png; sourceTree = SOURCE_ROOT; };
 		5CFD5AEA16148ADD00B01324 /* HSRMenu_iPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HSRMenu_iPhone.png; sourceTree = SOURCE_ROOT; };
 		5CFD5AEC16148DAD00B01324 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -95,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C90458616305740002F02F7 /* Security.framework in Frameworks */,
 				5C922B1B162C5721003D9A85 /* QuartzCore.framework in Frameworks */,
 				5C95A3DF1611F47000C74C28 /* UIKit.framework in Frameworks */,
 				5C95A3E11611F47000C74C28 /* Foundation.framework in Frameworks */,
@@ -154,6 +160,7 @@
 		5C95A3DD1611F47000C74C28 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5C90458516305740002F02F7 /* Security.framework */,
 				5C922B1A162C5721003D9A85 /* QuartzCore.framework */,
 				5C95A3DE1611F47000C74C28 /* UIKit.framework */,
 				5C95A3E01611F47000C74C28 /* Foundation.framework */,
@@ -176,8 +183,8 @@
 				5C0EBDA416173C4A00DFFFC9 /* SingleMenuViewController.m */,
 				5C95A3F91611F47000C74C28 /* HSRFirstViewController.h */,
 				5C95A3FA1611F47000C74C28 /* HSRFirstViewController.m */,
-				5C95A4001611F47000C74C28 /* HSRSecondViewController.h */,
-				5C95A4011611F47000C74C28 /* HSRSecondViewController.m */,
+				5C95A4001611F47000C74C28 /* BadgeViewController.h */,
+				5C95A4011611F47000C74C28 /* BadgeViewController.m */,
 				5C95A3E51611F47000C74C28 /* Supporting Files */,
 			);
 			path = HSRMenu;
@@ -186,6 +193,8 @@
 		5C95A3E51611F47000C74C28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5CAAD290163541B00049E055 /* KeychainItemWrapper.h */,
+				5CAAD291163541B00049E055 /* KeychainItemWrapper.m */,
 				5C922B15162C565B003D9A85 /* ODRefreshControl */,
 				5C95A3E61611F47000C74C28 /* HSRMenu-Info.plist */,
 				5C95A3E71611F47000C74C28 /* InfoPlist.strings */,
@@ -354,10 +363,11 @@
 				5C95A3EB1611F47000C74C28 /* main.m in Sources */,
 				5C95A3EF1611F47000C74C28 /* HSRAppDelegate.m in Sources */,
 				5C95A3FB1611F47000C74C28 /* HSRFirstViewController.m in Sources */,
-				5C95A4021611F47000C74C28 /* HSRSecondViewController.m in Sources */,
+				5C95A4021611F47000C74C28 /* BadgeViewController.m in Sources */,
 				5C0EBDA516173C4A00DFFFC9 /* SingleMenuViewController.m in Sources */,
 				5C15FD15161DD7F90088DE2F /* SettingsViewController.m in Sources */,
 				5C922B18162C565B003D9A85 /* ODRefreshControl.m in Sources */,
+				5CAAD292163541B00049E055 /* KeychainItemWrapper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

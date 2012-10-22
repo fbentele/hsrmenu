@@ -6,24 +6,28 @@
 //  Copyright (c) 2012 Florian Bentele. All rights reserved.
 //
 
-#import "HSRSecondViewController.h"
+#import "BadgeViewController.h"
 
-@interface HSRSecondViewController ()
+@interface BadgeViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *money;
 
 @end
 
-@implementation HSRSecondViewController
+@implementation BadgeViewController
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+- (void)viewDidUnload {
+    [self setMoney:nil];
+    [super viewDidUnload];
 }
 
 @end
