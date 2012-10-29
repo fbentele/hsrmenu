@@ -14,7 +14,8 @@
 	<string></string>
 	<key>CFBundleIconFiles</key>
 	<array>
-		<string></string>
+		<string>icon_iphone_high.png</string>
+		<string>icon_iphone.png</string>
 	</array>
 	<key>CFBundleIcons</key>
 	<dict>
@@ -22,8 +23,8 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>HSRMenu_iPhone_high.png</string>
-				<string>HSRMenu_iPhone.png</string>
+				<string>icon_iphone_high.png</string>
+				<string>icon_iphone.png</string>
 			</array>
 		</dict>
 	</dict>
@@ -57,8 +58,6 @@
 	<string>UIInterfaceOrientationPortrait</string>
 	<key>UIMainStoryboardFile</key>
 	<string>MainStoryboard</string>
-	<key>UIPrerenderedIcon</key>
-	<false/>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5C0EBDA516173C4A00DFFFC9 /* SingleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0EBDA416173C4A00DFFFC9 /* SingleMenuViewController.m */; };
 		5C15FD15161DD7F90088DE2F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C15FD14161DD7F90088DE2F /* SettingsViewController.m */; };
+		5C85F453163E6AAF00764B46 /* icon_iphone_high.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C85F452163E6AAF00764B46 /* icon_iphone_high.png */; };
+		5C85F456163E6AB900764B46 /* icon_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C85F455163E6AB900764B46 /* icon_iphone.png */; };
 		5C90458616305740002F02F7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90458516305740002F02F7 /* Security.framework */; };
 		5C922B18162C565B003D9A85 /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C922B17162C565B003D9A85 /* ODRefreshControl.m */; };
 		5C922B1B162C5721003D9A85 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C922B1A162C5721003D9A85 /* QuartzCore.framework */; };
@@ -56,6 +58,8 @@
 		5C0EBDA416173C4A00DFFFC9 /* SingleMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleMenuViewController.m; sourceTree = "<group>"; };
 		5C15FD13161DD7F90088DE2F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		5C15FD14161DD7F90088DE2F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		5C85F452163E6AAF00764B46 /* icon_iphone_high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone_high.png; path = ../icon_iphone_high.png; sourceTree = "<group>"; };
+		5C85F455163E6AB900764B46 /* icon_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone.png; path = ../icon_iphone.png; sourceTree = "<group>"; };
 		5C90458516305740002F02F7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5C922B16162C565B003D9A85 /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		5C922B17162C565B003D9A85 /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
@@ -232,6 +236,8 @@
 		5CFD5AF71614A28000B01324 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				5C85F455163E6AB900764B46 /* icon_iphone.png */,
+				5C85F452163E6AAF00764B46 /* icon_iphone_high.png */,
 				5CFD5AF81614A66900B01324 /* settings_icon.png */,
 				5C95A3FC1611F47000C74C28 /* first.png */,
 				5C95A3FE1611F47000C74C28 /* first@2x.png */,
@@ -331,6 +337,8 @@
 				5CFD5AF41614A16500B01324 /* Default@2x.png in Resources */,
 				5CFD5AF61614A19400B01324 /* Default.png in Resources */,
 				5CFD5AF91614A66900B01324 /* settings_icon.png in Resources */,
+				5C85F453163E6AAF00764B46 /* icon_iphone_high.png in Resources */,
+				5C85F456163E6AB900764B46 /* icon_iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

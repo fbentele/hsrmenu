@@ -11,7 +11,6 @@
 #import "NSData+Base64.h"
 #import "ODRefreshControl.h"
 
-
 @interface BadgeViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *money;
 @property (strong, nonatomic) NSMutableData *data;
@@ -28,8 +27,6 @@
     [self initJsonConnection];
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.scrollView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
-
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,19 +58,13 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     NSURL* apiurl = [NSURL URLWithString:@"https://152.96.80.18/VerrechnungsportalService.svc/json/getBadgeSaldo"];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:apiurl];
-    
-//    NSLog(@"the url is %@", apiurl);
-    
+
     //get user and pass from keychain
     KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"HSRMenuLogin" accessGroup:nil];
     
     NSString *username = [keychain objectForKey:CFBridgingRelease(kSecAttrAccount)];
     NSString *password = [keychain objectForKey:CFBridgingRelease(kSecValueData)];
-    
-    NSLog(@"the username is %@", username);
-    NSLog(@"the password is %@", password);
-    
-    
+        
     NSString *authStr = [NSString stringWithFormat:@"%@:%@", username, password];
     NSData *authData = [authStr dataUsingEncoding:NSASCIIStringEncoding];
     NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedString]];
@@ -85,7 +76,6 @@
 
 
 //delegate part
-
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
     return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
 }
@@ -112,9 +102,6 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     NSError *e =nil;
     NSDictionary *test = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error: &e];
-    //NSLog(@"the json thing is %@", test.description);
-    //NSLog(@"the test i want is %@", [test objectForKey:@"badgeSaldo"]);
-    
     if (!e){
         [self writeSaldoToUi:[test objectForKey:@"badgeSaldo"]];
     }

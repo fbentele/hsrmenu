@@ -21,8 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITableViewCell *friday;
 
 @property (strong, nonatomic) NSMutableArray *week;
-
-
 @end
 
 @implementation HSRFirstViewController

@@ -13,12 +13,6 @@
 @interface SingleMenuViewController ()
 @property (strong, nonatomic) NSMutableArray *menu;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroller;
-@property (weak, nonatomic) IBOutlet UILabel *menuTitle1;
-@property (weak, nonatomic) IBOutlet UILabel *menuContent1;
-@property (weak, nonatomic) IBOutlet UILabel *menuTitle2;
-@property (weak, nonatomic) IBOutlet UILabel *menuContent2;
-@property (weak, nonatomic) IBOutlet UILabel *menuTitle3;
-@property (weak, nonatomic) IBOutlet UILabel *menuContent3;
 @property (nonatomic) int currentday;
 @property (strong, nonatomic, readwrite) NSString *plistPath;
 @end
@@ -26,12 +20,6 @@
 @implementation SingleMenuViewController
 @synthesize menu;
 @synthesize scroller;
-@synthesize menuContent1;
-@synthesize menuTitle1;
-@synthesize menuContent2;
-@synthesize menuTitle2;
-@synthesize menuContent3;
-@synthesize menuTitle3;
 @synthesize currentday;
 @synthesize plistPath;
 
@@ -47,7 +35,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.scroller];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     
@@ -67,14 +54,15 @@
     if([[NSFileManager defaultManager] fileExistsAtPath:plistPath]){
         NSLog(@"[Info] plist ok, and readable");
         self.menu = [NSMutableArray arrayWithContentsOfFile:plistPath];
-        int cachetime =[[[menu objectAtIndex:4] objectForKey:@"time"] intValue];
-        int now = (int)[[NSDate date ]timeIntervalSince1970];
-        NSLog(@"cachetime is:%d", cachetime);
-        NSLog(@"now is      :%d", now);
-
-        if (cachetime +3600 > now){
-            NSLog(@"[Info] cache is fresh, no connection needed");
-            return YES;
+        if ([menu count] > 4) {
+            int cachetime =[[[menu objectAtIndex:4] objectForKey:@"time"] intValue];
+            int now = (int)[[NSDate date ]timeIntervalSince1970];
+            NSLog(@"cachetime is:%d", cachetime);
+            NSLog(@"now is      :%d", now);
+            if (cachetime +3600 > now){
+                NSLog(@"[Info] cache is fresh, no connection needed");
+                return YES;
+            }
         }
     } else {
         [self initJsonConnection];
@@ -113,6 +101,12 @@
 
 - (void)viewDidUnload
 {
+    menutitle1 = nil;
+    menucontent1 = nil;
+    menutitle2 = nil;
+    menucontent2 = nil;
+    menutitle3 = nil;
+    menucontent3 = nil;
     [super viewDidUnload];
 }
 
@@ -153,14 +147,23 @@
 {
     NSDictionary *item = [menu objectAtIndex:0];
     
-    [menuTitle1 setText:[item objectForKey:@"title"]];
-    [menuContent1 setText:[item objectForKey:@"menu"]];
-    item = [menu objectAtIndex:1];
-    [menuTitle2 setText:[item objectForKey:@"title"]];
-    [menuContent2 setText:[item objectForKey:@"menu"]];
-    item = [menu objectAtIndex:3];
-    [menuTitle3 setText:[item objectForKey:@"title"]];
-    [menuContent3 setText:[item objectForKey:@"menu"]];
+    if ([item count] == 4){
+        [menutitle1 setText:[item objectForKey:@"title"]];
+        [menucontent1 setText:[item objectForKey:@"menu"]];
+        item = [menu objectAtIndex:1];
+        [menutitle2 setText:[item objectForKey:@"title"]];
+        [menucontent2 setText:[item objectForKey:@"menu"]];
+        item = [menu objectAtIndex:3];
+        [menutitle3 setText:[item objectForKey:@"title"]];
+        [menucontent3 setText:[item objectForKey:@"menu"]];
+    } else {
+        [menutitle1 setText:@"Kein Menu"];
+        [menucontent1 setText:@"Für Heute ist leider kein Menu verfügbar"];
+        [menutitle2 setText:@""];
+        [menucontent2 setText:@" "];
+        [menutitle3 setText:@" "];
+        [menucontent3 setText:@" "];
+    }
 }
 
 

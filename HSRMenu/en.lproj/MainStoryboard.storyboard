@@ -389,12 +389,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="Menuplan" id="OED-Tb-81z"/>
                     <connections>
-                        <outlet property="menuContent1" destination="uvC-yu-3Lg" id="CZL-xb-0iy"/>
-                        <outlet property="menuContent2" destination="Ad9-jb-gI1" id="AcS-jB-PH7"/>
-                        <outlet property="menuContent3" destination="PSZ-Gv-4gc" id="fbg-Hr-8be"/>
-                        <outlet property="menuTitle1" destination="Tc5-j2-7Bx" id="CHt-6t-yzF"/>
-                        <outlet property="menuTitle2" destination="mOJ-Xi-WPL" id="3dR-ns-YuD"/>
-                        <outlet property="menuTitle3" destination="RIw-i6-u9x" id="jP8-ab-LxD"/>
+                        <outlet property="menucontent1" destination="uvC-yu-3Lg" id="S1d-2k-uIL"/>
+                        <outlet property="menucontent2" destination="Ad9-jb-gI1" id="gao-sG-BTL"/>
+                        <outlet property="menucontent3" destination="PSZ-Gv-4gc" id="n7V-Ak-tSm"/>
+                        <outlet property="menutitle1" destination="Tc5-j2-7Bx" id="hLv-o6-igz"/>
+                        <outlet property="menutitle2" destination="mOJ-Xi-WPL" id="jfz-kI-GKr"/>
+                        <outlet property="menutitle3" destination="RIw-i6-u9x" id="k5R-j5-OKT"/>
                         <outlet property="scroller" destination="wfS-V8-xaB" id="Y4C-lg-FZd"/>
                     </connections>
                 </viewController>
@@ -442,12 +442,12 @@
         <class className="SingleMenuViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SingleMenuViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="menuContent1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="menuContent2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="menuContent3" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="menuTitle1" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="menuTitle2" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="menuTitle3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menucontent1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menucontent2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menucontent3" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menutitle1" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menutitle2" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="menutitle3" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scroller" candidateClass="UIScrollView"/>
             </relationships>
         </class>
