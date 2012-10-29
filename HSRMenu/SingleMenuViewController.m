@@ -101,12 +101,18 @@
 
 - (void)viewDidUnload
 {
-    menutitle1 = nil;
+    //menutitle1 = nil;
     menucontent1 = nil;
-    menutitle2 = nil;
+    //menutitle2 = nil;
     menucontent2 = nil;
-    menutitle3 = nil;
+    //menutitle3 = nil;
     menucontent3 = nil;
+    int1 = nil;
+    ext1 = nil;
+    int2 = nil;
+    ext2 = nil;
+    int3 = nil;
+    ext3 = nil;
     [super viewDidUnload];
 }
 
@@ -146,23 +152,36 @@
 - (void)writeMenuToUi
 {
     NSDictionary *item = [menu objectAtIndex:0];
-    
-    if ([item count] == 4){
-        [menutitle1 setText:[item objectForKey:@"title"]];
+
+    if ([menu count] == 5){
+        //[menutitle1 setText:[item objectForKey:@"title"]];
         [menucontent1 setText:[item objectForKey:@"menu"]];
+        [int1 setText:[item objectForKey:@"priceint"]];
+        [ext1 setText:[item objectForKey:@"priceext"]];
         item = [menu objectAtIndex:1];
-        [menutitle2 setText:[item objectForKey:@"title"]];
+        //[menutitle2 setText:[item objectForKey:@"title"]];
         [menucontent2 setText:[item objectForKey:@"menu"]];
+        [int2 setText:[item objectForKey:@"priceint"]];
+        [ext2 setText:[item objectForKey:@"priceext"]];
         item = [menu objectAtIndex:3];
-        [menutitle3 setText:[item objectForKey:@"title"]];
+        //[menutitle3 setText:[item objectForKey:@"title"]];
         [menucontent3 setText:[item objectForKey:@"menu"]];
+        [int3 setText:[item objectForKey:@"priceint"]];
+        [ext3 setText:[item objectForKey:@"priceext"]];
+
     } else {
-        [menutitle1 setText:@"Kein Menu"];
+        //[menutitle1 setText:@"Kein Menu"];
         [menucontent1 setText:@"Für Heute ist leider kein Menu verfügbar"];
-        [menutitle2 setText:@""];
+        [int1 setText:@""];
+        [ext1 setText:@""];
+        //[menutitle2 setText:@""];
         [menucontent2 setText:@" "];
-        [menutitle3 setText:@" "];
+        [int2 setText:@""];
+        [ext2 setText:@""];
+        //[menutitle3 setText:@" "];
         [menucontent3 setText:@" "];
+        [int3 setText:@""];
+        [ext3 setText:@""];
     }
 }
 
