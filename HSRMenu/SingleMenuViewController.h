@@ -17,6 +17,7 @@
     __weak IBOutlet UILabel *menucontent2;
     __weak IBOutlet UILabel *menucontent3;
 
+    
     __weak IBOutlet UILabel *int1;
     __weak IBOutlet UILabel *ext1;
     

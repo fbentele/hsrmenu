@@ -9,16 +9,17 @@
 #import "HSRFirstViewController.h"
 #import "SingleMenuViewController.h"
 #import "ODRefreshControl.h"
+#import "HSRCustomCell.h"
 
 
 @interface HSRFirstViewController ()
 @property (nonatomic) int day;
 @property (strong, nonatomic) IBOutlet UITableView *thetable;
-@property (weak, nonatomic) IBOutlet UITableViewCell *monday;
-@property (weak, nonatomic) IBOutlet UITableViewCell *tuesday;
-@property (weak, nonatomic) IBOutlet UITableViewCell *wednesday;
-@property (weak, nonatomic) IBOutlet UITableViewCell *thursday;
-@property (weak, nonatomic) IBOutlet UITableViewCell *friday;
+@property (weak, nonatomic) IBOutlet HSRCustomCell *monday;
+@property (weak, nonatomic) IBOutlet HSRCustomCell *tuesday;
+@property (weak, nonatomic) IBOutlet HSRCustomCell *wednesday;
+@property (weak, nonatomic) IBOutlet HSRCustomCell *thursday;
+@property (weak, nonatomic) IBOutlet HSRCustomCell *friday;
 
 @property (strong, nonatomic) NSMutableArray *week;
 @end
@@ -37,6 +38,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
+    //self.view.frame =
+    //[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
+                       //[self.window screen.applicationFrame];
+
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.thetable];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     [self initJsonConnection];
@@ -45,7 +51,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self setDayandShowMenu:(indexPath.row+1)];
 }
-
 
 -(void)setDayandShowMenu:(int)selectedday
 {

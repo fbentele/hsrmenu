@@ -12,14 +12,13 @@
 #import "ODRefreshControl.h"
 
 @interface BadgeViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *money;
 @property (strong, nonatomic) NSMutableData *data;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
 @implementation BadgeViewController
-@synthesize data, money, scrollView;
+@synthesize data, scrollView;
 
 - (void)viewDidLoad
 {
@@ -35,8 +34,8 @@
 }
 
 - (void)viewDidUnload {
-    [self setMoney:nil];
     [self setScrollView:nil];
+    lastupdate = nil;
     [super viewDidUnload];
 }
 
@@ -55,16 +54,16 @@
 //connection
 - (void)initJsonConnection
 {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    NSURL* apiurl = [NSURL URLWithString:@"https://152.96.80.18/VerrechnungsportalService.svc/json/getBadgeSaldo"];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;    
+    NSURL* apiurl = [NSURL URLWithString:@"https://verrechnungsportal.hsr.ch:4450/VerrechnungsportalService.svc/JSON/getBadgeSaldo"];
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:apiurl];
 
     //get user and pass from keychain
     KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"HSRMenuLogin" accessGroup:nil];
     
-    NSString *username = [keychain objectForKey:CFBridgingRelease(kSecAttrAccount)];
+    NSString *username = [@"hsr\\" stringByAppendingString:[keychain objectForKey:CFBridgingRelease(kSecAttrAccount)]];
     NSString *password = [keychain objectForKey:CFBridgingRelease(kSecValueData)];
-        
+
     NSString *authStr = [NSString stringWithFormat:@"%@:%@", username, password];
     NSData *authData = [authStr dataUsingEncoding:NSASCIIStringEncoding];
     NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedString]];
@@ -81,9 +80,33 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-    [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+    NSLog(@"[info] i didReceiveAuthenticationChallenge");
+    if ([challenge previousFailureCount] == 0){
+        NSLog(@"failurecount was zero");
+
+        KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"HSRMenuLogin" accessGroup:nil];
+        
+        NSString *username = [@"hsr\\" stringByAppendingString:[keychain objectForKey:CFBridgingRelease(kSecAttrAccount)]];
+        NSString *password = [keychain objectForKey:CFBridgingRelease(kSecValueData)];
+
+        NSURLCredential *newCredential;
+        newCredential = [NSURLCredential credentialWithUser:username
+                                                   password:password
+                                                persistence:NSURLCredentialPersistenceNone];
+        [[challenge sender] useCredential:newCredential
+               forAuthenticationChallenge:challenge];
+        
+        
+        //[challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+        //[challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+    } else {
+        [[challenge sender] cancelAuthenticationChallenge:challenge];
+        UIAlertView *wrongpass = [[UIAlertView alloc] initWithTitle:@"Login fehlgeschlagen" message:@"Benutzername oder Kennwort falsch" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+        [wrongpass show];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    }
     
-    [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+    
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -93,7 +116,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)jsondata
 {
-    NSLog(@"[Info] data received");
+    NSLog(@"[Info] data from Badgeportal received");
     [data appendData:jsondata];
 }
 
@@ -117,9 +140,18 @@
 
 - (void)writeSaldoToUi:(NSString *)saldo
 {
-    NSLog(@"the new value is: %@", saldo);
-    NSString *nice = [[NSString alloc] initWithFormat:@"%@ CHF", saldo];
+    NSLog(@"[Info] the new value is: %@", saldo);
+    NSString *nice = [[NSString alloc] initWithFormat:@"CHF %@", saldo];
     [money setText:nice];
+    
+    NSDate *now = [NSDate date];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"dd.MM.yyyy"];
+    NSString *formattedDateString = [dateFormatter stringFromDate:now];
+ 
+    [lastupdate setText:[@"Stand: " stringByAppendingString: formattedDateString]];
+    
 }
 
 

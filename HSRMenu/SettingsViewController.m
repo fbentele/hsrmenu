@@ -26,10 +26,10 @@
 @synthesize pass;
 
 
-//hit 'done' in the keyboard an the keyboard disappears
+//hit 'next' in the keyboard an the keyboard disappears
 -(IBAction)textFieldReturn:(id)sender
 {
-    [sender resignFirstResponder];
+    [password becomeFirstResponder];
     [self safeCredentialsToKeychain];
 }
 
@@ -56,6 +56,7 @@
     [self fillUIifKeychainobjectExists];
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -68,11 +69,11 @@
     user = [uiuser text];
     pass = [uipass text];
     NSLog(@"[Info] the username is %@", user);
-    NSLog(@"[Info] the password is %@", pass);
+    NSLog(@"[Info] the password is *******");
     
     KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"HSRMenuLogin" accessGroup:nil];
     [keychain setObject:pass forKey:CFBridgingRelease(kSecValueData)];
-    [keychain setObject:user forKey:CFBridgingRelease(kSecAttrAccount)];    
+    [keychain setObject:user forKey:CFBridgingRelease(kSecAttrAccount)];
     return YES;
 }
 
@@ -83,7 +84,7 @@
     uiuser.text = [keychain objectForKey:CFBridgingRelease(kSecAttrAccount)];
     uipass.text = [keychain objectForKey:CFBridgingRelease(kSecValueData)];
     
-    NSLog(@"[Info] User/pass stored");
+    NSLog(@"[Info] Keychainobject Exists");
 }
 
 - (void)viewDidUnload {

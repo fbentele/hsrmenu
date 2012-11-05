@@ -101,11 +101,8 @@
 
 - (void)viewDidUnload
 {
-    //menutitle1 = nil;
     menucontent1 = nil;
-    //menutitle2 = nil;
     menucontent2 = nil;
-    //menutitle3 = nil;
     menucontent3 = nil;
     int1 = nil;
     ext1 = nil;
@@ -154,17 +151,14 @@
     NSDictionary *item = [menu objectAtIndex:0];
 
     if ([menu count] == 5){
-        //[menutitle1 setText:[item objectForKey:@"title"]];
         [menucontent1 setText:[item objectForKey:@"menu"]];
         [int1 setText:[item objectForKey:@"priceint"]];
         [ext1 setText:[item objectForKey:@"priceext"]];
-        item = [menu objectAtIndex:1];
-        //[menutitle2 setText:[item objectForKey:@"title"]];
+        item = [menu objectAtIndex:3];
         [menucontent2 setText:[item objectForKey:@"menu"]];
         [int2 setText:[item objectForKey:@"priceint"]];
         [ext2 setText:[item objectForKey:@"priceext"]];
-        item = [menu objectAtIndex:3];
-        //[menutitle3 setText:[item objectForKey:@"title"]];
+        item = [menu objectAtIndex:1];
         [menucontent3 setText:[item objectForKey:@"menu"]];
         [int3 setText:[item objectForKey:@"priceint"]];
         [ext3 setText:[item objectForKey:@"priceext"]];

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BadgeViewController : UIViewController
+@interface BadgeViewController : UIViewController{
+    
+    __weak IBOutlet UILabel *money;
+    __weak IBOutlet UILabel *lastupdate;
+}
 
 @end
