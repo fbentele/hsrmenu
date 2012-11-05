@@ -26,14 +26,8 @@
 
 @implementation HSRFirstViewController
 
-@synthesize monday;
-@synthesize tuesday;
-@synthesize wednesday;
-@synthesize thursday;
-@synthesize friday;
-@synthesize display;
-@synthesize day;
-@synthesize week;
+@synthesize monday, tuesday, wednesday, thursday, friday, display, day, week;
+
 
 - (void)viewDidLoad
 {

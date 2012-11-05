@@ -18,10 +18,7 @@
 @end
 
 @implementation SingleMenuViewController
-@synthesize menu;
-@synthesize scroller;
-@synthesize currentday;
-@synthesize plistPath;
+@synthesize menu, scroller, currentday, plistPath;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

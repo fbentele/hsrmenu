@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface SettingsViewController : UIViewController {
+    __weak IBOutlet UITextField *uiuser;
+    __weak IBOutlet UITextField *uipass;
     
 }
 
-@property (weak, nonatomic) IBOutlet UITextField *username;
-@property (weak, nonatomic) IBOutlet UITextField *password;
 -(IBAction)textFieldReturn:(id)sender;
 -(IBAction)backgroundTouched:(id)sender;
 @end

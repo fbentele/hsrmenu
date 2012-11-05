@@ -10,34 +10,22 @@
 #import "KeychainItemWrapper.h"
 
 @interface SettingsViewController ()
-@property (strong, nonatomic) NSString *user;
-@property (strong, nonatomic) NSString *pass;
-@property (weak, nonatomic) IBOutlet UITextField *uiuser;
-@property (weak, nonatomic) IBOutlet UITextField *uipass;
-
 @end
 
 @implementation SettingsViewController
-@synthesize username;
-@synthesize password;
-@synthesize uiuser;
-@synthesize uipass;
-@synthesize user;
-@synthesize pass;
-
 
 //hit 'next' in the keyboard an the keyboard disappears
 -(IBAction)textFieldReturn:(id)sender
 {
-    [password becomeFirstResponder];
+    [uipass becomeFirstResponder];
     [self safeCredentialsToKeychain];
 }
 
 //touch anywhere and the keyboard disappears
 -(IBAction)backgroundTouched:(id)sender
 {
-    [username resignFirstResponder];
-    [password resignFirstResponder];
+    [uiuser resignFirstResponder];
+    [uipass resignFirstResponder];
     [self safeCredentialsToKeychain];
 }
 
@@ -53,6 +41,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
     [self fillUIifKeychainobjectExists];
 }
 
@@ -66,14 +55,12 @@
 
 - (BOOL)safeCredentialsToKeychain
 {
-    user = [uiuser text];
-    pass = [uipass text];
-    NSLog(@"[Info] the username is %@", user);
+    NSLog(@"[Info] the username is %@", [uiuser text]);
     NSLog(@"[Info] the password is *******");
     
     KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"HSRMenuLogin" accessGroup:nil];
-    [keychain setObject:pass forKey:CFBridgingRelease(kSecValueData)];
-    [keychain setObject:user forKey:CFBridgingRelease(kSecAttrAccount)];
+    [keychain setObject:[uipass text] forKey:CFBridgingRelease(kSecValueData)];
+    [keychain setObject:[uiuser text] forKey:CFBridgingRelease(kSecAttrAccount)];
     return YES;
 }
 
@@ -81,17 +68,16 @@
 {
     KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"HSRMenuLogin" accessGroup:nil];
     
-    uiuser.text = [keychain objectForKey:CFBridgingRelease(kSecAttrAccount)];
-    uipass.text = [keychain objectForKey:CFBridgingRelease(kSecValueData)];
+    [uiuser setText:[keychain objectForKey:CFBridgingRelease(kSecAttrAccount)]];
+    [uipass setText:[keychain objectForKey:CFBridgingRelease(kSecValueData)]];
     
     NSLog(@"[Info] Keychainobject Exists");
 }
 
 - (void)viewDidUnload {
-    [self setUsername:nil];
-    [self setPassword:nil];
-    [self setUiuser:nil];
-    [self setUipass:nil];
+    uiuser = nil;
+    uipass = nil;
     [super viewDidUnload];
 }
+
 @end

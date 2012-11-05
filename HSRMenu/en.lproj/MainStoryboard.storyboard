@@ -179,10 +179,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings_icon.png" id="Kgu-mU-4zB" userLabel="Tab Bar Item - Settings"/>
                     <connections>
-                        <outlet property="password" destination="KXC-CT-8ex" id="gmp-Hy-SOi"/>
-                        <outlet property="uipass" destination="KXC-CT-8ex" id="r7L-z4-1Po"/>
-                        <outlet property="uiuser" destination="j79-CC-7uG" id="OZw-l4-wtC"/>
-                        <outlet property="username" destination="j79-CC-7uG" id="XkC-VM-fOr"/>
+                        <outlet property="uipass" destination="KXC-CT-8ex" id="4VW-vH-v1o"/>
+                        <outlet property="uiuser" destination="j79-CC-7uG" id="L84-Uh-vku"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F5s-Sk-Abw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -581,10 +579,8 @@
             <relationships>
                 <relationship kind="action" name="backgroundTouched:"/>
                 <relationship kind="action" name="textFieldReturn:"/>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="uipass" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="uiuser" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="username" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="SingleMenuViewController" superclassName="UIViewController">

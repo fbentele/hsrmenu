@@ -22,7 +22,6 @@
 		5C85F471163EE14200764B46 /* start.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C85F46F163EE14200764B46 /* start.png */; };
 		5C85F472163EE14200764B46 /* start@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C85F470163EE14200764B46 /* start@2x.png */; };
 		5C85F475163EE53900764B46 /* HSRCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C85F474163EE53900764B46 /* HSRCustomCell.m */; };
-		5C85F477163EE61300764B46 /* tertre-xbol.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5C85F476163EE61300764B46 /* tertre-xbol.otf */; };
 		5C90458616305740002F02F7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C90458516305740002F02F7 /* Security.framework */; };
 		5C922B18162C565B003D9A85 /* ODRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C922B17162C565B003D9A85 /* ODRefreshControl.m */; };
 		5C922B1B162C5721003D9A85 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C922B1A162C5721003D9A85 /* QuartzCore.framework */; };
@@ -87,7 +86,6 @@
 		5C85F470163EE14200764B46 /* start@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "start@2x.png"; sourceTree = "<group>"; };
 		5C85F473163EE53900764B46 /* HSRCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSRCustomCell.h; sourceTree = "<group>"; };
 		5C85F474163EE53900764B46 /* HSRCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSRCustomCell.m; sourceTree = "<group>"; };
-		5C85F476163EE61300764B46 /* tertre-xbol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "tertre-xbol.otf"; sourceTree = "<group>"; };
 		5C90458516305740002F02F7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5C922B16162C565B003D9A85 /* ODRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ODRefreshControl.h; sourceTree = "<group>"; };
 		5C922B17162C565B003D9A85 /* ODRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ODRefreshControl.m; sourceTree = "<group>"; };
@@ -163,18 +161,9 @@
 		5C15FD17161EB7D30088DE2F /* Ressources */ = {
 			isa = PBXGroup;
 			children = (
-				5C85F478163EE61800764B46 /* Fonts */,
 				5CFD5AF71614A28000B01324 /* Icons */,
 			);
 			name = Ressources;
-			sourceTree = "<group>";
-		};
-		5C85F478163EE61800764B46 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				5C85F476163EE61300764B46 /* tertre-xbol.otf */,
-			);
-			name = Fonts;
 			sourceTree = "<group>";
 		};
 		5C922B15162C565B003D9A85 /* ODRefreshControl */ = {
@@ -416,7 +405,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5C95A4181611F47000C74C28 /* InfoPlist.strings in Resources */,
-				5C85F477163EE61300764B46 /* tertre-xbol.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
