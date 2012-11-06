@@ -10,15 +10,19 @@
 #import "ODRefreshControl.h"
 
 
-@interface SingleMenuViewController ()
+@interface SingleMenuViewController (){
+    ODRefreshControl *_refresher;
+}
 @property (strong, nonatomic) NSMutableArray *menu;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroller;
 @property (nonatomic) int currentday;
 @property (strong, nonatomic, readwrite) NSString *plistPath;
+@property (strong, nonatomic) ODRefreshControl *refresher;
 @end
 
 @implementation SingleMenuViewController
 @synthesize menu, scroller, currentday, plistPath;
+@synthesize refresher = _refresher;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,6 +38,9 @@
     [super viewDidLoad];
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.scroller];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
+    
+    NSArray *weekdays = [NSArray arrayWithObjects:@" ", @"Montag", @"Dienstag", @"Mittwoch", @"Donnerstag", @"Freitag", nil];
+    [titlebartitle setTitle:[weekdays objectAtIndex:currentday]];
     
     if(![self loadMenusFromPersistencyLayerIfAvailable]){
         [self initJsonConnection];
@@ -59,11 +66,13 @@
             if (cachetime +3600 > now){
                 NSLog(@"[Info] cache is fresh, no connection needed");
                 return YES;
+            } else {
+                NSLog(@"[Info] cache is old, connection needed");
             }
         }
     } else {
         [self initJsonConnection];
-        NSLog(@"[Error] Calling JSONConnection because no plist loaded from path %@", plistPath);
+        NSLog(@"[Info] Calling JSONConnection because no plist loaded from path %@", plistPath);
     }
     return NO;
 }
@@ -79,7 +88,6 @@
     (void) [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
-
 - (void)safeMenusToFile{
     [menu writeToFile:plistPath atomically:YES];
     NSLog(@"[Info] Plist written");
@@ -92,7 +100,6 @@
 
 - (void)setMenuDay:(int)theday
 {
-    NSLog(@"der tag ist: %d", theday);
     currentday = theday;
 }
 
@@ -125,6 +132,7 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [[self refresher] endRefreshing];
     //Parsing JSON
     NSError *e = nil;
     menu = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error: &e];
@@ -180,14 +188,8 @@
 // pull to refresh
 - (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
 {
-    double delayInSeconds = 1.0;
-    
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-    
     [self initJsonConnection];
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [refreshControl endRefreshing];
-    });
+    [self setRefresher:refreshControl];
 }
 
 

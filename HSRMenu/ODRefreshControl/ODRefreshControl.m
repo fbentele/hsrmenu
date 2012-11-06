@@ -79,7 +79,7 @@ static inline CGFloat lerp(CGFloat a, CGFloat b, CGFloat p)
         _ignoreOffset = NO;
         _didSetInset = NO;
         _hasSectionHeaders = NO;
-        _tintColor = [UIColor colorWithRed:155.0 / 255.0 green:162.0 / 255.0 blue:172.0 / 255.0 alpha:1.0];
+        _tintColor = [UIColor colorWithRed:96.0 / 255.0 green:81.0 / 255.0 blue:73.0 / 255.0 alpha:1.0];
         
         _shapeLayer = [CAShapeLayer layer];
         _shapeLayer.fillColor = [_tintColor CGColor];

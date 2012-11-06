@@ -12,6 +12,8 @@
 @interface SingleMenuViewController : UIViewController{
     NSMutableData *data;
     
+    __weak IBOutlet UINavigationItem *titlebartitle;
+    
     // todo add lables here...
     __weak IBOutlet UILabel *menucontent1;
     __weak IBOutlet UILabel *menucontent2;

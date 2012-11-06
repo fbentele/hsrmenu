@@ -36,7 +36,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="CHF  0.-" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="M7J-Hb-GIJ">
-                                        <rect key="frame" x="29" y="82" width="103" height="38"/>
+                                        <rect key="frame" x="28" y="82" width="109" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -108,7 +108,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Badge" image="second" id="6" userLabel="Tab Bar Item - Badge"/>
+                    <tabBarItem key="tabBarItem" title="Badge" image="navbar_badge.png" id="6" userLabel="Tab Bar Item - Badge"/>
                     <connections>
                         <outlet property="lastupdate" destination="P6j-Nl-70n" id="tAy-EF-lpd"/>
                         <outlet property="money" destination="M7J-Hb-GIJ" id="QaF-CA-TGv"/>
@@ -177,7 +177,7 @@
                             <action selector="backgroundTouched:" destination="2A5-up-dG6" eventType="touchDown" id="h3H-u2-nwl"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings_icon.png" id="Kgu-mU-4zB" userLabel="Tab Bar Item - Settings"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="navbar_settings.png" id="Kgu-mU-4zB" userLabel="Tab Bar Item - Settings"/>
                     <connections>
                         <outlet property="uipass" destination="KXC-CT-8ex" id="4VW-vH-v1o"/>
                         <outlet property="uiuser" destination="j79-CC-7uG" id="L84-Uh-vku"/>
@@ -240,7 +240,7 @@
         <scene sceneID="gMv-S7-ABV">
             <objects>
                 <navigationController id="dzW-Zh-m8u" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Menu" image="first" id="hoO-FV-UL5" userLabel="Tab Bar Item - Menu"/>
+                    <tabBarItem key="tabBarItem" title="Menu" image="navbar_menu.png" id="hoO-FV-UL5" userLabel="Tab Bar Item - Menu"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XDa-Hj-AIa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -263,7 +263,7 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="40" sectionHeaderHeight="5" sectionFooterHeight="5" id="wup-m9-Ezi">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.47450980390000003" green="0.40784313729999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                         <imageView key="tableHeaderView" userInteractionEnabled="NO" contentMode="scaleToFill" image="start.png" id="cja-gP-m9Q">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="158"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -282,20 +282,20 @@
                                                     <rect key="frame" x="10" y="9" width="61" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SGT-nb-yiV">
                                                     <rect key="frame" x="265" y="9" width="5" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.2470588235" green="0.21176470589999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="">
                                             <accessibilityTraits key="traits" none="YES"/>
                                             <bool key="isElement" value="NO"/>
@@ -312,20 +312,20 @@
                                                     <rect key="frame" x="10" y="9" width="72" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MgP-3V-LzL">
                                                     <rect key="frame" x="265" y="9" width="5" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.2470588235" green="0.21176470589999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="E2c-on-drn" detailTextLabel="fwY-6o-ejz" style="IBUITableViewCellStyleValue1" id="NIt-4Q-JfK">
                                         <rect key="frame" x="0.0" y="244" width="320" height="40"/>
@@ -338,20 +338,20 @@
                                                     <rect key="frame" x="10" y="9" width="74" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fwY-6o-ejz">
                                                     <rect key="frame" x="265" y="9" width="5" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.2470588235" green="0.21176470589999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="qqd-de-Ged" detailTextLabel="Ast-6U-SXV" style="IBUITableViewCellStyleValue1" id="RkF-1B-q9u">
                                         <rect key="frame" x="0.0" y="284" width="320" height="40"/>
@@ -364,20 +364,20 @@
                                                     <rect key="frame" x="10" y="9" width="95" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ast-6U-SXV">
                                                     <rect key="frame" x="265" y="9" width="5" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.2470588235" green="0.21176470589999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="ENi-Ln-89j" detailTextLabel="xJq-RI-fQJ" style="IBUITableViewCellStyleValue1" id="2gK-jd-Mje">
                                         <rect key="frame" x="0.0" y="324" width="320" height="41"/>
@@ -390,20 +390,20 @@
                                                     <rect key="frame" x="10" y="9" width="57" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text=" " textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xJq-RI-fQJ">
                                                     <rect key="frame" x="265" y="9" width="5" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.2196078431372549" green="0.32941176470588235" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.2470588235" green="0.21176470589999999" blue="0.1960784314" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -512,7 +512,7 @@
                                 <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="380"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.47450980390000003" green="0.40784313729999999" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="Menuplan" id="OED-Tb-81z"/>
                     <connections>
@@ -526,6 +526,7 @@
                         <outlet property="menucontent2" destination="PSZ-Gv-4gc" id="C9d-fY-ScU"/>
                         <outlet property="menucontent3" destination="Ad9-jb-gI1" id="z72-Ma-15R"/>
                         <outlet property="scroller" destination="wfS-V8-xaB" id="Y4C-lg-FZd"/>
+                        <outlet property="titlebartitle" destination="OED-Tb-81z" id="W9a-V5-cGD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I7T-VE-nDG" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -536,11 +537,11 @@
     <resources>
         <image name="badgerecent.png" width="320" height="168"/>
         <image name="badgesaldo.png" width="637" height="191"/>
-        <image name="first" width="16" height="16"/>
         <image name="menu.png" width="320" height="336"/>
-        <image name="second" width="16" height="16"/>
+        <image name="navbar_badge.png" width="30" height="30"/>
+        <image name="navbar_menu.png" width="30" height="30"/>
+        <image name="navbar_settings.png" width="30" height="30"/>
         <image name="settings.png" width="320" height="134"/>
-        <image name="settings_icon.png" width="29" height="28"/>
         <image name="start.png" width="320" height="158"/>
     </resources>
     <classes>
@@ -596,6 +597,7 @@
                 <relationship kind="outlet" name="menucontent2" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="menucontent3" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="titlebartitle" candidateClass="UINavigationItem"/>
             </relationships>
         </class>
     </classes>
