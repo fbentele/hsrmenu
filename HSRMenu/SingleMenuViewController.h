@@ -28,7 +28,10 @@
     
     __weak IBOutlet UILabel *int3;
     __weak IBOutlet UILabel *ext3;
+    IBOutlet UIScrollView *ratescroller3;
 }
+
+@property (nonatomic, retain) UIView *ratescroller3;
 
 -(void)setMenuDay:(int)day;
 -(void)safeMenusToFile;

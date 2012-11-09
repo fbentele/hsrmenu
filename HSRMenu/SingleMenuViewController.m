@@ -21,7 +21,7 @@
 @end
 
 @implementation SingleMenuViewController
-@synthesize menu, scroller, currentday, plistPath;
+@synthesize menu, scroller, currentday, plistPath, ratescroller3;
 @synthesize refresher = _refresher;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -47,7 +47,45 @@
     }
     
     [self writeMenuToUi];
-    }
+    
+    UIImage *tempimage = [UIImage imageNamed:@"single3.png"];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:tempimage];
+
+    CGRect rect = imageView.frame;
+    rect.size.height = 121;
+    rect.size.width = 320;
+    imageView.frame = rect;
+    imageView.tag = 1;
+    [ratescroller3 addSubview:imageView];
+    [ratescroller3 addSubview:menucontent3];
+    [ratescroller3 addSubview:int3];
+    [ratescroller3 addSubview:ext3];
+
+    tempimage = [UIImage imageNamed:@"rating.png"];
+    imageView = [[UIImageView alloc] initWithImage:tempimage];
+    imageView.tag = 2;
+    [ratescroller3 addSubview:imageView];
+    [self layoutScrollImages];
+}
+
+- (void)layoutScrollImages
+{
+	UIImageView *view = nil;
+	NSArray *subviews = [ratescroller3 subviews];
+    
+	CGFloat curXLoc = 0;
+	for (view in subviews)
+	{
+		if ([view isKindOfClass:[UIImageView class]] && view.tag > 0)
+		{
+			CGRect frame = view.frame;
+			frame.origin = CGPointMake(curXLoc, 0);
+			view.frame = frame;
+			curXLoc += (320);
+		}
+	}
+	[ratescroller3 setContentSize:CGSizeMake((2 * 320), [ratescroller3 bounds].size.height)];
+}
 
 
 //persistence layer
@@ -114,6 +152,7 @@
     ext2 = nil;
     int3 = nil;
     ext3 = nil;
+    ratescroller3 = nil;
     [super viewDidUnload];
 }
 
