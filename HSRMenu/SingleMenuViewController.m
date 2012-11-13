@@ -8,12 +8,12 @@
 #import "SingleMenuViewController.h"
 #import "HSRFirstViewController.h"
 #import "ODRefreshControl.h"
+#import "HSRMenuBrain.h"
 
 
 @interface SingleMenuViewController (){
     ODRefreshControl *_refresher;
 }
-@property (strong, nonatomic) NSMutableArray *menu;
 @property (weak, nonatomic) IBOutlet UIScrollView *scroller;
 @property (nonatomic) int currentday;
 @property (strong, nonatomic, readwrite) NSString *plistPath;
@@ -21,38 +21,39 @@
 @end
 
 @implementation SingleMenuViewController
-@synthesize menu, scroller, currentday, plistPath, ratescroller3;
+@synthesize scroller, currentday, plistPath, ratescroller3;
 @synthesize refresher = _refresher;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    model = [[HSRMenuBrain alloc] init];
+    
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.scroller];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     
     NSArray *weekdays = [NSArray arrayWithObjects:@" ", @"Montag", @"Dienstag", @"Mittwoch", @"Donnerstag", @"Freitag", nil];
     [titlebartitle setTitle:[weekdays objectAtIndex:currentday]];
     
-    if(![self loadMenusFromPersistencyLayerIfAvailable]){
-        [self initJsonConnection];
-    }
     
-    [self writeMenuToUi];
+    //Not enforceing a reload
+    [self refreshValues:NO];
     
     UIImage *tempimage = [UIImage imageNamed:@"single3.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:tempimage];
 
     CGRect rect = imageView.frame;
-    rect.size.height = 121;
+    rect.size.height = 134;
     rect.size.width = 320;
     imageView.frame = rect;
     imageView.tag = 1;
@@ -60,6 +61,7 @@
     [ratescroller3 addSubview:menucontent3];
     [ratescroller3 addSubview:int3];
     [ratescroller3 addSubview:ext3];
+    [ratescroller3 addSubview:rating3];
 
     tempimage = [UIImage imageNamed:@"rating.png"];
     imageView = [[UIImageView alloc] initWithImage:tempimage];
@@ -88,49 +90,6 @@
 }
 
 
-//persistence layer
-- (BOOL)loadMenusFromPersistencyLayerIfAvailable
-{
-    NSString *plistDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    plistPath = [plistDirectory stringByAppendingPathComponent:[[NSString alloc] initWithFormat:@"menus%d.plist", currentday]];
-    if([[NSFileManager defaultManager] fileExistsAtPath:plistPath]){
-        NSLog(@"[Info] plist ok, and readable");
-        self.menu = [NSMutableArray arrayWithContentsOfFile:plistPath];
-        if ([menu count] > 4) {
-            int cachetime =[[[menu objectAtIndex:4] objectForKey:@"time"] intValue];
-            int now = (int)[[NSDate date ]timeIntervalSince1970];
-            NSLog(@"cachetime is:%d", cachetime);
-            NSLog(@"now is      :%d", now);
-            if (cachetime +3600 > now){
-                NSLog(@"[Info] cache is fresh, no connection needed");
-                return YES;
-            } else {
-                NSLog(@"[Info] cache is old, connection needed");
-            }
-        }
-    } else {
-        [self initJsonConnection];
-        NSLog(@"[Info] Calling JSONConnection because no plist loaded from path %@", plistPath);
-    }
-    return NO;
-}
-
-//the connection stuff
-//====================
-- (void)initJsonConnection
-{
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    NSString *urlString = [[NSString alloc] initWithFormat:@"http://florian.bentele.me/HSRMenu/api.php?day=%d", currentday];
-    NSURL* apiurl = [NSURL URLWithString:urlString];
-    NSURLRequest* request = [NSURLRequest requestWithURL:apiurl];
-    (void) [[NSURLConnection alloc] initWithRequest:request delegate:self];
-}
-
-- (void)safeMenusToFile{
-    [menu writeToFile:plistPath atomically:YES];
-    NSLog(@"[Info] Plist written");
-}
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -139,6 +98,58 @@
 - (void)setMenuDay:(int)theday
 {
     currentday = theday;
+}
+
+- (void)refreshValues:(BOOL)enforced
+{
+    NSMutableArray *menu = [model menuforday:currentday enforcedReload:enforced];
+    NSDictionary *item = [menu objectAtIndex:0];
+    
+    if ([menu count] == 5){
+        [menucontent1 setText:[item objectForKey:@"menu"]];
+        [int1 setText:[item objectForKey:@"priceint"]];
+        [ext1 setText:[item objectForKey:@"priceext"]];
+        [rating1 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
+        
+        item = [menu objectAtIndex:3];
+        [menucontent2 setText:[item objectForKey:@"menu"]];
+        [int2 setText:[item objectForKey:@"priceint"]];
+        [ext2 setText:[item objectForKey:@"priceext"]];
+        [rating2 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
+
+        item = [menu objectAtIndex:1];
+        [menucontent3 setText:[item objectForKey:@"menu"]];
+        [int3 setText:[item objectForKey:@"priceint"]];
+        [ext3 setText:[item objectForKey:@"priceext"]];
+        [rating3 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
+    } else {
+        [menucontent1 setText:@"Für Heute ist leider kein Menu verfügbar"];
+        [int1 setText:@""];
+        [ext1 setText:@""];
+        [menucontent2 setText:@" "];
+        [int2 setText:@""];
+        [ext2 setText:@""];
+        [menucontent3 setText:@" "];
+        [int3 setText:@""];
+        [ext3 setText:@""];
+    }
+    
+}
+
+-(UIImage *)getRatingImage:(id)stars
+{
+    int i = [stars integerValue];
+    NSArray *rating = [NSArray arrayWithObjects:@"stars0.png", @"stars1.png", @"stars2.png", @"stars3.png", @"stars4.png", @"stars5.png", nil];
+    return [UIImage imageNamed:[rating objectAtIndex:i]];
+}
+
+
+// pull to refresh
+- (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
+{
+    [self refreshValues:YES];
+    [self setRefresher:refreshControl];
+    [[self refresher] endRefreshing];
 }
 
 - (void)viewDidUnload
@@ -153,84 +164,11 @@
     int3 = nil;
     ext3 = nil;
     ratescroller3 = nil;
+    rating3 = nil;
+    rating2 = nil;
+    rating1 = nil;
     [super viewDidUnload];
 }
-
-//the connection delegate part
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
-{
-    data = [[NSMutableData alloc] init];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)jsondata
-{
-    NSLog(@"[Info] data received");
-    [data appendData:jsondata];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    [[self refresher] endRefreshing];
-    //Parsing JSON
-    NSError *e = nil;
-    menu = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error: &e];
-    if (e) {
-        NSLog(@"Error parsing JSON: %@", e);
-    } else {
-        [self safeMenusToFile];
-        [self writeMenuToUi];
-    }
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    UIAlertView *noconnection = [[UIAlertView alloc] initWithTitle:@"Keine Verbindung" message:@"Es wurden keine neuen Daten geladen, da keine Verbindung zum Server aufgebaut werden konnte" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
-    [noconnection show];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-}
-
-- (void)writeMenuToUi
-{
-    NSDictionary *item = [menu objectAtIndex:0];
-
-    if ([menu count] == 5){
-        [menucontent1 setText:[item objectForKey:@"menu"]];
-        [int1 setText:[item objectForKey:@"priceint"]];
-        [ext1 setText:[item objectForKey:@"priceext"]];
-        item = [menu objectAtIndex:3];
-        [menucontent2 setText:[item objectForKey:@"menu"]];
-        [int2 setText:[item objectForKey:@"priceint"]];
-        [ext2 setText:[item objectForKey:@"priceext"]];
-        item = [menu objectAtIndex:1];
-        [menucontent3 setText:[item objectForKey:@"menu"]];
-        [int3 setText:[item objectForKey:@"priceint"]];
-        [ext3 setText:[item objectForKey:@"priceext"]];
-
-    } else {
-        //[menutitle1 setText:@"Kein Menu"];
-        [menucontent1 setText:@"Für Heute ist leider kein Menu verfügbar"];
-        [int1 setText:@""];
-        [ext1 setText:@""];
-        //[menutitle2 setText:@""];
-        [menucontent2 setText:@" "];
-        [int2 setText:@""];
-        [ext2 setText:@""];
-        //[menutitle3 setText:@" "];
-        [menucontent3 setText:@" "];
-        [int3 setText:@""];
-        [ext3 setText:@""];
-    }
-}
-
-
-// pull to refresh
-- (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
-{
-    [self initJsonConnection];
-    [self setRefresher:refreshControl];
-}
-
 
 
 @end

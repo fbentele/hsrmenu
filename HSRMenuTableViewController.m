@@ -104,7 +104,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //delegate part
-    id menuday = [self.weekdays objectAtIndex:indexPath.row];
+    //id menuday = [self.weekdays objectAtIndex:indexPath.row];
 }
 
 @end

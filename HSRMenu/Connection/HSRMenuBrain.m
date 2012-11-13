@@ -12,10 +12,14 @@
 
 
 
--(NSDictionary *)menuforday:(int)day
+-(NSMutableArray *)menuforday:(int)day enforcedReload:(BOOL)forced
 {
     //return the menu nsdictionary for the day 'day' from persitency layer if available
-    return nil;
+    
+    if (![self loadMenusFromPersistencyLayerIfAvailable:day] || forced){
+        [self initJsonConnection:day];
+    }    
+    return menu;
 }
 
 
@@ -43,7 +47,6 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    //[[self refresher] endRefreshing];
     
     //Parsing JSON
     NSError *e = nil;
@@ -73,18 +76,19 @@
         if ([menu count] > 4) {
             int cachetime =[[[menu objectAtIndex:4] objectForKey:@"time"] intValue];
             int now = (int)[[NSDate date ]timeIntervalSince1970];
-            NSLog(@"cachetime is:%d", cachetime);
-            NSLog(@"now is      :%d", now);
+            NSLog(@"[Info] cachetime is:%d", cachetime);
+            NSLog(@"[Info] now is      :%d", now);
             if (cachetime +3600 > now){
                 NSLog(@"[Info] cache is fresh, no connection needed");
                 return YES;
             } else {
                 NSLog(@"[Info] cache is old, connection needed");
+                return NO;
             }
         }
     } else {
-        //[self initJsonConnection];
-        NSLog(@"[Info] Calling JSONConnection because no plist loaded from path %@", plistPath);
+        NSLog(@"[Info] No Plist available");
+        return NO;
     }
     return NO;
 }
@@ -94,7 +98,5 @@
     [menu writeToFile:plistPath atomically:YES];
     NSLog(@"[Info] Plist written");
 }
-
-
 
 @end

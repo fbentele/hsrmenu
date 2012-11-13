@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C3006" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
@@ -186,35 +186,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F5s-Sk-Abw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1395" y="359"/>
-        </scene>
-        <!--Menu Table View Controller-->
-        <scene sceneID="iFt-8H-bTF">
-            <objects>
-                <tableViewController id="UqE-3D-DDC" customClass="HSRMenuTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ss8-l3-47p">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Day for Menu" id="lqN-nf-g4k" customClass="HSRCustomCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                </view>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="UqE-3D-DDC" id="2ac-vD-a12"/>
-                            <outlet property="delegate" destination="UqE-3D-DDC" id="Zam-qj-Nug"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0e0-EW-qgd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1963" y="219"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
@@ -441,38 +412,42 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="EXR-fi-TTE">
-                                        <rect key="frame" x="0.0" y="213" width="320" height="121"/>
+                                        <rect key="frame" x="0.0" y="229" width="320" height="133"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ad9-jb-gI1">
-                                                <rect key="frame" x="93" y="11" width="214" height="70"/>
+                                                <rect key="frame" x="95" y="11" width="220" height="70"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Int: 8.-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Awl-aE-Hbd">
-                                                <rect key="frame" x="98" y="75" width="73" height="21"/>
+                                                <rect key="frame" x="100" y="89.5" width="73" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ext: 10.-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mKs-Xr-wLp">
-                                                <rect key="frame" x="199" y="75" width="86" height="21"/>
+                                                <rect key="frame" x="199" y="89.5" width="86" height="20"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stars5.png" id="4Ty-8H-U8W">
+                                                <rect key="frame" x="100" y="71" width="100" height="16"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                         </subviews>
                                     </scrollView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="single2.png" id="rsT-Dg-M8I">
-                                        <rect key="frame" x="0.0" y="107" width="320" height="121"/>
+                                        <rect key="frame" x="0.0" y="115" width="320" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="single1.png" id="Il6-4s-jjK">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="121"/>
+                                        <rect key="frame" x="0.0" y="-6.5" width="320" height="138"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <gestureRecognizers/>
                                         <connections>
@@ -480,47 +455,55 @@
                                         </connections>
                                     </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uvC-yu-3Lg">
-                                        <rect key="frame" x="90" y="10" width="220" height="49"/>
+                                        <rect key="frame" x="95" y="6.5" width="220" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Moment bitte..." lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="PSZ-Gv-4gc">
-                                        <rect key="frame" x="93" y="122" width="217" height="67"/>
+                                        <rect key="frame" x="95" y="128.5" width="220" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Int: 8.-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="IUI-zf-5MU">
-                                        <rect key="frame" x="98" y="77" width="73" height="21"/>
+                                        <rect key="frame" x="100" y="88.5" width="73" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ext: 10.-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mog-AZ-9Mr">
-                                        <rect key="frame" x="199" y="77" width="86" height="21"/>
+                                        <rect key="frame" x="199" y="88.5" width="86" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Int: 8.-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0f2-z4-gsB">
-                                        <rect key="frame" x="98" y="184" width="73" height="21"/>
+                                        <rect key="frame" x="100" y="205.5" width="73" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ext: 10.-" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Nc8-Ka-2yf">
-                                        <rect key="frame" x="199" y="184" width="86" height="21"/>
+                                        <rect key="frame" x="199" y="205.5" width="86" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stars5.png" id="dh4-rf-RRs">
+                                        <rect key="frame" x="97" y="67" width="100" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stars5.png" id="9LV-gA-9tm">
+                                        <rect key="frame" x="97" y="185" width="100" height="16"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.47450980392156861" green="0.40784313725490196" blue="0.38431372549019605" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="contentInset" minX="0.0" minY="0.0" maxX="0.0" maxY="380"/>
@@ -540,6 +523,9 @@
                         <outlet property="menucontent2" destination="PSZ-Gv-4gc" id="C9d-fY-ScU"/>
                         <outlet property="menucontent3" destination="Ad9-jb-gI1" id="z72-Ma-15R"/>
                         <outlet property="ratescroller3" destination="EXR-fi-TTE" id="bTz-dg-fPR"/>
+                        <outlet property="rating1" destination="dh4-rf-RRs" id="D6L-rz-QVZ"/>
+                        <outlet property="rating2" destination="9LV-gA-9tm" id="SAV-fE-hA0"/>
+                        <outlet property="rating3" destination="4Ty-8H-U8W" id="Cag-Wt-yyw"/>
                         <outlet property="scroller" destination="wfS-V8-xaB" id="Y4C-lg-FZd"/>
                         <outlet property="titlebartitle" destination="OED-Tb-81z" id="W9a-V5-cGD"/>
                     </connections>
@@ -559,6 +545,7 @@
         <image name="settings.png" width="320" height="134"/>
         <image name="single1.png" width="320" height="121"/>
         <image name="single2.png" width="320" height="121"/>
+        <image name="stars5.png" width="100" height="16"/>
         <image name="start.png" width="320" height="158"/>
     </resources>
     <classes>
@@ -589,9 +576,6 @@
                 <relationship kind="outlet" name="wednesday" candidateClass="HSRCustomCell"/>
             </relationships>
         </class>
-        <class className="HSRMenuTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/HSRMenuTableViewController.h"/>
-        </class>
         <class className="SettingsViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
             <relationships>
@@ -614,6 +598,8 @@
                 <relationship kind="outlet" name="menucontent2" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="menucontent3" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="ratescroller3" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="rating2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="rating3" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="scroller" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="titlebartitle" candidateClass="UINavigationItem"/>
             </relationships>

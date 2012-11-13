@@ -14,6 +14,6 @@
     NSString *plistPath;
 }
 
--(NSDictionary *) menuforday:(int) day;
+-(NSDictionary *) menuforday:(int)day enforcedReload:(BOOL)forced;
 
 @end

@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HSRMenuBrain.h"
 
 
 @interface SingleMenuViewController : UIViewController{
     NSMutableData *data;
+    HSRMenuBrain *model;
     
     __weak IBOutlet UINavigationItem *titlebartitle;
     
@@ -22,19 +24,22 @@
     
     __weak IBOutlet UILabel *int1;
     __weak IBOutlet UILabel *ext1;
+    __weak IBOutlet UIImageView *rating1;
     
     __weak IBOutlet UILabel *int2;
     __weak IBOutlet UILabel *ext2;
+    __weak IBOutlet UIImageView *rating2;
     
     __weak IBOutlet UILabel *int3;
     __weak IBOutlet UILabel *ext3;
+    __weak IBOutlet UIImageView *rating3;
+    
     IBOutlet UIScrollView *ratescroller3;
 }
 
 @property (nonatomic, retain) UIView *ratescroller3;
 
 -(void)setMenuDay:(int)day;
--(void)safeMenusToFile;
 
 
 @end

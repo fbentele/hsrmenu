@@ -141,6 +141,8 @@
     [noconnection show];
     NSLog(@"%@", error);
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [[self refresher] endRefreshing];
+
 }
 
 - (void)writeSaldoToUi
