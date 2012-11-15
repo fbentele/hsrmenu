@@ -9,6 +9,8 @@
 #import "HSRFirstViewController.h"
 #import "ODRefreshControl.h"
 #import "HSRMenuBrain.h"
+#import "HSRRatingViewController.h"
+#import "HSRRatingView.h"
 
 
 @interface SingleMenuViewController (){
@@ -47,48 +49,58 @@
     
     
     //Not enforceing a reload
-    [self refreshValues:NO];
+    [self refreshValues:YES];
     
-    UIImage *tempimage = [UIImage imageNamed:@"single3.png"];
+    
+    UIImage *tempimage = [UIImage imageNamed:@"menu_background.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:tempimage];
 
     CGRect rect = imageView.frame;
     rect.size.height = 134;
     rect.size.width = 320;
     imageView.frame = rect;
-    imageView.tag = 1;
+    
     [ratescroller3 addSubview:imageView];
     [ratescroller3 addSubview:menucontent3];
     [ratescroller3 addSubview:int3];
     [ratescroller3 addSubview:ext3];
-    [ratescroller3 addSubview:rating3];
-
-    tempimage = [UIImage imageNamed:@"rating.png"];
-    imageView = [[UIImageView alloc] initWithImage:tempimage];
-    imageView.tag = 2;
-    [ratescroller3 addSubview:imageView];
-    [self layoutScrollImages];
-}
-
-- (void)layoutScrollImages
-{
-	UIImageView *view = nil;
-	NSArray *subviews = [ratescroller3 subviews];
+    [ratescroller3 addSubview:averageRatingForMenu3];
     
-	CGFloat curXLoc = 0;
-	for (view in subviews)
-	{
-		if ([view isKindOfClass:[UIImageView class]] && view.tag > 0)
-		{
-			CGRect frame = view.frame;
-			frame.origin = CGPointMake(curXLoc, 0);
-			view.frame = frame;
-			curXLoc += (320);
-		}
-	}
-	[ratescroller3 setContentSize:CGSizeMake((2 * 320), [ratescroller3 bounds].size.height)];
-}
+    HSRRatingView *rater3 = [[HSRRatingView alloc] initWithFrame:CGRectMake(320, 0, 320, 134)];
+    [ratescroller3 addSubview:rater3];
+    [ratescroller3 setContentSize:CGSizeMake((2 * 320), [ratescroller3 bounds].size.height)];
+    
+    
+    UIImageView *secondMenu = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 134)];
+    [secondMenu setImage:[UIImage imageNamed:@"menu_background.png"]];
+    [ratescroller2 addSubview:secondMenu];
+    [ratescroller2 addSubview:menucontent2];
+    [ratescroller2 addSubview:int2];
+    [ratescroller2 addSubview:ext2];
+    [ratescroller2 addSubview:averageRatingForMenu2];
+    
+    HSRRatingView *rater2 = [[HSRRatingView alloc] initWithFrame:CGRectMake(320, 0, 320, 134)];
+    [ratescroller2 addSubview:rater2];
+    [ratescroller2 setContentSize:CGSizeMake((2 * 320), 134)];
+    
+    
+    UIImageView *firstMenu = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 134)];
+    [firstMenu setImage:[UIImage imageNamed:@"menu_background.png"]];
+    [ratescroller1 addSubview:firstMenu];
+    [ratescroller1 addSubview:menucontent1];
+    [ratescroller1 addSubview:int1];
+    [ratescroller1 addSubview:ext1];
+    [ratescroller1 addSubview:averageRatingForMenu1];
+    
+    HSRRatingView *rater1 = [[HSRRatingView alloc] initWithFrame:CGRectMake(320, 0, 320, 134)];
+    [ratescroller1 addSubview:rater1];
+    [ratescroller1 setContentSize:CGSizeMake((2 * 320), 134)];
 
+    
+    
+    
+
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -103,25 +115,25 @@
 - (void)refreshValues:(BOOL)enforced
 {
     NSMutableArray *menu = [model menuforday:currentday enforcedReload:enforced];
-    NSDictionary *item = [menu objectAtIndex:0];
     
+    NSDictionary *item = [menu objectAtIndex:0];
     if ([menu count] == 5){
         [menucontent1 setText:[item objectForKey:@"menu"]];
         [int1 setText:[item objectForKey:@"priceint"]];
         [ext1 setText:[item objectForKey:@"priceext"]];
-        [rating1 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
+        [averageRatingForMenu1 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
         
         item = [menu objectAtIndex:3];
         [menucontent2 setText:[item objectForKey:@"menu"]];
         [int2 setText:[item objectForKey:@"priceint"]];
         [ext2 setText:[item objectForKey:@"priceext"]];
-        [rating2 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
+        [averageRatingForMenu2 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
 
         item = [menu objectAtIndex:1];
         [menucontent3 setText:[item objectForKey:@"menu"]];
         [int3 setText:[item objectForKey:@"priceint"]];
         [ext3 setText:[item objectForKey:@"priceext"]];
-        [rating3 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
+        [averageRatingForMenu3 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
     } else {
         [menucontent1 setText:@"Für Heute ist leider kein Menu verfügbar"];
         [int1 setText:@""];
@@ -152,6 +164,23 @@
     [[self refresher] endRefreshing];
 }
 
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"RateMenu"]){
+        
+        NSArray *menutoday = [model menuforday:currentday enforcedReload:NO];
+        NSDictionary *dict = [menutoday objectAtIndex:0];
+        
+        [segue.destinationViewController setMenuid:[[dict objectForKey:@"menuid"] intValue]];
+    }
+}
+
+- (IBAction)ratingTouched:(id)sender {
+    [self performSegueWithIdentifier:@"RateMenu" sender:self];
+}
+
+
 - (void)viewDidUnload
 {
     menucontent1 = nil;
@@ -164,9 +193,11 @@
     int3 = nil;
     ext3 = nil;
     ratescroller3 = nil;
-    rating3 = nil;
-    rating2 = nil;
-    rating1 = nil;
+    averageRatingForMenu3 = nil;
+    averageRatingForMenu2 = nil;
+    averageRatingForMenu1 = nil;
+    ratescroller2 = nil;
+    ratescroller1 = nil;
     [super viewDidUnload];
 }
 

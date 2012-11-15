@@ -16,7 +16,6 @@
     
     __weak IBOutlet UINavigationItem *titlebartitle;
     
-    // todo add lables here...
     __weak IBOutlet UILabel *menucontent1;
     __weak IBOutlet UILabel *menucontent2;
     __weak IBOutlet UILabel *menucontent3;
@@ -24,16 +23,19 @@
     
     __weak IBOutlet UILabel *int1;
     __weak IBOutlet UILabel *ext1;
-    __weak IBOutlet UIImageView *rating1;
+    __weak IBOutlet UIImageView *averageRatingForMenu1;
     
     __weak IBOutlet UILabel *int2;
     __weak IBOutlet UILabel *ext2;
-    __weak IBOutlet UIImageView *rating2;
+    __weak IBOutlet UIImageView *averageRatingForMenu2;
     
     __weak IBOutlet UILabel *int3;
     __weak IBOutlet UILabel *ext3;
-    __weak IBOutlet UIImageView *rating3;
+    __weak IBOutlet UIImageView *averageRatingForMenu3;
     
+    
+    IBOutlet UIScrollView *ratescroller1;
+    IBOutlet UIScrollView *ratescroller2;
     IBOutlet UIScrollView *ratescroller3;
 }
 
