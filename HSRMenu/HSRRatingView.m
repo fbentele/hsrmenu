@@ -7,8 +7,10 @@
 //
 
 #import "HSRRatingView.h"
+#import "DLStarRatingControl.h"
 
 @implementation HSRRatingView
+@synthesize ratingControl;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -20,34 +22,24 @@
         [myrating setBackgroundColor:[UIColor clearColor]];
         [myrating setTextColor:[UIColor whiteColor]];
         
-        ratebutton1 = [[UIButton alloc] initWithFrame:CGRectMake(85, 50, 40, 35)];
-        [ratebutton1 setBackgroundImage:[UIImage imageNamed:@"astar_blank.png"] forState:UIControlStateNormal];
-        
-        ratebutton2 = [[UIButton alloc] initWithFrame:CGRectMake(130, 50, 40, 35)];
-        [ratebutton2 setBackgroundImage:[UIImage imageNamed:@"astar_blank.png"] forState:UIControlStateNormal];
-        
-        ratebutton3 = [[UIButton alloc] initWithFrame:CGRectMake(175, 50, 40, 35)];
-        [ratebutton3 setBackgroundImage:[UIImage imageNamed:@"astar_blank.png"] forState:UIControlStateNormal];
-        
-        ratebutton4 = [[UIButton alloc] initWithFrame:CGRectMake(220, 50, 40, 35)];
-        [ratebutton4 setBackgroundImage:[UIImage imageNamed:@"astar_blank.png"] forState:UIControlStateNormal];
-        
-        ratebutton5 = [[UIButton alloc] initWithFrame:CGRectMake(265, 50, 40, 35)];
-        [ratebutton5 setBackgroundImage:[UIImage imageNamed:@"astar_blank.png"] forState:UIControlStateNormal];
-        
+        ratingControl = [[DLStarRatingControl alloc] initWithFrame:CGRectMake(85, 50, 220, 70) andStars:5 isFractional:NO];
+        [ratingControl setTag:0];
         backgroundImageView=[[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 134)];
         background = [UIImage imageNamed:@"menu_background.png"];
         [backgroundImageView setImage:background];
         
         [self addSubview:backgroundImageView];
         [self addSubview:myrating];
-        [self addSubview:ratebutton1];
-        [self addSubview:ratebutton2];
-        [self addSubview:ratebutton3];
-        [self addSubview:ratebutton4];
-        [self addSubview:ratebutton5];
+        [self addSubview:ratingControl];
     }
     return self;
 }
+
+-(void) setTag:(NSInteger)menuid
+{
+    [[self ratingControl] setTag:menuid];
+}
+
+
 
 @end

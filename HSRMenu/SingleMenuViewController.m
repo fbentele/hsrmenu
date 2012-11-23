@@ -9,8 +9,6 @@
 #import "HSRFirstViewController.h"
 #import "ODRefreshControl.h"
 #import "HSRMenuBrain.h"
-#import "HSRRatingViewController.h"
-#import "HSRRatingView.h"
 
 
 @interface SingleMenuViewController (){
@@ -26,15 +24,6 @@
 @synthesize scroller, currentday, plistPath, ratescroller3;
 @synthesize refresher = _refresher;
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -47,10 +36,7 @@
     NSArray *weekdays = [NSArray arrayWithObjects:@" ", @"Montag", @"Dienstag", @"Mittwoch", @"Donnerstag", @"Freitag", nil];
     [titlebartitle setTitle:[weekdays objectAtIndex:currentday]];
     
-    
-    //Not enforceing a reload
     [self refreshValues:YES];
-    
     
     UIImage *tempimage = [UIImage imageNamed:@"menu_background.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:tempimage];
@@ -66,10 +52,10 @@
     [ratescroller3 addSubview:ext3];
     [ratescroller3 addSubview:averageRatingForMenu3];
     
-    HSRRatingView *rater3 = [[HSRRatingView alloc] initWithFrame:CGRectMake(320, 0, 320, 134)];
+    rater3 = [[HSRRatingView alloc] initWithFrame:CGRectMake(320, 0, 320, 134)];
+    [[rater3 ratingControl] setDelegate:self];
     [ratescroller3 addSubview:rater3];
     [ratescroller3 setContentSize:CGSizeMake((2 * 320), [ratescroller3 bounds].size.height)];
-    
     
     UIImageView *secondMenu = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 134)];
     [secondMenu setImage:[UIImage imageNamed:@"menu_background.png"]];
@@ -79,7 +65,8 @@
     [ratescroller2 addSubview:ext2];
     [ratescroller2 addSubview:averageRatingForMenu2];
     
-    HSRRatingView *rater2 = [[HSRRatingView alloc] initWithFrame:CGRectMake(320, 0, 320, 134)];
+    rater2 = [[HSRRatingView alloc] initWithFrame:CGRectMake(320, 0, 320, 134)];
+    [[rater2 ratingControl] setDelegate:self];
     [ratescroller2 addSubview:rater2];
     [ratescroller2 setContentSize:CGSizeMake((2 * 320), 134)];
     
@@ -92,14 +79,10 @@
     [ratescroller1 addSubview:ext1];
     [ratescroller1 addSubview:averageRatingForMenu1];
     
-    HSRRatingView *rater1 = [[HSRRatingView alloc] initWithFrame:CGRectMake(320, 0, 320, 134)];
+    rater1 = [[HSRRatingView alloc] initWithFrame:CGRectMake(320, 0, 320, 134)];
+    [[rater1 ratingControl] setDelegate:self];
     [ratescroller1 addSubview:rater1];
     [ratescroller1 setContentSize:CGSizeMake((2 * 320), 134)];
-
-    
-    
-    
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -118,18 +101,21 @@
     
     NSDictionary *item = [menu objectAtIndex:0];
     if ([menu count] == 5){
+        [rater1 setTag:[[item objectForKey:@"menuid"] integerValue]];
         [menucontent1 setText:[item objectForKey:@"menu"]];
         [int1 setText:[item objectForKey:@"priceint"]];
         [ext1 setText:[item objectForKey:@"priceext"]];
         [averageRatingForMenu1 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
         
         item = [menu objectAtIndex:3];
+        [rater2 setTag:[[item objectForKey:@"menuid"] integerValue]];
         [menucontent2 setText:[item objectForKey:@"menu"]];
         [int2 setText:[item objectForKey:@"priceint"]];
         [ext2 setText:[item objectForKey:@"priceext"]];
         [averageRatingForMenu2 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
 
         item = [menu objectAtIndex:1];
+        [rater3 setTag:[[item objectForKey:@"menuid"] integerValue]];
         [menucontent3 setText:[item objectForKey:@"menu"]];
         [int3 setText:[item objectForKey:@"priceint"]];
         [ext3 setText:[item objectForKey:@"priceext"]];
@@ -164,21 +150,14 @@
     [[self refresher] endRefreshing];
 }
 
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if ([segue.identifier isEqualToString:@"RateMenu"]){
-        
-        NSArray *menutoday = [model menuforday:currentday enforcedReload:NO];
-        NSDictionary *dict = [menutoday objectAtIndex:0];
-        
-        [segue.destinationViewController setMenuid:[[dict objectForKey:@"menuid"] intValue]];
-    }
+-(void)newRating:(DLStarRatingControl *)control :(float)rating {
+    int myrating = rating;
+    NSLog(@"the rating comes from%d", [control tag]);
+    NSLog(@"rating is %d ", myrating);
+    
+    [model rateMenu:[control tag] withRating:myrating];
 }
 
-- (IBAction)ratingTouched:(id)sender {
-    [self performSegueWithIdentifier:@"RateMenu" sender:self];
-}
 
 
 - (void)viewDidUnload

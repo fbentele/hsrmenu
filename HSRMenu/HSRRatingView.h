@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DLStarRatingControl.h"
 
 @interface HSRRatingView : UIView{
     UIImage *background;
@@ -19,5 +20,9 @@
     UIButton *ratebutton4;
     UIButton *ratebutton5;
 }
+
+@property (nonatomic, strong) DLStarRatingControl *ratingControl;
+
+-(void) setTag:(NSInteger)menuid;
 
 @end

@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "HSRMenuBrain.h"
+#import "DLStarRatingControl.h"
+#import "HSRRatingView.h"
 
 
-@interface SingleMenuViewController : UIViewController{
+@interface SingleMenuViewController : UIViewController<DLStarRatingDelegate>{
     NSMutableData *data;
     HSRMenuBrain *model;
     
@@ -37,6 +39,10 @@
     IBOutlet UIScrollView *ratescroller1;
     IBOutlet UIScrollView *ratescroller2;
     IBOutlet UIScrollView *ratescroller3;
+    
+    HSRRatingView *rater3;
+    HSRRatingView *rater2;
+    HSRRatingView *rater1;
 }
 
 @property (nonatomic, retain) UIView *ratescroller3;

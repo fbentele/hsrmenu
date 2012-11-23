@@ -15,5 +15,6 @@
 }
 
 -(NSMutableArray *) menuforday:(int)day enforcedReload:(BOOL)forced;
-
+-(int) menuidForDay:(int)day;
+-(void) rateMenu:(int)menuid withRating:(int)rating;
 @end

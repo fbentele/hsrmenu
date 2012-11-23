@@ -18,8 +18,14 @@
     
     if (![self loadMenusFromPersistencyLayerIfAvailable:day] || forced){
         [self initJsonConnection:day];
-    }    
+    }
     return menu;
+}
+
+-(int) menuidForDay:(int)day
+{
+    NSNumber *menuid = [menu objectAtIndex:0];
+    return [menuid intValue];
 }
 
 
@@ -93,6 +99,26 @@
     return NO;
 }
 
+-(void)rateMenu:(int)menuid withRating:(int)rating
+{
+    NSString *post = [[NSString alloc] initWithFormat:@"menuid=%d&rating=%d", menuid, rating];
+    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    
+    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:@"http://florian.bentele.me/HSRMenu/api.php"]];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody:postData];
+    
+    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@", returnString);
+    NSLog(@"i posted to the server %@", post);
+}
 
 - (void)safeMenusToFile{
     [menu writeToFile:plistPath atomically:YES];

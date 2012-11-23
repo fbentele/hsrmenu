@@ -9,17 +9,16 @@
 #import "HSRFirstViewController.h"
 #import "SingleMenuViewController.h"
 #import "ODRefreshControl.h"
-#import "HSRCustomCell.h"
 
 
 @interface HSRFirstViewController ()
 @property (nonatomic) int day;
 @property (strong, nonatomic) IBOutlet UITableView *thetable;
-@property (weak, nonatomic) IBOutlet HSRCustomCell *monday;
-@property (weak, nonatomic) IBOutlet HSRCustomCell *tuesday;
-@property (weak, nonatomic) IBOutlet HSRCustomCell *wednesday;
-@property (weak, nonatomic) IBOutlet HSRCustomCell *thursday;
-@property (weak, nonatomic) IBOutlet HSRCustomCell *friday;
+@property (weak, nonatomic) IBOutlet UITableViewCell *monday;
+@property (weak, nonatomic) IBOutlet UITableViewCell *tuesday;
+@property (weak, nonatomic) IBOutlet UITableViewCell *wednesday;
+@property (weak, nonatomic) IBOutlet UITableViewCell *thursday;
+@property (weak, nonatomic) IBOutlet UITableViewCell *friday;
 
 @property (strong, nonatomic) NSMutableArray *week;
 @end
