@@ -8,11 +8,10 @@
 #import "SingleMenuViewController.h"
 #import "HSRFirstViewController.h"
 #import "ODRefreshControl.h"
-#import "HSRMenuBrain.h"
+#import "HSRMenuConnection.h"
 
 
 @interface SingleMenuViewController (){
-    ODRefreshControl *_refresher;
 }
 @property (weak, nonatomic) IBOutlet UIScrollView *scroller;
 @property (nonatomic) int currentday;
@@ -21,14 +20,14 @@
 @end
 
 @implementation SingleMenuViewController
-@synthesize scroller, currentday, plistPath, ratescroller3;
-@synthesize refresher = _refresher;
+@synthesize scroller, currentday, plistPath, ratescroller3, refresher;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    model = [[HSRMenuBrain alloc] init];
+    menuConnection = [[HSRMenuConnection alloc] init];
+    [menuConnection setDelegate:self];
     
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.scroller];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
@@ -97,8 +96,8 @@
 
 - (void)refreshValues:(BOOL)enforced
 {
-    NSMutableArray *menu = [model menuforday:currentday enforcedReload:enforced];
-    
+    NSMutableArray *menu = [menuConnection menuforday:currentday enforcedReload:enforced];
+
     NSDictionary *item = [menu objectAtIndex:0];
     if ([menu count] == 5){
         [rater1 setTag:[[item objectForKey:@"menuid"] integerValue]];
@@ -147,7 +146,6 @@
 {
     [self refreshValues:YES];
     [self setRefresher:refreshControl];
-    [[self refresher] endRefreshing];
 }
 
 -(void)newRating:(DLStarRatingControl *)control :(float)rating {
@@ -155,10 +153,21 @@
     NSLog(@"the rating comes from%d", [control tag]);
     NSLog(@"rating is %d ", myrating);
     
-    [model rateMenu:[control tag] withRating:myrating];
+    [menuConnection rateMenu:[control tag] withRating:myrating];
 }
 
+-(void)didFailLoading:(HSRMenuConnection *)sender {
+    [refresher endRefreshing];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    UIAlertView *noconnection = [[UIAlertView alloc] initWithTitle:@"Keine Verbindung" message:@"Es wurden keine neuen Daten geladen, da keine Verbindung zum Server aufgebaut werden konnte" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+    [noconnection show];
+}
 
+-(void)didFinishLoading:(HSRMenuConnection *)sender withNewMenu:(NSMutableArray *)menu
+{
+    [refresher endRefreshing];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
 
 - (void)viewDidUnload
 {

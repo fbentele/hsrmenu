@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "HSRMenuBrain.h"
+#import "HSRMenuConnection.h"
 #import "DLStarRatingControl.h"
 #import "HSRRatingView.h"
 
 
-@interface SingleMenuViewController : UIViewController<DLStarRatingDelegate>{
-    NSMutableData *data;
-    HSRMenuBrain *model;
+@interface SingleMenuViewController : UIViewController<DLStarRatingDelegate, HSRMenuConnectionDelegate>{
+    
+    NSMutableData *data;    
+    HSRMenuConnection *menuConnection;
     
     __weak IBOutlet UINavigationItem *titlebartitle;
     

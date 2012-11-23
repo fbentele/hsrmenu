@@ -7,8 +7,6 @@
 //
 
 #import "BadgeViewController.h"
-#import "KeychainItemWrapper.h"
-#import "NSData+Base64.h"
 #import "ODRefreshControl.h"
 #import "HSRBadgeConnection.h"
 
@@ -74,7 +72,6 @@
 -(void)didFailLoading:(HSRBadgeConnection *)sender{
     [refresher endRefreshing];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-
     UIAlertView *noconnection = [[UIAlertView alloc] initWithTitle:@"Keine Verbindung" message:@"Es wurden keine neuen Daten geladen, da keine Verbindung zum Server aufgebaut werden konnte" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
     [noconnection show];
 }

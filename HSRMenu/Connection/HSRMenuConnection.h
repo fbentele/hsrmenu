@@ -8,11 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-@interface HSRMenuBrain : NSObject {
+@class HSRMenuConnection;
+
+@protocol HSRMenuConnectionDelegate
+-(void)didFinishLoading:(HSRMenuConnection *)sender withNewMenu:(NSMutableArray *)menu;
+-(void)didFailLoading:(HSRMenuConnection *)sender;
+@end
+
+@interface HSRMenuConnection : NSObject {
     NSMutableData *data;
     NSMutableArray *menu;
     NSString *plistPath;
 }
+
+@property (nonatomic, weak) id <HSRMenuConnectionDelegate> delegate;
 
 -(NSMutableArray *) menuforday:(int)day enforcedReload:(BOOL)forced;
 -(int) menuidForDay:(int)day;

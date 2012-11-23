@@ -41,7 +41,7 @@
 		5C4BBFBD164D333400BF4843 /* single2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4BBFB9164D333400BF4843 /* single2@2x.png */; };
 		5C4BBFBE164D333400BF4843 /* single3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4BBFBA164D333400BF4843 /* single3.png */; };
 		5C4BBFBF164D333400BF4843 /* single3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4BBFBB164D333400BF4843 /* single3@2x.png */; };
-		5C4BBFC2164D36E900BF4843 /* HSRMenuBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4BBFC1164D36E900BF4843 /* HSRMenuBrain.m */; };
+		5C4BBFC2164D36E900BF4843 /* HSRMenuConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4BBFC1164D36E900BF4843 /* HSRMenuConnection.m */; };
 		5C85F453163E6AAF00764B46 /* icon_iphone_high.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C85F452163E6AAF00764B46 /* icon_iphone_high.png */; };
 		5C85F456163E6AB900764B46 /* icon_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C85F455163E6AB900764B46 /* icon_iphone.png */; };
 		5C85F458163EBB5000764B46 /* badgesaldo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C85F457163EBB5000764B46 /* badgesaldo.png */; };
@@ -133,8 +133,8 @@
 		5C4BBFB9164D333400BF4843 /* single2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single2@2x.png"; sourceTree = "<group>"; };
 		5C4BBFBA164D333400BF4843 /* single3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single3.png; sourceTree = "<group>"; };
 		5C4BBFBB164D333400BF4843 /* single3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single3@2x.png"; sourceTree = "<group>"; };
-		5C4BBFC0164D36E900BF4843 /* HSRMenuBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HSRMenuBrain.h; path = Connection/HSRMenuBrain.h; sourceTree = "<group>"; };
-		5C4BBFC1164D36E900BF4843 /* HSRMenuBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HSRMenuBrain.m; path = Connection/HSRMenuBrain.m; sourceTree = "<group>"; };
+		5C4BBFC0164D36E900BF4843 /* HSRMenuConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HSRMenuConnection.h; path = Connection/HSRMenuConnection.h; sourceTree = "<group>"; };
+		5C4BBFC1164D36E900BF4843 /* HSRMenuConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HSRMenuConnection.m; path = Connection/HSRMenuConnection.m; sourceTree = "<group>"; };
 		5C85F452163E6AAF00764B46 /* icon_iphone_high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone_high.png; path = ../icon_iphone_high.png; sourceTree = "<group>"; };
 		5C85F455163E6AB900764B46 /* icon_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone.png; path = ../icon_iphone.png; sourceTree = "<group>"; };
 		5C85F457163EBB5000764B46 /* badgesaldo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = badgesaldo.png; sourceTree = "<group>"; };
@@ -287,10 +287,10 @@
 		5C4BBFC3164D36F300BF4843 /* Connection */ = {
 			isa = PBXGroup;
 			children = (
-				5C4BBFC1164D36E900BF4843 /* HSRMenuBrain.m */,
 				5CDB2355165E875800975DAE /* HSRBadgeConnection.h */,
 				5CDB2356165E875800975DAE /* HSRBadgeConnection.m */,
-				5C4BBFC0164D36E900BF4843 /* HSRMenuBrain.h */,
+				5C4BBFC0164D36E900BF4843 /* HSRMenuConnection.h */,
+				5C4BBFC1164D36E900BF4843 /* HSRMenuConnection.m */,
 			);
 			name = Connection;
 			sourceTree = "<group>";
@@ -620,7 +620,7 @@
 				5C922B18162C565B003D9A85 /* ODRefreshControl.m in Sources */,
 				5CAAD292163541B00049E055 /* KeychainItemWrapper.m in Sources */,
 				5CAAD29516355DAD0049E055 /* NSData+Base64.m in Sources */,
-				5C4BBFC2164D36E900BF4843 /* HSRMenuBrain.m in Sources */,
+				5C4BBFC2164D36E900BF4843 /* HSRMenuConnection.m in Sources */,
 				5C34D214165522EB00760F19 /* HSRRatingView.m in Sources */,
 				5CACD457165A3FD20021ECA4 /* DLStarRatingControl.m in Sources */,
 				5CACD458165A3FD20021ECA4 /* DLStarView.m in Sources */,

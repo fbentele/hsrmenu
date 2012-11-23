@@ -19,7 +19,6 @@
 {
     NSMutableData *data;
     NSString *plistPath;
-    NSObject *thesender;
 }
 
 @property (nonatomic, weak) id <HSRBadgeConnectionDelegate> delegate;
@@ -27,6 +26,5 @@
 
 -(float)getSaldoIfPossible:(BOOL)enforced;
 -(NSNumber *)getTimestamp;
-
 
 @end

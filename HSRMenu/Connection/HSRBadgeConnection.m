@@ -9,7 +9,6 @@
 #import "HSRBadgeConnection.h"
 #import "KeychainItemWrapper.h"
 #import "NSData+Base64.h"
-#import "ODRefreshControl.h"
 
 @implementation HSRBadgeConnection
 @synthesize delegate, badgedata;
@@ -21,7 +20,7 @@
 }
 
 -(float)getSaldoIfPossible:(BOOL)enforced {
-    if ([self loadSaldoFromCache] && !enforced){
+    if ([self loadSaldoFromCache] || !enforced){
         NSLog(@"[Info] I delivered cachedata");
         return [[badgedata objectAtIndex:0] floatValue];
     } else {
@@ -35,7 +34,6 @@
 -(NSNumber *)getTimestamp{
     return [badgedata objectAtIndex:1];
 }
-
 
 //connection
 - (void)initJsonConnection
@@ -54,7 +52,6 @@
     NSData *authData = [authStr dataUsingEncoding:NSASCIIStringEncoding];
     NSString *authValue = [NSString stringWithFormat:@"Basic %@", [authData base64EncodedString]];
     [request setValue:authValue forHTTPHeaderField:@"Authorization"];
-    
     (void) [[NSURLConnection alloc] initWithRequest:request delegate:self];
 }
 
@@ -110,7 +107,7 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    NSLog(@"%@", error);
+    //NSLog(@"%@", error);
     [[self delegate] didFailLoading:self];
 }
 
@@ -120,16 +117,16 @@
     plistPath = [[NSString alloc] initWithString:[plistDirectory stringByAppendingPathComponent:@"badge.plist"]];
 
     if([[NSFileManager defaultManager] fileExistsAtPath:plistPath]){
-        //NSLog(@"[Info] plist ok, and readable");
+        NSLog(@"[Info] plist ok, and readable");
         badgedata =[NSMutableArray arrayWithContentsOfFile:plistPath];
         if ([badgedata count] >= 2) {
             int cachetime =[[badgedata objectAtIndex:1] intValue];
             int now = (int)[[NSDate date]timeIntervalSince1970];
             if (cachetime + 3600 > now){
-                //NSLog(@"[Info] cache is fresh, no connection needed");
+                NSLog(@"[Info] cache is fresh, no connection needed");
                 return YES;
             } else {
-                //NSLog(@"[Info] cache is old, update needed");
+                NSLog(@"[Info] cache is old, update needed");
                 return NO;
             }
         }
