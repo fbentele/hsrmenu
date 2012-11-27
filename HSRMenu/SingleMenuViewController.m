@@ -6,7 +6,6 @@
 //  Copyright (c) 2012 Florian Bentele. All rights reserved.
 
 #import "SingleMenuViewController.h"
-#import "HSRFirstViewController.h"
 #import "ODRefreshControl.h"
 #import "HSRMenuConnection.h"
 
@@ -35,7 +34,7 @@
     NSArray *weekdays = [NSArray arrayWithObjects:@" ", @"Montag", @"Dienstag", @"Mittwoch", @"Donnerstag", @"Freitag", nil];
     [titlebartitle setTitle:[weekdays objectAtIndex:currentday]];
     
-    [self refreshValues:YES];
+    [self refreshValues:NO];
     
     UIImage *tempimage = [UIImage imageNamed:@"menu_background.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:tempimage];
@@ -94,10 +93,49 @@
     currentday = theday;
 }
 
+
 - (void)refreshValues:(BOOL)enforced
 {
     NSMutableArray *menu = [menuConnection menuforday:currentday enforcedReload:enforced];
+    [self updateUi:menu];
+    
+}
 
+-(UIImage *)getRatingImage:(id)stars
+{
+    int i = [stars integerValue];
+    NSArray *rating = [NSArray arrayWithObjects:@"stars0.png", @"stars1.png", @"stars2.png", @"stars3.png", @"stars4.png", @"stars5.png", nil];
+    return [UIImage imageNamed:[rating objectAtIndex:i]];
+}
+
+- (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
+{
+    [self refreshValues:YES];
+    [self setRefresher:refreshControl];
+}
+
+-(void)newRating:(DLStarRatingControl *)control :(float)rating {
+//    NSLog(@"the rating comes from%d", [control tag]);
+//    NSLog(@"rating is %d ", myrating);
+    [menuConnection rateMenu:[control tag] withRating:(int)rating];
+}
+
+-(void)didFailLoading:(HSRMenuConnection *)sender {
+    [refresher endRefreshing];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    UIAlertView *noconnection = [[UIAlertView alloc] initWithTitle:@"Keine Verbindung" message:@"Es wurden keine neuen Daten geladen, da keine Verbindung zum Server aufgebaut werden konnte" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+    [noconnection show];
+}
+
+-(void)didFinishLoading:(HSRMenuConnection *)sender withNewMenu:(NSMutableArray *)menu
+{
+    [refresher endRefreshing];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    [self updateUi:menu];
+}
+
+- (void)updateUi:(NSMutableArray *)menu
+{
     NSDictionary *item = [menu objectAtIndex:0];
     if ([menu count] == 5){
         [rater1 setTag:[[item objectForKey:@"menuid"] integerValue]];
@@ -112,7 +150,7 @@
         [int2 setText:[item objectForKey:@"priceint"]];
         [ext2 setText:[item objectForKey:@"priceext"]];
         [averageRatingForMenu2 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
-
+        
         item = [menu objectAtIndex:1];
         [rater3 setTag:[[item objectForKey:@"menuid"] integerValue]];
         [menucontent3 setText:[item objectForKey:@"menu"]];
@@ -130,44 +168,8 @@
         [int3 setText:@""];
         [ext3 setText:@""];
     }
-    
 }
 
--(UIImage *)getRatingImage:(id)stars
-{
-    int i = [stars integerValue];
-    NSArray *rating = [NSArray arrayWithObjects:@"stars0.png", @"stars1.png", @"stars2.png", @"stars3.png", @"stars4.png", @"stars5.png", nil];
-    return [UIImage imageNamed:[rating objectAtIndex:i]];
-}
-
-
-// pull to refresh
-- (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
-{
-    [self refreshValues:YES];
-    [self setRefresher:refreshControl];
-}
-
--(void)newRating:(DLStarRatingControl *)control :(float)rating {
-    int myrating = rating;
-    NSLog(@"the rating comes from%d", [control tag]);
-    NSLog(@"rating is %d ", myrating);
-    
-    [menuConnection rateMenu:[control tag] withRating:myrating];
-}
-
--(void)didFailLoading:(HSRMenuConnection *)sender {
-    [refresher endRefreshing];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    UIAlertView *noconnection = [[UIAlertView alloc] initWithTitle:@"Keine Verbindung" message:@"Es wurden keine neuen Daten geladen, da keine Verbindung zum Server aufgebaut werden konnte" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
-    [noconnection show];
-}
-
--(void)didFinishLoading:(HSRMenuConnection *)sender withNewMenu:(NSMutableArray *)menu
-{
-    [refresher endRefreshing];
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-}
 
 - (void)viewDidUnload
 {

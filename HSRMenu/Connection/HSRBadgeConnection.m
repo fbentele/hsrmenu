@@ -13,29 +13,31 @@
 @implementation HSRBadgeConnection
 @synthesize delegate, badgedata;
 
--(id)init
+- (id) init
 {
     self = [super init];
+    
+    if (self != nil)
+    {
+        NSString *plistDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        plistPath = [[NSString alloc] initWithString:[plistDirectory stringByAppendingPathComponent:@"badge.plist"]];
+    }
     return self;
 }
 
 -(float)getSaldoIfPossible:(BOOL)enforced {
-    if ([self loadSaldoFromCache] || !enforced){
-        NSLog(@"[Info] I delivered cachedata");
+    if ([self loadSaldoFromCache] && !enforced){
         return [[badgedata objectAtIndex:0] floatValue];
     } else {
         [self initJsonConnection];
-        NSLog(@"[Info] I delivered fresh data");
-        return [[badgedata objectAtIndex:0] floatValue];
     }
-    return 0;
+    return -1;
 }
 
 -(NSNumber *)getTimestamp{
     return [badgedata objectAtIndex:1];
 }
 
-//connection
 - (void)initJsonConnection
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -56,7 +58,6 @@
 }
 
 
-//delegate part
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
     return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
 }
@@ -67,14 +68,15 @@
         [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
     } else {
         [[challenge sender] cancelAuthenticationChallenge:challenge];
-        UIAlertView *wrongpass = [[UIAlertView alloc] initWithTitle:@"Login fehlgeschlagen" message:@"Benutzername oder Kennwort falsch" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
-        [wrongpass show];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
+    NSHTTPURLResponse *urlresponse = (NSHTTPURLResponse *) response;
+    NSLog(@"http status code is %d", [urlresponse statusCode]);
+    statuscode = [urlresponse statusCode];
     data = [[NSMutableData alloc] init];
 }
 
@@ -86,36 +88,35 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    //eye candy
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    NSNumber *timestamp = 0;
+    float saldo=0;
     
-    NSError *e =nil;
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error: &e];
-    if (!e){
-        //NSLog(@"[Info] new saldo received: %@", [json objectForKey:@"badgeSaldo"]);
+    if (statuscode == 200) {
+        NSError *e =nil;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error: &e];
         NSMutableArray *temp = [[NSMutableArray alloc] init];
-        [temp addObject:[json objectForKey:@"badgeSaldo"]];
-        [temp addObject:[NSNumber numberWithInt:[[NSDate date] timeIntervalSince1970]]];
-        badgedata = temp;
+        if (!e){
+            [temp addObject:[json objectForKey:@"badgeSaldo"]];
+            [temp addObject:[NSNumber numberWithInt:[[NSDate date] timeIntervalSince1970]]];
+        }
+        saldo = [[temp objectAtIndex:0] floatValue];
+        timestamp= [temp objectAtIndex:1];
+        [self writeSaldoToCache:temp];
+    } else {
+        UIAlertView *wrongpass = [[UIAlertView alloc] initWithTitle:@"Login fehlgeschlagen" message:@"Benutzername oder Kennwort falsch" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+        [wrongpass show];
     }
-    
-    float saldo = [[badgedata objectAtIndex:0] floatValue];
-    NSNumber *timestamp= [badgedata objectAtIndex:1];
-    
+
     [delegate didFinishLoading:self withNewSaldo:saldo andTimestamp:timestamp];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
-    //NSLog(@"%@", error);
     [[self delegate] didFailLoading:self];
 }
 
 - (BOOL)loadSaldoFromCache
 {
-    NSString *plistDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    plistPath = [[NSString alloc] initWithString:[plistDirectory stringByAppendingPathComponent:@"badge.plist"]];
-
     if([[NSFileManager defaultManager] fileExistsAtPath:plistPath]){
         NSLog(@"[Info] plist ok, and readable");
         badgedata =[NSMutableArray arrayWithContentsOfFile:plistPath];
@@ -134,10 +135,10 @@
     return NO;
 }
 
--(BOOL)writeSaldoToCache
+-(BOOL)writeSaldoToCache:(NSMutableArray *)cachedata
 {
-    //NSLog(@"[Info] writing badgedata to plist: %@", [badgedata description]);
-    return [badgedata writeToFile:plistPath atomically:YES];
+    NSLog(@"[Info] writing badgedata to plist: %@", [cachedata description]);
+    return [cachedata writeToFile:plistPath atomically:YES];
 }
 
 @end

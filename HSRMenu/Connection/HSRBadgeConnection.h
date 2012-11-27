@@ -19,6 +19,7 @@
 {
     NSMutableData *data;
     NSString *plistPath;
+    int statuscode;
 }
 
 @property (nonatomic, weak) id <HSRBadgeConnectionDelegate> delegate;

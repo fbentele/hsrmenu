@@ -60,19 +60,28 @@
 
 -(void)updateUiWith:(float)saldo and:(NSNumber *)timestamp
 {
-    NSString *nice = [[NSString alloc] initWithFormat:@"CHF %.2f", saldo];
-    [money setText:nice];
-    NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:[timestamp doubleValue]];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"dd.MM.yyyy"];
-    NSString *formattedDateString = [dateFormatter stringFromDate:date];
+    if (saldo != -1){
+        NSString *nice = [[NSString alloc] initWithFormat:@"CHF %.2f", saldo];
+        [money setText:nice];
+    }
+        
+    NSString *formattedDateString;
+    if (timestamp != 0){
+        NSDate *date = [[NSDate alloc] initWithTimeIntervalSince1970:[timestamp doubleValue]];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"dd.MM.yyyy"];
+        formattedDateString = [dateFormatter stringFromDate:date];
+    } else {
+        formattedDateString = @"unbekannt";
+    }
+    
     [lastupdate setText:[@"Stand: " stringByAppendingString: formattedDateString]];
 }
 
 -(void)didFailLoading:(HSRBadgeConnection *)sender{
     [refresher endRefreshing];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    UIAlertView *noconnection = [[UIAlertView alloc] initWithTitle:@"Keine Verbindung" message:@"Es wurden keine neuen Daten geladen, da keine Verbindung zum Server aufgebaut werden konnte" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+    UIAlertView *noconnection = [[UIAlertView alloc] initWithTitle:@"Keine Verbindung" message:@"Es wurden keine neuen Daten geladen, da keine Verbindung zum Server aufgebaut werden konnte, sind Sie nicht an der HSR?" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
     [noconnection show];
 }
 

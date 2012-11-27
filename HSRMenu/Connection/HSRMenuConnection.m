@@ -47,7 +47,6 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    //Parsing JSON
     NSError *e = nil;
     menu = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error: &e];
     if (e) {
@@ -69,24 +68,12 @@
     NSString *plistDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     plistPath = [plistDirectory stringByAppendingPathComponent:[[NSString alloc] initWithFormat:@"menus%d.plist", currentday]];
     if([[NSFileManager defaultManager] fileExistsAtPath:plistPath]){
-        NSLog(@"[Info] plist ok, and readable");
         menu = [NSMutableArray arrayWithContentsOfFile:plistPath];
         if ([menu count] > 4) {
             int cachetime =[[[menu objectAtIndex:4] objectForKey:@"time"] intValue];
             int now = (int)[[NSDate date ]timeIntervalSince1970];
-            NSLog(@"[Info] cachetime is:%d", cachetime);
-            NSLog(@"[Info] now is      :%d", now);
-            if (cachetime +3600 > now){
-                NSLog(@"[Info] cache is fresh, no connection needed");
-                return YES;
-            } else {
-                NSLog(@"[Info] cache is old, connection needed");
-                return NO;
-            }
+            return cachetime +3600 > now;
         }
-    } else {
-        NSLog(@"[Info] No Plist available");
-        return NO;
     }
     return NO;
 }
@@ -114,7 +101,6 @@
 
 - (void)safeMenusToFile{
     [menu writeToFile:plistPath atomically:YES];
-    NSLog(@"[Info] Plist written");
 }
 
 @end
