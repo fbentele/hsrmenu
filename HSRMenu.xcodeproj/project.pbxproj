@@ -365,11 +365,11 @@
 		5C95A3E41611F47000C74C28 /* HSRMenu */ = {
 			isa = PBXGroup;
 			children = (
-				5CACD432165A3AA10021ECA4 /* Views */,
-				5C15FD17161EB7D30088DE2F /* Ressources */,
 				5C95A3ED1611F47000C74C28 /* HSRAppDelegate.h */,
 				5C95A3EE1611F47000C74C28 /* HSRAppDelegate.m */,
 				5C95A3F61611F47000C74C28 /* MainStoryboard.storyboard */,
+				5C15FD17161EB7D30088DE2F /* Ressources */,
+				5CACD432165A3AA10021ECA4 /* Views */,
 				5C4BBFC4164D372200BF4843 /* ViewController */,
 				5C4BBFC3164D36F300BF4843 /* Connection */,
 				5C95A3E51611F47000C74C28 /* Supporting Files */,

@@ -32,10 +32,9 @@
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.scroller];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     
+    //Set Title
     NSArray *weekdays = [NSArray arrayWithObjects:@" ", @"Montag", @"Dienstag", @"Mittwoch", @"Donnerstag", @"Freitag", nil];
     [titlebartitle setTitle:[weekdays objectAtIndex:currentday]];
-
-    [self refreshValues:NO];
     
     UIImage *tempimage = [UIImage imageNamed:@"menu_background.png"];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:tempimage];
@@ -82,6 +81,8 @@
     [[rater1 ratingControl] setDelegate:self];
     [ratescroller1 addSubview:rater1];
     [ratescroller1 setContentSize:CGSizeMake((2 * 320), 134)];
+    
+    [self refreshValuesWithEnforcedReloading:NO];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,11 +96,10 @@
 }
 
 
-- (void)refreshValues:(BOOL)enforced
+- (void)refreshValuesWithEnforcedReloading:(BOOL)enforced
 {
     NSMutableArray *menu = [menuConnection menuforday:currentday enforcedReload:enforced];
     [self updateUi:menu];
-    
 }
 
 -(UIImage *)getRatingImage:(id)stars
@@ -111,7 +111,7 @@
 
 - (void)dropViewDidBeginRefreshing:(ODRefreshControl *)refreshControl
 {
-    [self refreshValues:YES];
+    [self refreshValuesWithEnforcedReloading:YES];
     [self setRefresher:refreshControl];
 }
 
@@ -183,10 +183,10 @@
     ext2 = nil;
     int3 = nil;
     ext3 = nil;
-    ratescroller3 = nil;
     averageRatingForMenu3 = nil;
     averageRatingForMenu2 = nil;
     averageRatingForMenu1 = nil;
+    ratescroller3 = nil;
     ratescroller2 = nil;
     ratescroller1 = nil;
     [super viewDidUnload];
