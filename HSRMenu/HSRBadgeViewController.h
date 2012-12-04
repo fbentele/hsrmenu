@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "HSRBadgeConnection.h"
 
-@interface BadgeViewController : UIViewController <HSRBadgeConnectionDelegate>{
+@interface HSRBadgeViewController : UIViewController <HSRBadgeConnectionDelegate>{
     
     __weak IBOutlet UILabel *money;
     __weak IBOutlet UILabel *lastupdate;

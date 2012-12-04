@@ -6,11 +6,11 @@
 //  Copyright (c) 2012 Florian Bentele. All rights reserved.
 //
 
-#import "BadgeViewController.h"
+#import "HSRBadgeViewController.h"
 #import "ODRefreshControl.h"
 #import "HSRBadgeConnection.h"
 
-@interface BadgeViewController (){
+@interface HSRBadgeViewController (){
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation BadgeViewController
+@implementation HSRBadgeViewController
 @synthesize  scrollView, refresher;
 
 - (void)viewDidLoad

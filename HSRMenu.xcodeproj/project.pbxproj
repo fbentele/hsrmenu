@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		5C08F19F1647F94C0031B244 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C08F19D1647F94C0031B244 /* settings.png */; };
 		5C08F1A01647F94C0031B244 /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C08F19E1647F94C0031B244 /* settings@2x.png */; };
-		5C0EBDA516173C4A00DFFFC9 /* SingleMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0EBDA416173C4A00DFFFC9 /* SingleMenuViewController.m */; };
+		5C0EBDA516173C4A00DFFFC9 /* HSRMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C0EBDA416173C4A00DFFFC9 /* HSRMenuViewController.m */; };
 		5C0FCCD51652919800C901AF /* stars0.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C0FCCC91652919700C901AF /* stars0.png */; };
 		5C0FCCD61652919800C901AF /* stars0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C0FCCCA1652919700C901AF /* stars0@2x.png */; };
 		5C0FCCD71652919800C901AF /* stars1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C0FCCCB1652919700C901AF /* stars1.png */; };
@@ -24,7 +24,7 @@
 		5C0FCCE01652919800C901AF /* stars5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C0FCCD41652919800C901AF /* stars5@2x.png */; };
 		5C0FCCE316529D5E00C901AF /* astar_blank.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C0FCCE116529D5E00C901AF /* astar_blank.png */; };
 		5C0FCCE416529D5E00C901AF /* astar.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C0FCCE216529D5E00C901AF /* astar.png */; };
-		5C15FD15161DD7F90088DE2F /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C15FD14161DD7F90088DE2F /* SettingsViewController.m */; };
+		5C15FD15161DD7F90088DE2F /* HSRSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C15FD14161DD7F90088DE2F /* HSRSettingsViewController.m */; };
 		5C34D214165522EB00760F19 /* HSRRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C34D213165522EB00760F19 /* HSRRatingView.m */; };
 		5C34D2181655314200760F19 /* banner_menu1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C34D2161655314200760F19 /* banner_menu1.png */; };
 		5C34D2191655314200760F19 /* banner_menu2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C34D2171655314200760F19 /* banner_menu2.png */; };
@@ -34,13 +34,6 @@
 		5C4698EB16495059007C6B4F /* navbar_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4698E916495059007C6B4F /* navbar_badge@2x.png */; };
 		5C4698EE16495120007C6B4F /* navbar_settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4698EC16495120007C6B4F /* navbar_settings.png */; };
 		5C4698EF16495120007C6B4F /* navbar_settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4698ED16495120007C6B4F /* navbar_settings@2x.png */; };
-		5C4BBFB3164C0C6A00BF4843 /* rating.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4BBFB2164C0C6A00BF4843 /* rating.png */; };
-		5C4BBFB6164D31CA00BF4843 /* single1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4BBFB4164D31CA00BF4843 /* single1.png */; };
-		5C4BBFB7164D31CA00BF4843 /* single1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4BBFB5164D31CA00BF4843 /* single1@2x.png */; };
-		5C4BBFBC164D333400BF4843 /* single2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4BBFB8164D333400BF4843 /* single2.png */; };
-		5C4BBFBD164D333400BF4843 /* single2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4BBFB9164D333400BF4843 /* single2@2x.png */; };
-		5C4BBFBE164D333400BF4843 /* single3.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4BBFBA164D333400BF4843 /* single3.png */; };
-		5C4BBFBF164D333400BF4843 /* single3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C4BBFBB164D333400BF4843 /* single3@2x.png */; };
 		5C4BBFC2164D36E900BF4843 /* HSRMenuConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C4BBFC1164D36E900BF4843 /* HSRMenuConnection.m */; };
 		5C85F453163E6AAF00764B46 /* icon_iphone_high.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C85F452163E6AAF00764B46 /* icon_iphone_high.png */; };
 		5C85F456163E6AB900764B46 /* icon_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 5C85F455163E6AB900764B46 /* icon_iphone.png */; };
@@ -61,7 +54,7 @@
 		5C95A3EF1611F47000C74C28 /* HSRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C95A3EE1611F47000C74C28 /* HSRAppDelegate.m */; };
 		5C95A3F81611F47000C74C28 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C95A3F61611F47000C74C28 /* MainStoryboard.storyboard */; };
 		5C95A3FB1611F47000C74C28 /* HSRFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C95A3FA1611F47000C74C28 /* HSRFirstViewController.m */; };
-		5C95A4021611F47000C74C28 /* BadgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C95A4011611F47000C74C28 /* BadgeViewController.m */; };
+		5C95A4021611F47000C74C28 /* HSRBadgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C95A4011611F47000C74C28 /* HSRBadgeViewController.m */; };
 		5C95A40E1611F47000C74C28 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C95A40D1611F47000C74C28 /* SenTestingKit.framework */; };
 		5C95A40F1611F47000C74C28 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C95A3DE1611F47000C74C28 /* UIKit.framework */; };
 		5C95A4101611F47000C74C28 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C95A3E01611F47000C74C28 /* Foundation.framework */; };
@@ -98,8 +91,8 @@
 /* Begin PBXFileReference section */
 		5C08F19D1647F94C0031B244 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		5C08F19E1647F94C0031B244 /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
-		5C0EBDA316173C4A00DFFFC9 /* SingleMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleMenuViewController.h; sourceTree = "<group>"; };
-		5C0EBDA416173C4A00DFFFC9 /* SingleMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleMenuViewController.m; sourceTree = "<group>"; };
+		5C0EBDA316173C4A00DFFFC9 /* HSRMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSRMenuViewController.h; sourceTree = "<group>"; };
+		5C0EBDA416173C4A00DFFFC9 /* HSRMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSRMenuViewController.m; sourceTree = "<group>"; };
 		5C0FCCC91652919700C901AF /* stars0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars0.png; sourceTree = "<group>"; };
 		5C0FCCCA1652919700C901AF /* stars0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars0@2x.png"; sourceTree = "<group>"; };
 		5C0FCCCB1652919700C901AF /* stars1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars1.png; sourceTree = "<group>"; };
@@ -114,8 +107,8 @@
 		5C0FCCD41652919800C901AF /* stars5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stars5@2x.png"; sourceTree = "<group>"; };
 		5C0FCCE116529D5E00C901AF /* astar_blank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = astar_blank.png; sourceTree = "<group>"; };
 		5C0FCCE216529D5E00C901AF /* astar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = astar.png; sourceTree = "<group>"; };
-		5C15FD13161DD7F90088DE2F /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		5C15FD14161DD7F90088DE2F /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		5C15FD13161DD7F90088DE2F /* HSRSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSRSettingsViewController.h; sourceTree = "<group>"; };
+		5C15FD14161DD7F90088DE2F /* HSRSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSRSettingsViewController.m; sourceTree = "<group>"; };
 		5C34D212165522EB00760F19 /* HSRRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HSRRatingView.h; sourceTree = "<group>"; };
 		5C34D213165522EB00760F19 /* HSRRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HSRRatingView.m; sourceTree = "<group>"; };
 		5C34D2161655314200760F19 /* banner_menu1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_menu1.png; sourceTree = "<group>"; };
@@ -126,13 +119,6 @@
 		5C4698E916495059007C6B4F /* navbar_badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_badge@2x.png"; sourceTree = "<group>"; };
 		5C4698EC16495120007C6B4F /* navbar_settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbar_settings.png; sourceTree = "<group>"; };
 		5C4698ED16495120007C6B4F /* navbar_settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navbar_settings@2x.png"; sourceTree = "<group>"; };
-		5C4BBFB2164C0C6A00BF4843 /* rating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rating.png; sourceTree = "<group>"; };
-		5C4BBFB4164D31CA00BF4843 /* single1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single1.png; sourceTree = "<group>"; };
-		5C4BBFB5164D31CA00BF4843 /* single1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single1@2x.png"; sourceTree = "<group>"; };
-		5C4BBFB8164D333400BF4843 /* single2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single2.png; sourceTree = "<group>"; };
-		5C4BBFB9164D333400BF4843 /* single2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single2@2x.png"; sourceTree = "<group>"; };
-		5C4BBFBA164D333400BF4843 /* single3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = single3.png; sourceTree = "<group>"; };
-		5C4BBFBB164D333400BF4843 /* single3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "single3@2x.png"; sourceTree = "<group>"; };
 		5C4BBFC0164D36E900BF4843 /* HSRMenuConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HSRMenuConnection.h; path = Connection/HSRMenuConnection.h; sourceTree = "<group>"; };
 		5C4BBFC1164D36E900BF4843 /* HSRMenuConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HSRMenuConnection.m; path = Connection/HSRMenuConnection.m; sourceTree = "<group>"; };
 		5C85F452163E6AAF00764B46 /* icon_iphone_high.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_iphone_high.png; path = ../icon_iphone_high.png; sourceTree = "<group>"; };
@@ -160,8 +146,8 @@
 		5C95A3F71611F47000C74C28 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		5C95A3F91611F47000C74C28 /* HSRFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSRFirstViewController.h; sourceTree = "<group>"; };
 		5C95A3FA1611F47000C74C28 /* HSRFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSRFirstViewController.m; sourceTree = "<group>"; };
-		5C95A4001611F47000C74C28 /* BadgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BadgeViewController.h; sourceTree = "<group>"; };
-		5C95A4011611F47000C74C28 /* BadgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BadgeViewController.m; sourceTree = "<group>"; };
+		5C95A4001611F47000C74C28 /* HSRBadgeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HSRBadgeViewController.h; sourceTree = "<group>"; };
+		5C95A4011611F47000C74C28 /* HSRBadgeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HSRBadgeViewController.m; sourceTree = "<group>"; };
 		5C95A40C1611F47000C74C28 /* HSRMenuTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HSRMenuTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C95A40D1611F47000C74C28 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		5C95A4151611F47000C74C28 /* HSRMenuTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "HSRMenuTests-Info.plist"; sourceTree = "<group>"; };
@@ -218,6 +204,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5C04FF54166DFE7600053A14 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5C08F19D1647F94C0031B244 /* settings.png */,
+				5C08F19E1647F94C0031B244 /* settings@2x.png */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		5C04FF55166DFE8C00053A14 /* Saldo */ = {
+			isa = PBXGroup;
+			children = (
+				5C85F467163ECED800764B46 /* badgerecent.png */,
+				5C85F468163ECED800764B46 /* badgerecent@2x.png */,
+				5C85F457163EBB5000764B46 /* badgesaldo.png */,
+				5C85F459163EBF1000764B46 /* badgesaldo@2x.png */,
+			);
+			name = Saldo;
+			sourceTree = "<group>";
+		};
+		5C04FF56166DFF5400053A14 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				5CAAD29316355DAD0049E055 /* NSData+Base64.h */,
+				5CAAD29416355DAD0049E055 /* NSData+Base64.m */,
+				5CAAD290163541B00049E055 /* KeychainItemWrapper.h */,
+				5CAAD291163541B00049E055 /* KeychainItemWrapper.m */,
+			);
+			name = Keychain;
+			sourceTree = "<group>";
+		};
 		5C0FCCC116527D3600C901AF /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,12 +258,6 @@
 				5C0FCCD41652919800C901AF /* stars5@2x.png */,
 				5C85F46F163EE14200764B46 /* start.png */,
 				5C85F470163EE14200764B46 /* start@2x.png */,
-				5C4BBFB8164D333400BF4843 /* single2.png */,
-				5C4BBFBA164D333400BF4843 /* single3.png */,
-				5C4BBFBB164D333400BF4843 /* single3@2x.png */,
-				5C4BBFB9164D333400BF4843 /* single2@2x.png */,
-				5C4BBFB4164D31CA00BF4843 /* single1.png */,
-				5C4BBFB5164D31CA00BF4843 /* single1@2x.png */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -298,14 +309,14 @@
 		5C4BBFC4164D372200BF4843 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5C0EBDA316173C4A00DFFFC9 /* SingleMenuViewController.h */,
-				5C0EBDA416173C4A00DFFFC9 /* SingleMenuViewController.m */,
-				5C15FD13161DD7F90088DE2F /* SettingsViewController.h */,
-				5C15FD14161DD7F90088DE2F /* SettingsViewController.m */,
+				5C0EBDA316173C4A00DFFFC9 /* HSRMenuViewController.h */,
+				5C0EBDA416173C4A00DFFFC9 /* HSRMenuViewController.m */,
+				5C15FD13161DD7F90088DE2F /* HSRSettingsViewController.h */,
+				5C15FD14161DD7F90088DE2F /* HSRSettingsViewController.m */,
 				5C95A3F91611F47000C74C28 /* HSRFirstViewController.h */,
 				5C95A3FA1611F47000C74C28 /* HSRFirstViewController.m */,
-				5C95A4001611F47000C74C28 /* BadgeViewController.h */,
-				5C95A4011611F47000C74C28 /* BadgeViewController.m */,
+				5C95A4001611F47000C74C28 /* HSRBadgeViewController.h */,
+				5C95A4011611F47000C74C28 /* HSRBadgeViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -369,11 +380,8 @@
 		5C95A3E51611F47000C74C28 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5C04FF56166DFF5400053A14 /* Keychain */,
 				5CACD43B165A3EC40021ECA4 /* StarRating */,
-				5CAAD29316355DAD0049E055 /* NSData+Base64.h */,
-				5CAAD29416355DAD0049E055 /* NSData+Base64.m */,
-				5CAAD290163541B00049E055 /* KeychainItemWrapper.h */,
-				5CAAD291163541B00049E055 /* KeychainItemWrapper.m */,
 				5C922B15162C565B003D9A85 /* ODRefreshControl */,
 				5C95A3E61611F47000C74C28 /* HSRMenu-Info.plist */,
 				5C95A3E71611F47000C74C28 /* InfoPlist.strings */,
@@ -440,16 +448,11 @@
 		5CFD5AF71614A28000B01324 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				5C04FF55166DFE8C00053A14 /* Saldo */,
+				5C04FF54166DFE7600053A14 /* Settings */,
 				5C0FCCC416527DD900C901AF /* AppIcons */,
 				5C0FCCC316527DBD00C901AF /* NavBar */,
 				5C0FCCC116527D3600C901AF /* Menu */,
-				5C4BBFB2164C0C6A00BF4843 /* rating.png */,
-				5C08F19D1647F94C0031B244 /* settings.png */,
-				5C08F19E1647F94C0031B244 /* settings@2x.png */,
-				5C85F467163ECED800764B46 /* badgerecent.png */,
-				5C85F468163ECED800764B46 /* badgerecent@2x.png */,
-				5C85F457163EBB5000764B46 /* badgesaldo.png */,
-				5C85F459163EBF1000764B46 /* badgesaldo@2x.png */,
 			);
 			name = Icons;
 			sourceTree = "<group>";
@@ -548,13 +551,6 @@
 				5C4698EB16495059007C6B4F /* navbar_badge@2x.png in Resources */,
 				5C4698EE16495120007C6B4F /* navbar_settings.png in Resources */,
 				5C4698EF16495120007C6B4F /* navbar_settings@2x.png in Resources */,
-				5C4BBFB3164C0C6A00BF4843 /* rating.png in Resources */,
-				5C4BBFB6164D31CA00BF4843 /* single1.png in Resources */,
-				5C4BBFB7164D31CA00BF4843 /* single1@2x.png in Resources */,
-				5C4BBFBC164D333400BF4843 /* single2.png in Resources */,
-				5C4BBFBD164D333400BF4843 /* single2@2x.png in Resources */,
-				5C4BBFBE164D333400BF4843 /* single3.png in Resources */,
-				5C4BBFBF164D333400BF4843 /* single3@2x.png in Resources */,
 				5C0FCCD51652919800C901AF /* stars0.png in Resources */,
 				5C0FCCD61652919800C901AF /* stars0@2x.png in Resources */,
 				5C0FCCD71652919800C901AF /* stars1.png in Resources */,
@@ -614,9 +610,9 @@
 				5C95A3EB1611F47000C74C28 /* main.m in Sources */,
 				5C95A3EF1611F47000C74C28 /* HSRAppDelegate.m in Sources */,
 				5C95A3FB1611F47000C74C28 /* HSRFirstViewController.m in Sources */,
-				5C95A4021611F47000C74C28 /* BadgeViewController.m in Sources */,
-				5C0EBDA516173C4A00DFFFC9 /* SingleMenuViewController.m in Sources */,
-				5C15FD15161DD7F90088DE2F /* SettingsViewController.m in Sources */,
+				5C95A4021611F47000C74C28 /* HSRBadgeViewController.m in Sources */,
+				5C0EBDA516173C4A00DFFFC9 /* HSRMenuViewController.m in Sources */,
+				5C15FD15161DD7F90088DE2F /* HSRSettingsViewController.m in Sources */,
 				5C922B18162C565B003D9A85 /* ODRefreshControl.m in Sources */,
 				5CAAD292163541B00049E055 /* KeychainItemWrapper.m in Sources */,
 				5CAAD29516355DAD0049E055 /* NSData+Base64.m in Sources */,

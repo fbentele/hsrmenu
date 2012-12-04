@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 Florian Bentele. All rights reserved.
 //
 
-#import "SettingsViewController.h"
+#import "HSRSettingsViewController.h"
 #import "KeychainItemWrapper.h"
 
-@interface SettingsViewController ()
+@interface HSRSettingsViewController ()
 @end
 
-@implementation SettingsViewController
+@implementation HSRSettingsViewController
 
 //hit 'next' in the keyboard an the keyboard disappears
 -(IBAction)textFieldReturn:(id)sender

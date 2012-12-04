@@ -7,7 +7,7 @@
 //
 
 #import "HSRFirstViewController.h"
-#import "SingleMenuViewController.h"
+#import "HSRMenuViewController.h"
 #import "ODRefreshControl.h"
 
 
@@ -31,10 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //[[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:NO];
-    //self.view.frame =
-    //[[UIApplication sharedApplication] setApplicationIconBadgeNumber:0];
-                       //[self.window screen.applicationFrame];
 
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.thetable];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];

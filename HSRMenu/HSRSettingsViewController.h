@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SettingsViewController : UIViewController {
+@interface HSRSettingsViewController : UIViewController {
     __weak IBOutlet UITextField *uiuser;
     __weak IBOutlet UITextField *uipass;
     

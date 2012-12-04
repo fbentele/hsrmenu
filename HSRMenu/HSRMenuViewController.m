@@ -5,20 +5,21 @@
 //  Created by Florian Bentele on 29.09.12.
 //  Copyright (c) 2012 Florian Bentele. All rights reserved.
 
-#import "SingleMenuViewController.h"
+#import "HSRMenuViewController.h"
 #import "ODRefreshControl.h"
 #import "HSRMenuConnection.h"
 
 
-@interface SingleMenuViewController (){
+@interface HSRMenuViewController (){
 }
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scroller;
 @property (nonatomic) int currentday;
 @property (strong, nonatomic, readwrite) NSString *plistPath;
 @property (strong, nonatomic) ODRefreshControl *refresher;
 @end
 
-@implementation SingleMenuViewController
+@implementation HSRMenuViewController
 @synthesize scroller, currentday, plistPath, ratescroller3, refresher;
 
 - (void)viewDidLoad
@@ -33,7 +34,7 @@
     
     NSArray *weekdays = [NSArray arrayWithObjects:@" ", @"Montag", @"Dienstag", @"Mittwoch", @"Donnerstag", @"Freitag", nil];
     [titlebartitle setTitle:[weekdays objectAtIndex:currentday]];
-    
+
     [self refreshValues:NO];
     
     UIImage *tempimage = [UIImage imageNamed:@"menu_background.png"];

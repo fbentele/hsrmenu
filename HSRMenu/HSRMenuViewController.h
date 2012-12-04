@@ -12,7 +12,7 @@
 #import "HSRRatingView.h"
 
 
-@interface SingleMenuViewController : UIViewController<DLStarRatingDelegate, HSRMenuConnectionDelegate>{
+@interface HSRMenuViewController : UIViewController<DLStarRatingDelegate, HSRMenuConnectionDelegate>{
     
     NSMutableData *data;    
     HSRMenuConnection *menuConnection;
