@@ -40,6 +40,11 @@
     [[self ratingControl] setTag:menuid];
 }
 
+-(void) setRating:(float)stars
+{
+    [ratingControl setRating:stars];
+}
+
 
 
 @end

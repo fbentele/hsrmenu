@@ -19,11 +19,14 @@
     NSMutableData *data;
     NSMutableArray *menu;
     NSString *plistPath;
+    NSUserDefaults *userratings;
+
+    BOOL hasrated;
 }
 
 @property (nonatomic, weak) id <HSRMenuConnectionDelegate> delegate;
 
 -(NSMutableArray *) menuforday:(int)day enforcedReload:(BOOL)forced;
 -(int) menuidForDay:(int)day;
--(void) rateMenu:(int)menuid withRating:(int)rating;
+-(BOOL) rateMenu:(int)menuid withRating:(int)rating;
 @end

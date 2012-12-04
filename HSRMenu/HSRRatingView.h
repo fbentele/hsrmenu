@@ -24,5 +24,6 @@
 @property (nonatomic, strong) DLStarRatingControl *ratingControl;
 
 -(void) setTag:(NSInteger)menuid;
+-(void) setRating:(float)stars;
 
 @end

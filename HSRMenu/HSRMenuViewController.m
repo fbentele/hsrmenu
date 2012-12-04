@@ -52,6 +52,7 @@
     
     rater3 = [[HSRRatingView alloc] initWithFrame:CGRectMake(320, 0, 320, 134)];
     [[rater3 ratingControl] setDelegate:self];
+    
     [ratescroller3 addSubview:rater3];
     [ratescroller3 setContentSize:CGSizeMake((2 * 320), [ratescroller3 bounds].size.height)];
     
@@ -118,7 +119,11 @@
 -(void)newRating:(DLStarRatingControl *)control :(float)rating {
 //    NSLog(@"the rating comes from%d", [control tag]);
 //    NSLog(@"rating is %d ", myrating);
-    [menuConnection rateMenu:[control tag] withRating:(int)rating];
+    
+    if (![menuConnection rateMenu:[control tag] withRating:(int)rating]){
+        UIAlertView *noconnection = [[UIAlertView alloc] initWithTitle:@"Bereits gewählt" message:@"Es wurde bereits ein Rating empfangen" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
+        [noconnection show];
+    }
 }
 
 -(void)didFailLoading:(HSRMenuConnection *)sender {
@@ -139,25 +144,31 @@
 {
     NSDictionary *item = [menu objectAtIndex:0];
     if ([menu count] == 5){
-        [rater1 setTag:[[item objectForKey:@"menuid"] integerValue]];
+        int menuid = [[item objectForKey:@"menuid"] integerValue];
+        [rater1 setTag:menuid];
         [menucontent1 setText:[item objectForKey:@"menu"]];
         [int1 setText:[item objectForKey:@"priceint"]];
         [ext1 setText:[item objectForKey:@"priceext"]];
         [averageRatingForMenu1 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
+        [rater1 setRating:[self userRatingForMenu:menuid]];
         
         item = [menu objectAtIndex:3];
-        [rater2 setTag:[[item objectForKey:@"menuid"] integerValue]];
+        menuid = [[item objectForKey:@"menuid"] integerValue];
+        [rater2 setTag:menuid];
         [menucontent2 setText:[item objectForKey:@"menu"]];
         [int2 setText:[item objectForKey:@"priceint"]];
         [ext2 setText:[item objectForKey:@"priceext"]];
         [averageRatingForMenu2 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
+        [rater2 setRating:[self userRatingForMenu:menuid]];
         
         item = [menu objectAtIndex:1];
-        [rater3 setTag:[[item objectForKey:@"menuid"] integerValue]];
+        menuid = [[item objectForKey:@"menuid"] integerValue];
+        [rater3 setTag:menuid];
         [menucontent3 setText:[item objectForKey:@"menu"]];
         [int3 setText:[item objectForKey:@"priceint"]];
         [ext3 setText:[item objectForKey:@"priceext"]];
         [averageRatingForMenu3 setImage:[self getRatingImage:[item objectForKey:@"rating"]]];
+        [rater3 setRating:[self userRatingForMenu:menuid]];
     } else {
         [menucontent1 setText:@"Für Heute ist leider kein Menu verfügbar"];
         [int1 setText:@""];
@@ -169,6 +180,13 @@
         [int3 setText:@""];
         [ext3 setText:@""];
     }
+}
+
+- (float)userRatingForMenu:(int)menuid
+{
+    NSUserDefaults *userrating = [NSUserDefaults standardUserDefaults];
+    id a = [userrating objectForKey:[NSString stringWithFormat:@"%d", menuid]];
+    return [a floatValue];
 }
 
 

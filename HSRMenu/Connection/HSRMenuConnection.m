@@ -11,6 +11,16 @@
 @implementation HSRMenuConnection
 @synthesize delegate;
 
+-(id)init
+{
+    self = [super init];
+    if (self != NULL){
+        userratings = [NSUserDefaults standardUserDefaults];
+    }
+    return self;
+
+}
+
 -(NSMutableArray *)menuforday:(int)day enforcedReload:(BOOL)forced
 {
     //return the menu nsdictionary for the day 'day' from persitency layer if available
@@ -78,25 +88,34 @@
     return NO;
 }
 
--(void)rateMenu:(int)menuid withRating:(int)rating
+-(BOOL)rateMenu:(int)menuid withRating:(int)rating
 {
-    NSString *post = [[NSString alloc] initWithFormat:@"menuid=%d&rating=%d", menuid, rating];
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+    if (![userratings objectForKey:[NSString stringWithFormat:@"%d", menuid]]){
+        NSString *post = [[NSString alloc] initWithFormat:@"menuid=%d&rating=%d", menuid, rating];
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
     
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
+        NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:@"http://florian.bentele.me/HSRMenu/api.php"]];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody:postData];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:@"http://florian.bentele.me/HSRMenu/api.php"]];
+        [request setHTTPMethod:@"POST"];
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+        [request setHTTPBody:postData];
     
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
+        NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
+        NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
     
-    NSLog(@"%@", returnString);
-    NSLog(@"i posted to the server %@", post);
+        NSLog(@"%@", returnString);
+        NSLog(@"i posted to the server %@", post);
+    
+        [userratings setInteger:rating forKey:[NSString stringWithFormat:@"%d", menuid]];
+        [userratings synchronize];
+        return YES;
+    } else {
+        NSLog(@"User has already rated this menu");
+        return NO;
+    }
 }
 
 - (void)safeMenusToFile{
