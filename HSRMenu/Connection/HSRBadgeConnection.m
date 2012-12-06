@@ -10,8 +10,10 @@
 #import "KeychainItemWrapper.h"
 #import "NSData+Base64.h"
 
-@implementation HSRBadgeConnection
-@synthesize delegate, badgedata;
+@implementation HSRBadgeConnection{
+    NSMutableArray *badgedata;
+}
+@synthesize delegate;
 
 - (id) init
 {
@@ -118,7 +120,7 @@
 - (BOOL)loadSaldoFromCache
 {
     if([[NSFileManager defaultManager] fileExistsAtPath:plistPath]){
-        NSLog(@"[Info] plist ok, and readable");
+        NSLog(@"[Info] plist readable");
         badgedata =[NSMutableArray arrayWithContentsOfFile:plistPath];
         if ([badgedata count] >= 2) {
             int cachetime =[[badgedata objectAtIndex:1] intValue];

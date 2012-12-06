@@ -54,6 +54,7 @@
 - (void)requestData:(BOOL)enforced
 {
     float saldo = [badgesaldo getSaldoIfPossible:enforced];
+    
     NSNumber *timestamp = [badgesaldo getTimestamp];
     [self updateUiWith:saldo and:timestamp];
 }
