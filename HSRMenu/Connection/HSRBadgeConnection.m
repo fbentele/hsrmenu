@@ -18,7 +18,6 @@
 - (id) init
 {
     self = [super init];
-    
     if (self != nil)
     {
         NSString *plistDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -108,7 +107,6 @@
         UIAlertView *wrongpass = [[UIAlertView alloc] initWithTitle:@"Login fehlgeschlagen" message:@"Benutzername oder Kennwort falsch" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
         [wrongpass show];
     }
-
     [delegate didFinishLoading:self withNewSaldo:saldo andTimestamp:timestamp];
 }
 

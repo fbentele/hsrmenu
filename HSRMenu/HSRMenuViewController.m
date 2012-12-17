@@ -6,18 +6,7 @@
 //  Copyright (c) 2012 Florian Bentele. All rights reserved.
 
 #import "HSRMenuViewController.h"
-#import "ODRefreshControl.h"
 #import "HSRMenuConnection.h"
-
-
-@interface HSRMenuViewController (){
-}
-
-@property (weak, nonatomic) IBOutlet UIScrollView *scroller;
-@property (nonatomic) int currentday;
-@property (strong, nonatomic, readwrite) NSString *plistPath;
-@property (strong, nonatomic) ODRefreshControl *refresher;
-@end
 
 @implementation HSRMenuViewController
 @synthesize scroller, currentday, plistPath, ratescroller3, refresher;
@@ -96,7 +85,6 @@
     currentday = theday;
 }
 
-
 - (void)refreshValuesWithEnforcedReloading:(BOOL)enforced
 {
     NSMutableArray *menu = [menuConnection menuforday:currentday enforcedReload:enforced];
@@ -117,9 +105,6 @@
 }
 
 -(void)newRating:(DLStarRatingControl *)control :(float)rating {
-//    NSLog(@"the rating comes from%d", [control tag]);
-//    NSLog(@"rating is %d ", myrating);
-    
     if (![menuConnection rateMenu:[control tag] withRating:(int)rating]){
         UIAlertView *noconnection = [[UIAlertView alloc] initWithTitle:@"Bereits gewählt" message:@"Es wurde bereits ein Rating empfangen" delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil, nil];
         [noconnection show];
@@ -209,6 +194,5 @@
     ratescroller1 = nil;
     [super viewDidUnload];
 }
-
 
 @end

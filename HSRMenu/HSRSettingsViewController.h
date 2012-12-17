@@ -11,7 +11,6 @@
 @interface HSRSettingsViewController : UIViewController {
     __weak IBOutlet UITextField *uiuser;
     __weak IBOutlet UITextField *uipass;
-    
 }
 
 -(IBAction)textFieldReturn:(id)sender;

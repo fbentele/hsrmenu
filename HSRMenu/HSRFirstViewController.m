@@ -8,20 +8,6 @@
 
 #import "HSRFirstViewController.h"
 #import "HSRMenuViewController.h"
-#import "ODRefreshControl.h"
-
-
-@interface HSRFirstViewController ()
-@property (nonatomic) int day;
-@property (strong, nonatomic) IBOutlet UITableView *thetable;
-@property (weak, nonatomic) IBOutlet UITableViewCell *monday;
-@property (weak, nonatomic) IBOutlet UITableViewCell *tuesday;
-@property (weak, nonatomic) IBOutlet UITableViewCell *wednesday;
-@property (weak, nonatomic) IBOutlet UITableViewCell *thursday;
-@property (weak, nonatomic) IBOutlet UITableViewCell *friday;
-
-@property (strong, nonatomic) NSMutableArray *week;
-@end
 
 @implementation HSRFirstViewController
 
@@ -53,8 +39,6 @@
         [segue.destinationViewController setMenuDay:self.day];
     }
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {

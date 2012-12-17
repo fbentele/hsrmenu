@@ -23,7 +23,6 @@
 }
 
 @property (nonatomic, weak) id <HSRBadgeConnectionDelegate> delegate;
-//@property (nonatomic, weak) NSMutableArray *badgedata;
 
 -(float)getSaldoIfPossible:(BOOL)enforced;
 -(NSNumber *)getTimestamp;

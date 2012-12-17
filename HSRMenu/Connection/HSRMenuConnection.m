@@ -18,7 +18,6 @@
         userratings = [NSUserDefaults standardUserDefaults];
     }
     return self;
-
 }
 
 -(NSMutableArray *)menuforday:(int)day enforcedReload:(BOOL)forced

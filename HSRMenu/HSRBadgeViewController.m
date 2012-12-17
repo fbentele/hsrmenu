@@ -7,16 +7,7 @@
 //
 
 #import "HSRBadgeViewController.h"
-#import "ODRefreshControl.h"
 #import "HSRBadgeConnection.h"
-
-@interface HSRBadgeViewController (){
-}
-
-@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) ODRefreshControl *refresher;
-
-@end
 
 @implementation HSRBadgeViewController
 @synthesize  scrollView, refresher;
@@ -90,7 +81,6 @@
     [refresher endRefreshing];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     [self updateUiWith:saldo and:timestamp];
-
 }
 
 @end

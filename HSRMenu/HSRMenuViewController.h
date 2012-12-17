@@ -10,6 +10,7 @@
 #import "HSRMenuConnection.h"
 #import "DLStarRatingControl.h"
 #import "HSRRatingView.h"
+#import "ODRefreshControl.h"
 
 
 @interface HSRMenuViewController : UIViewController<DLStarRatingDelegate, HSRMenuConnectionDelegate>{
@@ -47,8 +48,11 @@
 }
 
 @property (nonatomic, retain) UIView *ratescroller3;
+@property (weak, nonatomic) IBOutlet UIScrollView *scroller;
+@property (nonatomic) int currentday;
+@property (strong, nonatomic, readwrite) NSString *plistPath;
+@property (strong, nonatomic) ODRefreshControl *refresher;
 
 -(void)setMenuDay:(int)day;
-
 
 @end
