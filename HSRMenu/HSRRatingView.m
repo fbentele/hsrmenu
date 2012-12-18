@@ -10,7 +10,7 @@
 #import "DLStarRatingControl.h"
 
 @implementation HSRRatingView
-@synthesize ratingControl;
+@synthesize ratingControl, background, myrating, backgroundImageView;
 
 - (id)initWithFrame:(CGRect)frame
 {

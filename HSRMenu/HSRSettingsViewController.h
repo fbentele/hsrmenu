@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HSRSettingsViewController : UIViewController {
-    __weak IBOutlet UITextField *uiuser;
-    __weak IBOutlet UITextField *uipass;
-}
+@interface HSRSettingsViewController : UIViewController
+
+@property (nonatomic, weak) IBOutlet UITextField *uiuser;
+@property (nonatomic, weak) IBOutlet UITextField *uipass;
+
 
 -(IBAction)textFieldReturn:(id)sender;
 -(IBAction)backgroundTouched:(id)sender;

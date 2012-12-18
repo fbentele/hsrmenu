@@ -495,8 +495,8 @@
                         <outlet property="menucontent2" destination="PSZ-Gv-4gc" id="C9d-fY-ScU"/>
                         <outlet property="menucontent3" destination="Ad9-jb-gI1" id="z72-Ma-15R"/>
                         <outlet property="ratescroller1" destination="Ps0-he-d81" id="zlr-Nv-mXJ"/>
-                        <outlet property="ratescroller2" destination="sLh-8G-pao" id="9VK-st-tnG"/>
-                        <outlet property="ratescroller3" destination="EXR-fi-TTE" id="bTz-dg-fPR"/>
+                        <outlet property="ratescroller2" destination="sLh-8G-pao" id="yHJ-tB-2oC"/>
+                        <outlet property="ratescroller3" destination="EXR-fi-TTE" id="fbA-Li-wsK"/>
                         <outlet property="scroller" destination="wfS-V8-xaB" id="Y4C-lg-FZd"/>
                         <outlet property="titlebartitle" destination="OED-Tb-81z" id="W9a-V5-cGD"/>
                     </connections>

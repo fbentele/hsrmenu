@@ -11,8 +11,7 @@
 
 @implementation HSRFirstViewController
 
-@synthesize monday, tuesday, wednesday, thursday, friday, display, day, week;
-
+@synthesize monday, tuesday, wednesday, thursday, friday, day, week;
 
 - (void)viewDidLoad
 {
@@ -29,7 +28,7 @@
 
 -(void)setDayandShowMenu:(int)selectedday
 {
-    self.day = selectedday;
+    day = selectedday;
     [self performSegueWithIdentifier:@"ShowMenu" sender:self];
 }
 
@@ -79,9 +78,8 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    //Parsing JSON
     NSError *e = nil;
-    week = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error: &e];
+    week =[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error: &e];
     if (e) {
         NSLog(@"Error parsing JSON: %@", e);
     } else {

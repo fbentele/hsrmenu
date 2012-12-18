@@ -10,7 +10,7 @@
 #import "HSRBadgeConnection.h"
 
 @implementation HSRBadgeViewController
-@synthesize  scrollView, refresher;
+@synthesize  scrollView, refresher, lastupdate, money;
 
 - (void)viewDidLoad
 {

@@ -18,11 +18,13 @@
 @interface HSRBadgeConnection : NSObject
 {
     NSMutableData *data;
-    NSString *plistPath;
-    int statuscode;
 }
 
+@property (nonatomic) int statuscode;
+@property (nonatomic, strong) NSString *plistPath;
 @property (nonatomic, weak) id <HSRBadgeConnectionDelegate> delegate;
+@property (nonatomic, weak) NSMutableArray *badgedata;
+
 
 -(float)getSaldoIfPossible:(BOOL)enforced;
 -(NSNumber *)getTimestamp;

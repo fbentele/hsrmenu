@@ -9,7 +9,8 @@
 #import "HSRMenuConnection.h"
 
 @implementation HSRMenuViewController
-@synthesize scroller, currentday, plistPath, ratescroller3, refresher;
+@synthesize scroller, currentday, plistPath, ratescroller3, ratescroller1, ratescroller2, refresher, titlebartitle;
+
 
 - (void)viewDidLoad
 {
@@ -25,8 +26,7 @@
     NSArray *weekdays = [NSArray arrayWithObjects:@" ", @"Montag", @"Dienstag", @"Mittwoch", @"Donnerstag", @"Freitag", nil];
     [titlebartitle setTitle:[weekdays objectAtIndex:currentday]];
     
-    UIImage *tempimage = [UIImage imageNamed:@"menu_background.png"];
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:tempimage];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menu_background.png"]];
 
     CGRect rect = imageView.frame;
     rect.size.height = 134;
@@ -192,6 +192,8 @@
     ratescroller3 = nil;
     ratescroller2 = nil;
     ratescroller1 = nil;
+    [self setRatescroller2:nil];
+    [self setRatescroller3:nil];
     [super viewDidUnload];
 }
 

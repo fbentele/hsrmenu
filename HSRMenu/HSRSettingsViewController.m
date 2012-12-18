@@ -12,6 +12,8 @@
 
 @implementation HSRSettingsViewController
 
+@synthesize uipass, uiuser;
+
 //hit 'next' in the keyboard an the keyboard disappears
 -(IBAction)textFieldReturn:(id)sender
 {
@@ -46,7 +48,6 @@
 {
     [super didReceiveMemoryWarning];
 }
-
 
 - (BOOL)safeCredentialsToKeychain
 {

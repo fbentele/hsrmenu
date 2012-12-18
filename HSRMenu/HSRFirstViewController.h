@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "ODRefreshControl.h"
 
-@interface HSRFirstViewController : UITableViewController {
-    NSArray *menu;
+@interface HSRFirstViewController : UITableViewController{
     NSMutableData *data;
 }
 
-@property (weak, nonatomic) IBOutlet UILabel *display;
 @property (nonatomic) int day;
 @property (strong, nonatomic) IBOutlet UITableView *thetable;
 @property (weak, nonatomic) IBOutlet UITableViewCell *monday;

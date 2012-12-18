@@ -20,7 +20,6 @@
     NSMutableArray *menu;
     NSString *plistPath;
     NSUserDefaults *userratings;
-
     BOOL hasrated;
 }
 

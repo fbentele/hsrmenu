@@ -12,11 +12,11 @@
 
 
 @interface HSRBadgeViewController : UIViewController <HSRBadgeConnectionDelegate>{
-    __weak IBOutlet UILabel *money;
-    __weak IBOutlet UILabel *lastupdate;
     HSRBadgeConnection *badgesaldo;
 }
 
+@property (weak, nonatomic) IBOutlet UILabel *lastupdate;
+@property (weak, nonatomic) IBOutlet UILabel *money;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) ODRefreshControl *refresher;
 

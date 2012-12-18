@@ -10,10 +10,9 @@
 #import "KeychainItemWrapper.h"
 #import "NSData+Base64.h"
 
-@implementation HSRBadgeConnection{
-    NSMutableArray *badgedata;
-}
-@synthesize delegate;
+@implementation HSRBadgeConnection
+
+@synthesize delegate, badgedata, statuscode, plistPath;
 
 - (id) init
 {
@@ -21,7 +20,7 @@
     if (self != nil)
     {
         NSString *plistDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-        plistPath = [[NSString alloc] initWithString:[plistDirectory stringByAppendingPathComponent:@"badge.plist"]];
+        plistPath = [plistDirectory stringByAppendingPathComponent:@"badge.plist"];
     }
     return self;
 }
@@ -76,14 +75,12 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     NSHTTPURLResponse *urlresponse = (NSHTTPURLResponse *) response;
-    NSLog(@"http status code is %d", [urlresponse statusCode]);
     statuscode = [urlresponse statusCode];
     data = [[NSMutableData alloc] init];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)jsondata
 {
-    //NSLog(@"[Info] data from Badgeportal received");
     [data appendData:jsondata];
 }
 
@@ -137,7 +134,6 @@
 
 -(BOOL)writeSaldoToCache:(NSMutableArray *)cachedata
 {
-    NSLog(@"[Info] writing badgedata to plist: %@", [cachedata description]);
     return [cachedata writeToFile:plistPath atomically:YES];
 }
 
