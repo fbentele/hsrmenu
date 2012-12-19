@@ -26,10 +26,10 @@
 }
 
 -(float)getSaldoIfPossible:(BOOL)enforced {
-    if ([self loadSaldoFromCache] && !enforced){
-        return [[badgedata objectAtIndex:0] floatValue];
-    } else {
+    if (enforced || ![self loadSaldoFromCache]){
         [self initJsonConnection];
+    } else {
+        return [[badgedata objectAtIndex:0] floatValue];
     }
     return -1;
 }
