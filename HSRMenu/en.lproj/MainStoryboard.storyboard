@@ -531,7 +531,6 @@
         <class className="HSRFirstViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/HSRFirstViewController.h"/>
             <relationships>
-                <relationship kind="outlet" name="display" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="friday" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="monday" candidateClass="UITableViewCell"/>
                 <relationship kind="outlet" name="thetable" candidateClass="UITableView"/>

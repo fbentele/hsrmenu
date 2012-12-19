@@ -16,7 +16,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.thetable];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     [self initJsonConnection];

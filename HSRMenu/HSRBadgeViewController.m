@@ -19,7 +19,6 @@
     badgesaldo = [[HSRBadgeConnection alloc] init];
     [badgesaldo setDelegate:self];
     
-    //Pull to refresh
     ODRefreshControl *refreshControl = [[ODRefreshControl alloc] initInScrollView:self.scrollView];
     [refreshControl addTarget:self action:@selector(dropViewDidBeginRefreshing:) forControlEvents:UIControlEventValueChanged];
     [self requestData:NO];
@@ -45,7 +44,6 @@
 - (void)requestData:(BOOL)enforced
 {
     float saldo = [badgesaldo getSaldoIfPossible:enforced];
-    
     NSNumber *timestamp = [badgesaldo getTimestamp];
     [self updateUiWith:saldo and:timestamp];
 }
@@ -53,8 +51,7 @@
 -(void)updateUiWith:(float)saldo and:(NSNumber *)timestamp
 {
     if (saldo != -1){
-        NSString *nice = [[NSString alloc] initWithFormat:@"CHF %.2f", saldo];
-        [money setText:nice];
+        [money setText:[[NSString alloc] initWithFormat:@"CHF %.2f", saldo]];
     }
         
     NSString *formattedDateString;

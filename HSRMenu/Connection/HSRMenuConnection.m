@@ -9,7 +9,7 @@
 #import "HSRMenuConnection.h"
 
 @implementation HSRMenuConnection
-@synthesize delegate;
+@synthesize delegate, plistPath, userratings;
 
 -(id)init
 {

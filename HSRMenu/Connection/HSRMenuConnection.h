@@ -18,12 +18,11 @@
 @interface HSRMenuConnection : NSObject {
     NSMutableData *data;
     NSMutableArray *menu;
-    NSString *plistPath;
-    NSUserDefaults *userratings;
-    BOOL hasrated;
 }
 
 @property (nonatomic, weak) id <HSRMenuConnectionDelegate> delegate;
+@property (nonatomic, strong) NSString *plistPath;
+@property (nonatomic, strong) NSUserDefaults *userratings;
 
 -(NSMutableArray *) menuforday:(int)day enforcedReload:(BOOL)forced;
 -(int) menuidForDay:(int)day;

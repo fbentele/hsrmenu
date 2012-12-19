@@ -10,6 +10,7 @@
 
 @implementation HSRMenuViewController
 @synthesize scroller, currentday, plistPath, ratescroller3, ratescroller1, ratescroller2, refresher, titlebartitle;
+@synthesize menucontent1, menucontent2, menucontent3, int1, int2, int3, ext1, ext2, ext3, averageRatingForMenu1, averageRatingForMenu2, averageRatingForMenu3;
 
 
 - (void)viewDidLoad
@@ -57,7 +58,6 @@
     [[rater2 ratingControl] setDelegate:self];
     [ratescroller2 addSubview:rater2];
     [ratescroller2 setContentSize:CGSizeMake((2 * 320), 134)];
-    
     
     UIImageView *firstMenu = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 134)];
     [firstMenu setImage:[UIImage imageNamed:@"menu_background.png"]];

@@ -32,8 +32,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
     return self;
 }
 
@@ -50,10 +48,7 @@
 }
 
 - (BOOL)safeCredentialsToKeychain
-{
-    NSLog(@"[Info] the username is %@", [uiuser text]);
-    NSLog(@"[Info] the password is *******");
-    
+{    
     KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"HSRMenuLogin" accessGroup:nil];
     [keychain setObject:[uipass text] forKey:CFBridgingRelease(kSecValueData)];
     [keychain setObject:[uiuser text] forKey:CFBridgingRelease(kSecAttrAccount)];
@@ -63,10 +58,8 @@
 -(void)fillUIifKeychainobjectExists
 {
     KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"HSRMenuLogin" accessGroup:nil];
-    
     [uiuser setText:[keychain objectForKey:CFBridgingRelease(kSecAttrAccount)]];
     [uipass setText:[keychain objectForKey:CFBridgingRelease(kSecValueData)]];
-    
     NSLog(@"[Info] Keychainobject Exists");
 }
 
