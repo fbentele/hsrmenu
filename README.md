@@ -1,4 +1,4 @@
-hsrmenu
+HSRMenu
 =======
 
 An iOS Application for the cafeteria at the university of applied sciences Rapperswil
